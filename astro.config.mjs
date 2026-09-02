@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 
 // એકમાત્ર સાઇટ URL સેટિંગ. ડોમેન નક્કી થયા પછી ફક્ત અહીં મૂકો.
-const SITE = '';
+const SITE = 'https://adalajstepwell.com';
 const site = SITE.trim() || undefined;
 
 export default defineConfig({

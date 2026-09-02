@@ -1,0 +1,56 @@
+---
+// Server component: fetches Open-Meteo on the server (cached 30 min via Cloudflare Cache API).
+import { getWeather, wmoLabel, wmoGlyph, weekdayLabel } from '../lib/weather';
+
+const data = await getWeather();
+const now = data?.current;
+const days = data?.daily;
+---
+
+<section class="section weather" id="weather">
+  <div class="shell">
+    <span class="eyebrow">હવામાન અને મુલાકાત</span>
+    <h2 class="section-title">અડાલજનું હવામાન</h2>
+    {
+      now && days ? (
+        <>
+          <div class="weather-now card">
+            <div class="weather-now-icon" aria-hidden="true" set:html={wmoGlyph(now.weather_code)} />
+            <div class="weather-now-main">
+              <div class="weather-now-temp">{Math.round(now.temperature_2m)}°C</div>
+              <div class="weather-now-label">
+                {wmoLabel(now.weather_code)}
+                <span class="weather-now-daynight">{now.is_day === 1 ? ' · દિવસ' : ' · રાત'}</span>
+              </div>
+              <div class="weather-stats">
+                <span class="weather-stat">અનુભવાય {Math.round(now.apparent_temperature)}°C</span>
+                <span class="weather-stat">ભેજ {Math.round(now.relative_humidity_2m)}%</span>
+                <span class="weather-stat">પવન {Math.round(now.wind_speed_10m)} km/h</span>
+                <span class="weather-stat">વરસાદ {Math.round(now.precipitation ?? 0)} mm</span>
+              </div>
+            </div>
+          </div>
+          <div class="weather-days">
+            {
+              days.time.map((t, i) => (
+                <article class="weather-day card">
+                  <b>{i === 0 ? 'આજે' : i === 1 ? 'આવતીકાલે' : weekdayLabel(t)}</b>
+                  <div class="weather-glyph" aria-hidden="true" set:html={wmoGlyph(days.weather_code[i] ?? 3)} />
+                  <div class="weather-day-label">{wmoLabel(days.weather_code[i] ?? 3)}</div>
+                  <div class="weather-temps">
+                    <b>{Math.round(days.temperature_2m_max[i] ?? 0)}°</b>
+                    <span>{Math.round(days.temperature_2m_min[i] ?? 0)}°</span>
+                  </div>
+                  <div class="weather-rain">વરસાદની શક્યતા {days.precipitation_probability_max?.[i] ?? 0}%</div>
+                </article>
+              ))
+            }
+          </div>
+        </>
+      ) : (
+        <p class="small">હવામાન માહિતી હાલ ઉપલબ્ધ નથી. મુલાકાત પહેલાં સ્થાનિક આકાશ અથવા સમાચાર તપાસો.</p>
+      )
+    }
+    <p class="small weather-note">હવામાન માહિતી Open-Meteo વેધર API પરથી મળે છે અને લગભગ દર 30 મિનિટે અપડેટ થાય છે.</p>
+  </div>
+</section>

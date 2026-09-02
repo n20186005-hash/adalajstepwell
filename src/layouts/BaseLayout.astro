@@ -15,10 +15,17 @@ const absoluteImage=site && image?new URL(image,site).toString():undefined;
 <meta name="description" content={description} />
 {absolute && <link rel="canonical" href={absolute} />}
 <meta property="og:title" content={title} /><meta property="og:description" content={description} /><meta property="og:type" content="website" />
-{absolute && <meta property="og:url" content={absolute} />}{absoluteImage && <meta property="og:image" content={absoluteImage} />}
+{absolute && <meta property="og:url" content={absolute} />}{absoluteImage && <meta property="og:image" content={absoluteImage} />}{absoluteImage && <meta property="og:image:alt" content={title} />}
+<meta name="theme-color" content="#a55d35" />
+<link rel="manifest" href="/manifest.webmanifest" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" /><link rel="icon" sizes="32x32" href="/favicon-32.png" /><link rel="icon" sizes="16x16" href="/favicon-16.png" /><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 <script is:inline>
 (function(){try{var p=JSON.parse(localStorage.getItem('adalaj-cookie-preferences')||'{}');if(p.analytics===true){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-HXM22WWPKP';document.head.appendChild(s);window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)};window.gtag=gtag;gtag('js',new Date());gtag('config','G-HXM22WWPKP',{anonymize_ip:true});}}catch(e){}})();
+</script>
+<script is:inline>
+(function(){if('serviceWorker' in navigator&&(location.protocol==='https:'||location.hostname==='local'+'host'||location.hostname==='127.0.0.1')){window.addEventListener('load',function(){navigator.serviceWorker.register('/sw.js').catch(function(){})})}})();
 </script>
 <slot name="head" />
 </head><body><slot /></body></html>
