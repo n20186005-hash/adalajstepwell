@@ -1,0 +1,24 @@
+---
+import '../styles/global.css';
+interface Props { title:string; description:string; path?:string; image?:string; }
+const {title,description,path='/',image}=Astro.props;
+const site=Astro.site;
+const absolute=site?new URL(path,site).toString():undefined;
+const absoluteImage=site && image?new URL(image,site).toString():undefined;
+---
+<!doctype html>
+<html lang="gu-IN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<title>{title}</title>
+<meta name="description" content={description} />
+{absolute && <link rel="canonical" href={absolute} />}
+<meta property="og:title" content={title} /><meta property="og:description" content={description} /><meta property="og:type" content="website" />
+{absolute && <meta property="og:url" content={absolute} />}{absoluteImage && <meta property="og:image" content={absoluteImage} />}
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" /><link rel="icon" sizes="32x32" href="/favicon-32.png" /><link rel="icon" sizes="16x16" href="/favicon-16.png" /><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<script is:inline>
+(function(){try{var p=JSON.parse(localStorage.getItem('adalaj-cookie-preferences')||'{}');if(p.analytics===true){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-HXM22WWPKP';document.head.appendChild(s);window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)};window.gtag=gtag;gtag('js',new Date());gtag('config','G-HXM22WWPKP',{anonymize_ip:true});}}catch(e){}})();
+</script>
+<slot name="head" />
+</head><body><slot /></body></html>

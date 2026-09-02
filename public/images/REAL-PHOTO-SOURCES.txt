@@ -1,0 +1,19 @@
+Required real-photo assets for a fully self-contained deployment (Wikimedia Commons originals):
+
+adalaj-hero.jpg
+https://upload.wikimedia.org/wikipedia/commons/2/23/Adalaj_Stepwell_%28Rudabai_Stepwell%29.jpg
+Author: Hasmukh3006 — CC BY-SA 4.0
+
+adalaj-steps.jpg
+https://upload.wikimedia.org/wikipedia/commons/0/09/Steps_of_Adalaj_Stepwell.jpg
+Author: Kushpatel3240 — CC BY-SA 4.0
+
+adalaj-carving.jpg
+https://upload.wikimedia.org/wikipedia/commons/e/e7/0082423_Rudabai_Step_Well%2C_Adalaj_Gujarat_045.jpg
+Author: Ms Sarah Welch — CC0 1.0
+
+adalaj-carvings-detail.jpg
+https://upload.wikimedia.org/wikipedia/commons/9/9e/The_dominant_carvings_at_Premises_of_Rudabai_Stepwell%2C_Adalaj.jpg
+Author: BSSKrishnaS — CC BY-SA 4.0
+
+The current sandbox could not fetch these binary files. Do not claim the package is image-self-contained until the JPG files are actually present and src/pages/index.astro is switched to local /images/... paths.
