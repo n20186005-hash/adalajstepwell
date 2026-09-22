@@ -1,0 +1,81 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LocaleSwitcher from './LocaleSwitcher.astro';
+import { subpages, ui } from '../content/translations';
+import { localizedPath, type Locale } from '../i18n';
+import { SITE_NAME, MAPS_SHARE_URL } from '../data/site';
+import { breadcrumbSchema, faqSchema } from '../lib/schema';
+import type { SubSlug } from '../content/translations';
+
+interface Props { locale: Locale; slug: SubSlug; }
+const { locale, slug } = Astro.props;
+const d = subpages[locale][slug];
+const U = ui[locale];
+const faqLabel = U.nav.find((n) => n.id === 'faq')?.label ?? 'FAQ';
+const site = Astro.site;
+const path = localizedPath('/' + slug, locale);
+const pageUrl = site ? new URL(path, site).toString() : undefined;
+const homeUrl = site ? new URL(localizedPath('/', locale), site).toString() : undefined;
+const title = d.h1 + ' | ' + SITE_NAME[locale];
+const description = d.intro;
+---
+<BaseLayout title={title} description={description} locale={locale} path={path}>
+  <Fragment slot="head">
+    {pageUrl && homeUrl && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema(homeUrl, pageUrl, d.h1))}></script>}
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema(d.faq))}></script>
+  </Fragment>
+
+  <header class="legal-nav">
+    <div class="shell nav">
+      <a href={localizedPath('/', locale)} aria-label={SITE_NAME[locale]}><img src="/logo.svg" alt={SITE_NAME[locale]} width="184" height="42" /></a>
+      <LocaleSwitcher locale={locale} />
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="shell hero-content">
+        <span class="eyebrow" style="color:#f3d6b3">{d.eyebrow}</span>
+        <h1>{d.h1}</h1>
+        <p>{d.intro}</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell">
+        <div class="grid3">
+          {d.blocks.map((b) => (<article class="card"><h3>{b.h}</h3><p>{b.p}</p></article>))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section faq">
+      <div class="shell">
+        <span class="eyebrow">{d.eyebrow}</span>
+        <h2 class="section-title">{faqLabel}</h2>
+        {d.faq.map((it) => (<details><summary>{it.q}</summary><p>{it.a}</p></details>))}
+      </div>
+    </section>
+
+    <section class="section motif">
+      <div class="shell">
+        <h2 class="section-title">{U.relatedLabel}</h2>
+        <div class="grid3">
+          {d.related.map((r) => (<article class="card"><a class="btn secondary" href={r.href}>{r.label}</a></article>))}
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell">
+      <div class="nav">
+        <a href="/privacy/">{U.footerNav.privacy}</a>
+        <a href="/terms/">{U.footerNav.terms}</a>
+        <a href="/cookies/">{U.footerNav.cookies}</a>
+      </div>
+      <p>{U.footer.project}</p>
+      <p>{U.footer.copyright}</p>
+    </div>
+  </footer>
+</BaseLayout>

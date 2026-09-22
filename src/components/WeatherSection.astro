@@ -1,16 +1,40 @@
 ---
-// Server component: fetches Open-Meteo on the server (cached 30 min via Cloudflare Cache API).
-import { getWeather, wmoLabel, wmoGlyph, weekdayLabel } from '../lib/weather';
+// Server component: fetches weather on the server (cached 30 min via Cloudflare Cache API).
+import { getWeather, wmoLabel, wmoGlyph, weekdayLabel, buildAdvice } from '../lib/weather';
+import { ui } from '../content/translations';
+import { ATTRACTION_SHORT_NAME } from '../data/site';
+import type { Locale } from '../i18n';
 
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const w = ui[locale].weather;
 const data = await getWeather();
 const now = data?.current;
 const days = data?.daily;
----
+const advice = now && days ? buildAdvice(now, days, locale) : null;
 
+const dayNight: Record<Locale, [string, string]> = {
+  gu: ['દિવસ', 'રાત'], en: ['day', 'night'], hi: ['दिन', 'रात'],
+};
+const todayTomorrow: Record<Locale, [string, string]> = {
+  gu: ['આજે', 'આવતીકાલે'], en: ['Today', 'Tomorrow'], hi: ['आज', 'कल'],
+};
+const humidity: Record<Locale, string> = { gu: 'ભેજ', en: 'Humidity', hi: 'नमी' };
+const adviceHead: Record<Locale, [string, string, string]> = {
+  gu: ['પહેરવેશ', 'પ્રવૃત્તિ', 'સામાન'],
+  en: ['What to wear', 'What to do', 'What to bring'],
+  hi: ['पहनावा', 'क्या करें', 'साथ रखें'],
+};
+const note: Record<Locale, string> = {
+  gu: 'હવામાન માહિતી લગભગ દર 30 મિનિટે અપડેટ થાય છે; મુલાકાત પહેલાં સ્થાનિક આકાશ પણ તપાસો.',
+  en: 'Weather updates about every 30 minutes; also check the local forecast before your visit.',
+  hi: 'मौसम लगभग हर 30 मिनट में अपडेट होता है; यात्रा से पहले स्थानीय पूर्वानुमान भी देखें.',
+};
+---
 <section class="section weather" id="weather">
   <div class="shell">
-    <span class="eyebrow">હવામાન અને મુલાકાત</span>
-    <h2 class="section-title">અડાલજનું હવામાન</h2>
+    <span class="eyebrow">{w.heading} · {w.current} + {w.sevenDay}</span>
+    <h2 class="section-title">{ATTRACTION_SHORT_NAME} {w.heading}</h2>
     {
       now && days ? (
         <>
@@ -19,38 +43,46 @@ const days = data?.daily;
             <div class="weather-now-main">
               <div class="weather-now-temp">{Math.round(now.temperature_2m)}°C</div>
               <div class="weather-now-label">
-                {wmoLabel(now.weather_code)}
-                <span class="weather-now-daynight">{now.is_day === 1 ? ' · દિવસ' : ' · રાત'}</span>
+                {wmoLabel(now.weather_code, locale)}
+                <span class="weather-now-daynight">{now.is_day === 1 ? ` · ${dayNight[locale][0]}` : ` · ${dayNight[locale][1]}`}</span>
               </div>
               <div class="weather-stats">
-                <span class="weather-stat">અનુભવાય {Math.round(now.apparent_temperature)}°C</span>
-                <span class="weather-stat">ભેજ {Math.round(now.relative_humidity_2m)}%</span>
-                <span class="weather-stat">પવન {Math.round(now.wind_speed_10m)} km/h</span>
-                <span class="weather-stat">વરસાદ {Math.round(now.precipitation ?? 0)} mm</span>
+                <span class="weather-stat">{w.feels} {Math.round(now.apparent_temperature)}°C</span>
+                <span class="weather-stat">{humidity[locale]} {Math.round(now.relative_humidity_2m)}%</span>
+                <span class="weather-stat">{w.wind} {Math.round(now.wind_speed_10m)} km/h</span>
+                <span class="weather-stat">{w.precip} {Math.round(now.precipitation ?? 0)} mm</span>
               </div>
+            </div>
+          </div>
+          <div class="weather-advice card">
+            {advice.risk && <div class="weather-risk" role="alert">{advice.risk}</div>}
+            <div class="advice-grid">
+              <div class="advice-block"><h4>{adviceHead[locale][0]}</h4><ul>{advice.outfit.map((s)=>(<li>{s}</li>))}</ul></div>
+              <div class="advice-block"><h4>{adviceHead[locale][1]}</h4><ul>{advice.activity.map((s)=>(<li>{s}</li>))}</ul></div>
+              {advice.items.length>0 && <div class="advice-block"><h4>{adviceHead[locale][2]}</h4><ul>{advice.items.map((s)=>(<li>{s}</li>))}</ul></div>}
             </div>
           </div>
           <div class="weather-days">
             {
               days.time.map((t, i) => (
                 <article class="weather-day card">
-                  <b>{i === 0 ? 'આજે' : i === 1 ? 'આવતીકાલે' : weekdayLabel(t)}</b>
+                  <b>{i === 0 ? todayTomorrow[locale][0] : i === 1 ? todayTomorrow[locale][1] : weekdayLabel(t, locale)}</b>
                   <div class="weather-glyph" aria-hidden="true" set:html={wmoGlyph(days.weather_code[i] ?? 3)} />
-                  <div class="weather-day-label">{wmoLabel(days.weather_code[i] ?? 3)}</div>
+                  <div class="weather-day-label">{wmoLabel(days.weather_code[i] ?? 3, locale)}</div>
                   <div class="weather-temps">
                     <b>{Math.round(days.temperature_2m_max[i] ?? 0)}°</b>
                     <span>{Math.round(days.temperature_2m_min[i] ?? 0)}°</span>
                   </div>
-                  <div class="weather-rain">વરસાદની શક્યતા {days.precipitation_probability_max?.[i] ?? 0}%</div>
+                  <div class="weather-rain">{w.precip} {days.precipitation_probability_max?.[i] ?? 0}%</div>
                 </article>
               ))
             }
           </div>
         </>
       ) : (
-        <p class="small">હવામાન માહિતી હાલ ઉપલબ્ધ નથી. મુલાકાત પહેલાં સ્થાનિક આકાશ અથવા સમાચાર તપાસો.</p>
+        <p class="small">{w.noData}</p>
       )
     }
-    <p class="small weather-note">હવામાન માહિતી Open-Meteo વેધર API પરથી મળે છે અને લગભગ દર 30 મિનિટે અપડેટ થાય છે.</p>
+    <p class="small weather-note">{note[locale]}</p>
   </div>
 </section>

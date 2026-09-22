@@ -1,0 +1,170 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import WeatherSection from './WeatherSection.astro';
+import LocaleSwitcher from './LocaleSwitcher.astro';
+import { home, ui } from '../content/translations';
+import { localizedPath, type Locale } from '../i18n';
+import { SITE_NAME, MAPS_EMBED_SRC, MAPS_SHARE_URL } from '../data/site';
+import { attractionSchema, breadcrumbSchema, faqSchema } from '../lib/schema';
+
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const t = home[locale];
+const U = ui[locale];
+const site = Astro.site;
+const path = localizedPath('/', locale);
+const pageUrl = site ? new URL(path, site).toString() : undefined;
+const title = SITE_NAME[locale];
+const description = t.heroLead;
+const photos = [
+  ['/images/adalaj-stepwell-guide-1.jpg', t.history.title],
+  ['/images/adalaj-stepwell-guide-2.jpg', t.architecture.title],
+  ['/images/adalaj-stepwell-guide-3.jpg', t.history.p1],
+];
+const navHref: Record<string, string> = {
+  history: '#history', stories: '#stories', architecture: '#architecture', climate: '#climate',
+  itineraries: '#itineraries', visit: '#visit', weather: '#weather', season: '#season',
+  reach: '#reach', facilities: '#facilities', nearby: '#nearby', faq: '#faq', sources: '#sources',
+};
+---
+<BaseLayout title={title} description={description} locale={locale} path={path} image="/images/adalaj-stepwell-guide-1.jpg">
+  <Fragment slot="head">
+    {pageUrl && <script type="application/ld+json" set:html={JSON.stringify(attractionSchema(locale, pageUrl))}></script>}
+    {pageUrl && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema(pageUrl, pageUrl, t.h1))}></script>}
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema(t.faq.items))}></script>
+  </Fragment>
+
+  <header class="legal-nav">
+    <div class="shell nav">
+      <a href={localizedPath('/', locale)} aria-label={SITE_NAME[locale]}><img src="/logo.svg" alt={SITE_NAME[locale]} width="184" height="42" /></a>
+      {U.nav.map((n) => <a href={navHref[n.id]}>{n.label}</a>)}
+      <LocaleSwitcher locale={locale} />
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <img class="hero-bg" src={photos[0][0]} alt={t.h1} fetchpriority="high" />
+      <div class="shell hero-content">
+        <span class="eyebrow" style="color:#f3d6b3">{t.heroEyebrow}</span>
+        <h1>{t.h1}</h1>
+        <p>{t.heroLead}</p>
+        <div class="facts">
+          {t.facts.map((f) => (<div class="fact"><b>{f.value}</b><span>{f.label}</span></div>))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="history">
+      <div class="shell grid2">
+        <div>
+          <span class="eyebrow">{t.history.eyebrow}</span>
+          <h2 class="section-title">{t.history.title}</h2>
+          <p>{t.history.p1}</p>
+          <p>{t.history.p2}</p>
+          <p>
+            {t.history.links.map((l, i) => (<><Fragment>{i > 0 ? ' · ' : ''}</Fragment><a class="source-link" href={l.href} rel="noopener">{l.label}</a></>))}
+          </p>
+        </div>
+        <div class="photo-frame stone-border"><img class="photo" src={photos[1][0]} alt={photos[1][1]} loading="lazy" /></div>
+      </div>
+    </section>
+
+    <section class="section motif" id="stories">
+      <div class="shell"><span class="eyebrow">{t.stories.eyebrow}</span><h2 class="section-title">{t.stories.title}</h2><p>{t.stories.p}</p></div>
+    </section>
+
+    <section class="section" id="architecture">
+      <div class="shell"><span class="eyebrow">{t.architecture.eyebrow}</span><h2 class="section-title">{t.architecture.title}</h2><p>{t.architecture.p}</p></div>
+    </section>
+
+    <section class="section" id="climate">
+      <div class="shell"><span class="eyebrow">{t.climate.eyebrow}</span><h2 class="section-title">{t.climate.title}</h2><p>{t.climate.p}</p></div>
+    </section>
+
+    <section class="section motif" id="itineraries">
+      <div class="shell"><span class="eyebrow">{t.itineraries.eyebrow}</span><h2 class="section-title">{t.itineraries.title}</h2><p>{t.itineraries.p}</p></div>
+    </section>
+
+    <section class="section" id="visit">
+      <div class="shell">
+        <span class="eyebrow">{t.visit.eyebrow}</span>
+        <h2 class="section-title">{t.visit.title}</h2>
+        <div class="grid3">
+          {t.visit.cards.map((c) => (<article class="card"><h3>{c.title}</h3><p>{c.body}</p></article>))}
+        </div>
+      </div>
+    </section>
+
+    <WeatherSection locale={locale} />
+
+    <section class="section motif" id="season">
+      <div class="shell"><span class="eyebrow">{t.climate.eyebrow}</span><h2 class="section-title">{t.climate.title}</h2><p>{t.climate.p}</p></div>
+    </section>
+
+    <section class="section" id="reach">
+      <div class="shell grid2">
+        <div>
+          <span class="eyebrow">{t.reach.eyebrow}</span>
+          <h2 class="section-title">{t.reach.title}</h2>
+          {t.reach.blocks.map((b) => (<div class="card"><h3>{b.h}</h3><p>{b.p}</p></div>))}
+        </div>
+        <div class="map">
+          <iframe src={MAPS_EMBED_SRC} width="100%" height="450" style="border:0;" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title={t.h1}></iframe>
+          <p class="small" style="margin-top:12px"><a class="source-link" href={MAPS_SHARE_URL} target="_blank" rel="noopener noreferrer">{t.reach.sourceNote}</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section motif" id="facilities">
+      <div class="shell"><span class="eyebrow">{t.facilities.eyebrow}</span><h2 class="section-title">{t.facilities.title}</h2><p>{t.facilities.p}</p></div>
+    </section>
+
+    <section class="section" id="etiquette">
+      <div class="shell"><span class="eyebrow">{t.etiquette.eyebrow}</span><h2 class="section-title">{t.etiquette.title}</h2><p>{t.etiquette.p}</p></div>
+    </section>
+
+    <section class="section motif" id="nearby">
+      <div class="shell">
+        <span class="eyebrow">{t.nearby.eyebrow}</span>
+        <h2 class="section-title">{t.nearby.title}</h2>
+        <div class="grid3">
+          {t.nearby.cards.map((c) => (<article class="card"><h3>{c.title}</h3><p>{c.body}</p></article>))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section faq" id="faq">
+      <div class="shell">
+        <span class="eyebrow">{t.faq.eyebrow}</span>
+        <h2 class="section-title">{t.faq.title}</h2>
+        {t.faq.items.map((it) => (<details><summary>{it.q}</summary><p>{it.a}</p></details>))}
+        <p class="small">* {t.facts[3].label}</p>
+      </div>
+    </section>
+
+    <section class="section" id="sources">
+      <div class="shell">
+        <span class="eyebrow">{t.sources.eyebrow}</span>
+        <h2 class="section-title">{t.sources.title}</h2>
+        <p>
+          {t.sources.items.map((l, i) => (<><Fragment>{i > 0 ? ' · ' : ''}</Fragment><a class="source-link" href={l.href} rel="noopener" target="_blank">{l.label}</a></>))}
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell">
+      <div class="nav">
+        <a href="/privacy/">{U.footerNav.privacy}</a>
+        <a href="/terms/">{U.footerNav.terms}</a>
+        <a href="/cookies/">{U.footerNav.cookies}</a>
+      </div>
+      <p>{U.footer.project}</p>
+      <p>{U.footer.sources}</p>
+      <p>{U.footer.photo}</p>
+      <p>{U.footer.copyright}</p>
+    </div>
+  </footer>
+</BaseLayout>

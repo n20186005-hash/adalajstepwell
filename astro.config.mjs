@@ -11,6 +11,18 @@ export default defineConfig({
   site,
   output: 'server',
   adapter: cloudflare(),
-  integrations: site ? [sitemap()] : [],
+  integrations: site
+    ? [sitemap({
+        i18n: { defaultLocale: 'gu', locales: { gu: 'x-default', en: 'en', hi: 'hi' } },
+        filter: (page) => {
+          try {
+            const p = new URL(page).pathname;
+            return !/^\/(privacy|terms|cookies)\//.test(p);
+          } catch {
+            return true;
+          }
+        },
+      })]
+    : [],
   vite: { plugins: [tailwindcss()] }
 });

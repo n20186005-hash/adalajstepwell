@@ -1,13 +1,15 @@
 ---
 import '../styles/global.css';
-interface Props { title:string; description:string; path?:string; image?:string; }
-const {title,description,path='/',image}=Astro.props;
+import { htmlLang, ogLocale, type Locale } from '../i18n';
+import { SITE_NAME } from '../data/site';
+interface Props { title:string; description:string; locale:Locale; path?:string; image?:string; noHreflang?:boolean; }
+const {title,description,locale,path='/',image}=Astro.props;
 const site=Astro.site;
 const absolute=site?new URL(path,site).toString():undefined;
 const absoluteImage=site && image?new URL(image,site).toString():undefined;
 ---
 <!doctype html>
-<html lang="gu-IN">
+<html lang={htmlLang[locale]}>
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width" />
@@ -15,7 +17,7 @@ const absoluteImage=site && image?new URL(image,site).toString():undefined;
 <meta name="description" content={description} />
 {absolute && <link rel="canonical" href={absolute} />}
 <meta property="og:title" content={title} /><meta property="og:description" content={description} /><meta property="og:type" content="website" />
-{absolute && <meta property="og:url" content={absolute} />}{absoluteImage && <meta property="og:image" content={absoluteImage} />}{absoluteImage && <meta property="og:image:alt" content={title} />}
+{absolute && <meta property="og:url" content={absolute} />}<meta property="og:locale" content={ogLocale[locale]} />{absoluteImage && <meta property="og:image" content={absoluteImage} />}{absoluteImage && <meta property="og:image:alt" content={title} />}<meta property="og:site_name" content={SITE_NAME[locale]} />
 <meta name="theme-color" content="#a55d35" />
 <link rel="manifest" href="/manifest.webmanifest" />
 <meta name="apple-mobile-web-app-capable" content="yes" />

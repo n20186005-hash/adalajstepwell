@@ -1,19 +1,20 @@
-Required real-photo assets for a fully self-contained deployment (Wikimedia Commons originals):
+Self-hosted real-photo assets (renamed + compressed; Wikimedia Commons originals):
 
-adalaj-hero.jpg
-https://upload.wikimedia.org/wikipedia/commons/2/23/Adalaj_Stepwell_%28Rudabai_Stepwell%29.jpg
-Author: Hasmukh3006 — CC BY-SA 4.0
+adalaj-stepwell-guide-1.jpg  (hero / exterior columns)
+  Source: Adalaj Stepwell (Rudabai Stepwell).jpg — Hasmukh3006 — CC BY-SA 4.0
+  https://commons.wikimedia.org/wiki/File:Adalaj_Stepwell_(Rudabai_Stepwell).jpg
 
-adalaj-steps.jpg
-https://upload.wikimedia.org/wikipedia/commons/0/09/Steps_of_Adalaj_Stepwell.jpg
-Author: Kushpatel3240 — CC BY-SA 4.0
+adalaj-stepwell-guide-2.jpg  (multi-level interior)
+  Source: Steps of Adalaj Stepwell.jpg — Kushpatel3240 — CC BY-SA 4.0
+  https://commons.wikimedia.org/wiki/File:Steps_of_Adalaj_Stepwell.jpg
 
-adalaj-carving.jpg
-https://upload.wikimedia.org/wikipedia/commons/e/e7/0082423_Rudabai_Step_Well%2C_Adalaj_Gujarat_045.jpg
-Author: Ms Sarah Welch — CC0 1.0
+adalaj-stepwell-guide-3.jpg  (fine stone carving detail)
+  Source: 0082423 Rudabai Step Well, Adalaj Gujarat 045.jpg — Ms Sarah Welch — CC0 1.0
+  https://commons.wikimedia.org/wiki/File:0082423_Rudabai_Step_Well,_Adalaj_Gujarat_045.jpg
 
-adalaj-carvings-detail.jpg
-https://upload.wikimedia.org/wikipedia/commons/9/9e/The_dominant_carvings_at_Premises_of_Rudabai_Stepwell%2C_Adalaj.jpg
-Author: BSSKrishnaS — CC BY-SA 4.0
+adalaj-stepwell-guide-4.jpg  (dominant carvings)
+  Source: The dominant carvings at Premises of Rudabai Stepwell, Adalaj.jpg — BSSKrishnaS — CC BY-SA 4.0
+  https://commons.wikimedia.org/wiki/File:The_dominant_carvings_at_Premises_of_Rudabai_Stepwell,_Adalaj.jpg
 
-The current sandbox could not fetch these binary files. Do not claim the package is image-self-contained until the JPG files are actually present and src/pages/index.astro is switched to local /images/... paths.
+All photos are re-encoded as progressive JPEGs (max edge 1600px, quality 82)
+via scripts/optimize-images.py. Attribution is kept in PHOTO-CREDITS.md.

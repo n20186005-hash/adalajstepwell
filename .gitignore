@@ -3,4 +3,7 @@ dist/
 .astro/
 .wrangler/
 .env
+.dev.vars
+*.log
+wrangler.log
 .DS_Store
