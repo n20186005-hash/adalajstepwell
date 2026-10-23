@@ -54,540 +54,1341 @@ export interface UiDict {
   };
 }
 
-const GOVT = 'https://www.incredibleindia.gov.in/en/gujarat/gandhinagar/adalaj-stepwell';
-const GUJ_TOUR = 'https://www.gujarattourism.com/';
-const DISTRICT = 'https://gandhinagar.nic.in/';
 
 export const ui: Record<Locale, UiDict> = {
-  gu: {
-    nav: [
-      { id: 'history', label: 'ઇતિહાસ' }, { id: 'stories', label: 'ગાથાઓ' },
-      { id: 'architecture', label: 'સ્થાપત્ય' }, { id: 'climate', label: 'આબોહવા' },
-      { id: 'itineraries', label: 'માર્ગ' }, { id: 'visit', label: 'મુલાકાત' },
-      { id: 'weather', label: 'હવામાન' }, { id: 'season', label: 'ઋતુ' },
-      { id: 'reach', label: 'પ્રવાસ' }, { id: 'facilities', label: 'સુવિધાઓ' },
-      { id: 'nearby', label: 'આસપાસ' }, { id: 'faq', label: 'પ્રશ્નોત્તરી' },
-      { id: 'sources', label: 'સ્ત્રોતો' },
+  "gu": {
+    "nav": [
+      {
+        "id": "history",
+        "label": "ઇતિહાસ"
+      },
+      {
+        "id": "stories",
+        "label": "ગાથાઓ"
+      },
+      {
+        "id": "architecture",
+        "label": "સ્થાપત્ય"
+      },
+      {
+        "id": "climate",
+        "label": "આબોહવા"
+      },
+      {
+        "id": "itineraries",
+        "label": "માર્ગ"
+      },
+      {
+        "id": "visit",
+        "label": "મુલાકાત"
+      },
+      {
+        "id": "weather",
+        "label": "હવામાન"
+      },
+      {
+        "id": "season",
+        "label": "ઋતુ"
+      },
+      {
+        "id": "reach",
+        "label": "પ્રવાસ"
+      },
+      {
+        "id": "facilities",
+        "label": "સુવિધાઓ"
+      },
+      {
+        "id": "nearby",
+        "label": "આસપાસ"
+      },
+      {
+        "id": "faq",
+        "label": "પ્રશ્નોત્તરી"
+      },
+      {
+        "id": "sources",
+        "label": "સ્ત્રોતો"
+      }
     ],
-    langSwitchLabel: 'ભાષા',
-    footer: {
-      project: 'આ વેબસાઇટ સ્વતંત્ર, નફારહિત મુલાકાતી માહિતી માર્ગદર્શિકા પ્રોજેક્ટ છે અને કોઈ સરકારી સંસ્થા અથવા સત્તાવાર સંગઠન સાથે સંકળાયેલ નથી.',
-      sources: 'સ્થળ માહિતી અડાલજ સ્થાનિક પંચાયત/ગાંધીનગર જિલ્લા પ્રશાસન, ગુજરાત પ્રવાસન અને ભારત સરકારના પ્રવાસન મંત્રાલયના રાષ્ટ્રીય પ્રવાસન પોર્ટલ જેવા જાહેર સ્ત્રોતો સામે તુલના કરીને તૈયાર કરવામાં આવી છે; તેમાં કોઈ વ્યાવસાયિક ભલામણનો હેતુ નથી.',
-      photo: 'ચિત્ર અધિકાર: આ વેબસાઇટ પર દર્શાવેલ તમામ ફોટોગ્રાફના હક્ક અને કૉપિરાઇટ તેમના મૂળ ફોટોગ્રાફરોના છે. વિગત PHOTO-CREDITS.md માં છે.',
-      copyright: '© 2026 અડાલજની વાવ પ્રવાસ માર્ગદર્શિકા. સર્વ હક્ક સુરક્ષિત.',
+    "langSwitchLabel": "ભાષા",
+    "footer": {
+      "project": "સ્વતંત્ર મુલાકાતી માર્ગદર્શિકા; સ્મારક સંચાલક, ASI કે સત્તાવાર સરકારી વેબસાઇટ નથી.",
+      "sources": "સ્ત્રોત: ગુજરાત પ્રવાસન, Incredible India અને ASI ટિકિટ પોર્ટલ. તારીખવાળી Maps માહિતી અલગ ઓળખાવેલી છે.",
+      "photo": "ફોટોગ્રાફ: લેખક અને લાઇસન્સ નીચેની ફોટો ક્રેડિટમાં.",
+      "copyright": "© 2026 અડાલજની વાવ પ્રવાસ માર્ગદર્શિકા. સર્વ હક્ક સુરક્ષિત."
     },
-    footerNav: { privacy: 'ગોપનીયતા નીતિ', terms: 'સેવાની શરતો', cookies: 'કૂકી સેટિંગ્સ' },
-    relatedLabel: 'સંબંધિત પાનાં',
-    weather: {
-      heading: 'હવામાન', current: 'વર્તમાન', temp: 'તાપમાન', feels: 'અનુભવ', wind: 'પવન',
-      precip: 'વરસાદ શક્યતા', uv: 'યુવી', sevenDay: '૭ દિવસ', noData: 'હવામાન માહિતી અત્યારે ઉપલબ્ધ નથી.', adviceHeading: 'મુલાકાત સૂચન',
+    "footerNav": {
+      "privacy": "ગોપનીયતા નીતિ",
+      "terms": "સેવાની શરતો",
+      "cookies": "કૂકી સેટિંગ્સ"
     },
+    "relatedLabel": "સંબંધિત પાનાં",
+    "weather": {
+      "heading": "હવામાન",
+      "current": "વર્તમાન",
+      "temp": "તાપમાન",
+      "feels": "અનુભવ",
+      "wind": "પવન",
+      "precip": "વરસાદ શક્યતા",
+      "uv": "યુવી",
+      "sevenDay": "૭ દિવસ",
+      "noData": "હવામાન માહિતી અત્યારે ઉપલબ્ધ નથી.",
+      "adviceHeading": "મુલાકાત સૂચન"
+    }
   },
-  en: {
-    nav: [
-      { id: 'history', label: 'History' }, { id: 'stories', label: 'Stories' },
-      { id: 'architecture', label: 'Architecture' }, { id: 'climate', label: 'Climate' },
-      { id: 'itineraries', label: 'Itineraries' }, { id: 'visit', label: 'Visit' },
-      { id: 'weather', label: 'Weather' }, { id: 'season', label: 'Seasons' },
-      { id: 'reach', label: 'Getting there' }, { id: 'facilities', label: 'Facilities' },
-      { id: 'nearby', label: 'Nearby' }, { id: 'faq', label: 'FAQ' },
-      { id: 'sources', label: 'Sources' },
+  "en": {
+    "nav": [
+      {
+        "id": "history",
+        "label": "History"
+      },
+      {
+        "id": "stories",
+        "label": "Stories"
+      },
+      {
+        "id": "architecture",
+        "label": "Architecture"
+      },
+      {
+        "id": "climate",
+        "label": "Climate"
+      },
+      {
+        "id": "itineraries",
+        "label": "Itineraries"
+      },
+      {
+        "id": "visit",
+        "label": "Visit"
+      },
+      {
+        "id": "weather",
+        "label": "Weather"
+      },
+      {
+        "id": "season",
+        "label": "Seasons"
+      },
+      {
+        "id": "reach",
+        "label": "Getting there"
+      },
+      {
+        "id": "facilities",
+        "label": "Facilities"
+      },
+      {
+        "id": "nearby",
+        "label": "Nearby"
+      },
+      {
+        "id": "faq",
+        "label": "FAQ"
+      },
+      {
+        "id": "sources",
+        "label": "Sources"
+      }
     ],
-    langSwitchLabel: 'Language',
-    footer: {
-      project: 'This website is an independent, non-profit visitor-information guide and is not affiliated with any government body or official organisation.',
-      sources: 'Place information is compiled by cross-checking public sources such as the Adalaj local panchayat / Gandhinagar district administration, Gujarat Tourism and the Government of India’s national tourism portal; it carries no commercial endorsement.',
-      photo: 'Image credits: all photographs shown on this website are the property and copyright of their original photographers. Details are in PHOTO-CREDITS.md.',
-      copyright: '© 2026 Adalaj Stepwell Travel Guide. All rights reserved.',
+    "langSwitchLabel": "Language",
+    "footer": {
+      "project": "Independent visitor guide; not the monument operator, ASI or an official government website.",
+      "sources": "Sources: Gujarat Tourism, Incredible India and the ASI ticket portal. Dated Maps information is identified separately.",
+      "photo": "Photographs: authors and licences are linked in the photo credits.",
+      "copyright": "© 2026 Adalaj Stepwell Travel Guide. All rights reserved."
     },
-    footerNav: { privacy: 'Privacy Policy', terms: 'Terms of Service', cookies: 'Cookie Settings' },
-    relatedLabel: 'Related pages',
-    weather: {
-      heading: 'Weather', current: 'Now', temp: 'Temp', feels: 'Feels like', wind: 'Wind',
-      precip: 'Rain chance', uv: 'UV', sevenDay: '7-day', noData: 'Weather information is not available right now.', adviceHeading: 'Visitor advice',
+    "footerNav": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "cookies": "Cookie Settings"
     },
+    "relatedLabel": "Related pages",
+    "weather": {
+      "heading": "Weather",
+      "current": "Now",
+      "temp": "Temp",
+      "feels": "Feels like",
+      "wind": "Wind",
+      "precip": "Rain chance",
+      "uv": "UV",
+      "sevenDay": "7-day",
+      "noData": "Weather information is not available right now.",
+      "adviceHeading": "Visitor advice"
+    }
   },
-  hi: {
-    nav: [
-      { id: 'history', label: 'इतिहास' }, { id: 'stories', label: 'कथाएँ' },
-      { id: 'architecture', label: 'वास्तुकला' }, { id: 'climate', label: 'जलवायु' },
-      { id: 'itineraries', label: 'यात्रा योजना' }, { id: 'visit', label: 'भ्रमण' },
-      { id: 'weather', label: 'मौसम' }, { id: 'season', label: 'ऋतु' },
-      { id: 'reach', label: 'पहुँच' }, { id: 'facilities', label: 'सुविधाएँ' },
-      { id: 'nearby', label: 'आसपास' }, { id: 'faq', label: 'प्रश्नोत्तर' },
-      { id: 'sources', label: 'स्रोत' },
+  "hi": {
+    "nav": [
+      {
+        "id": "history",
+        "label": "इतिहास"
+      },
+      {
+        "id": "stories",
+        "label": "कथाएँ"
+      },
+      {
+        "id": "architecture",
+        "label": "वास्तुकला"
+      },
+      {
+        "id": "climate",
+        "label": "जलवायु"
+      },
+      {
+        "id": "itineraries",
+        "label": "यात्रा योजना"
+      },
+      {
+        "id": "visit",
+        "label": "भ्रमण"
+      },
+      {
+        "id": "weather",
+        "label": "मौसम"
+      },
+      {
+        "id": "season",
+        "label": "ऋतु"
+      },
+      {
+        "id": "reach",
+        "label": "पहुँच"
+      },
+      {
+        "id": "facilities",
+        "label": "सुविधाएँ"
+      },
+      {
+        "id": "nearby",
+        "label": "आसपास"
+      },
+      {
+        "id": "faq",
+        "label": "प्रश्नोत्तर"
+      },
+      {
+        "id": "sources",
+        "label": "स्रोत"
+      }
     ],
-    langSwitchLabel: 'भाषा',
-    footer: {
-      project: 'यह वेबसाइट एक स्वतंत्र, गैर-लाभकारी आगंतुक-जानकारी मार्गदर्शिका है और किसी सरकारी निकाय या आधिकारिक संगठन से संबद्ध नहीं है.',
-      sources: 'स्थान जानकारी अडालज ग्राम पंचायत / गांधीनगर ज़िला प्रशासन, गुजरात पर्यटन और भारत सरकार के राष्ट्रीय पर्यटन पोर्टल जैसे सार्वजनिक स्रोतों का मिलान कर तैयार की गई है; इसमें कोई व्यावसायिक अनुशंसा नहीं है.',
-      photo: 'चित्र अधिकार: इस वेबसाइट पर दिखाए गए सभी फ़ोटोग्राफ़ उनके मूल फ़ोटोग्राफ़रों की संपत्ति और कॉपीराइट हैं. विवरण PHOTO-CREDITS.md में है.',
-      copyright: '© 2026 अडालज स्टेपवेल यात्रा गाइड. सर्वाधिकार सुरक्षित.',
+    "langSwitchLabel": "भाषा",
+    "footer": {
+      "project": "स्वतंत्र आगंतुक गाइड; स्मारक संचालक, ASI या आधिकारिक सरकारी वेबसाइट नहीं।",
+      "sources": "स्रोत: गुजरात पर्यटन, Incredible India और ASI टिकट पोर्टल। तारीख वाली Maps जानकारी अलग पहचानी गई है।",
+      "photo": "फ़ोटोग्राफ़: लेखक और लाइसेंस नीचे फ़ोटो क्रेडिट में।",
+      "copyright": "© 2026 अडालज स्टेपवेल यात्रा गाइड. सर्वाधिकार सुरक्षित."
     },
-    footerNav: { privacy: 'गोपनीयता नीति', terms: 'सेवा की शर्तें', cookies: 'कुकी सेटिंग्स' },
-    relatedLabel: 'संबंधित पृष्ठ',
-    weather: {
-      heading: 'मौसम', current: 'अभी', temp: 'तापमान', feels: 'अनुभव', wind: 'हवा',
-      precip: 'बारिश संभावना', uv: 'यूवी', sevenDay: '७ दिन', noData: 'मौसम की जानकारी अभी उपलब्ध नहीं है.', adviceHeading: 'यात्रा सुझाव',
+    "footerNav": {
+      "privacy": "गोपनीयता नीति",
+      "terms": "सेवा की शर्तें",
+      "cookies": "कुकी सेटिंग्स"
     },
-  },
+    "relatedLabel": "संबंधित पृष्ठ",
+    "weather": {
+      "heading": "मौसम",
+      "current": "अभी",
+      "temp": "तापमान",
+      "feels": "अनुभव",
+      "wind": "हवा",
+      "precip": "बारिश संभावना",
+      "uv": "यूवी",
+      "sevenDay": "७ दिन",
+      "noData": "मौसम की जानकारी अभी उपलब्ध नहीं है.",
+      "adviceHeading": "यात्रा सुझाव"
+    }
+  }
 };
 
 export const home: Record<Locale, HomeDict> = {
-  gu: {
-    heroEyebrow: 'અડાલજ · ગાંધીનગર જિલ્લો · ગુજરાત · ભારત',
-    h1: 'અડાલજની વાવ (અડાલજ, ગુજરાત)',
-    heroLead: 'અડાલજની વાવ, જે રુદાબાઈની વાવ તરીકે વ્યાપકપણે ઓળખાય છે, તે અડાલજ, ગાંધીનગર જિલ્લો, ગુજરાત, ભારતમાં આવેલું 15મી સદીના અંતનું સ્મારક છે — જ્યાં પાણી સંગ્રહની બુદ્ધિ, આરામદાયક છાંયો અને હિંદુ–જૈન–ઇસ્લામિક કોતરણી એક જ સ્થાપત્યમાં મળે છે.',
-    facts: [
-      { value: '15મી સદી', label: 'રુદાબાઈની વાવ' },
-      { value: '5 સ્તર', label: 'ભૂગર્ભ ગલારીઓ' },
-      { value: '08:00–18:00', label: 'મુસાફરી પહેલાં ચકાસો' },
-      { value: '4.5 ★', label: '31,158 ગૂગલ સમીક્ષાઓ*' },
+  "gu": {
+    "heroEyebrow": "અડાલજ · ગાંધીનગર જિલ્લો · ગુજરાત · ભારત",
+    "h1": "અડાલજની વાવ (અડાલજ, ગુજરાત)",
+    "heroLead": "અડાલજની વાવ (Adalaj ni Vav અથવા રૂડાબાઈની વાવ) ગુજરાતના ગાંધીનગર જિલ્લામાં અડાલજ ખાતે આવેલી પાંચ માળની ઐતિહાસિક વાવ છે. આ સ્વતંત્ર માર્ગદર્શિકામાં સ્થળ, મુલાકાતનો સમય, ASI ટિકિટ અને અમદાવાદથી પહોંચવાની માહિતી મેળવો.",
+    "facts": [
+      {
+        "value": "15મી સદી",
+        "label": "રુદાબાઈની વાવ"
+      },
+      {
+        "value": "5 સ્તર",
+        "label": "ભૂગર્ભ ગલારીઓ"
+      },
+      {
+        "value": "08:00–18:00",
+        "label": "Maps સંદર્ભ · 23 ઑક્ટો 2026"
+      },
+      {
+        "value": "4.5 ★",
+        "label": "31,310 Google Maps સમીક્ષાઓ · 23 ઑક્ટો 2026"
+      }
     ],
-    history: {
-      eyebrow: 'સ્થાપત્ય અને વારસો',
-      title: 'પ્રકાશ, છાંયો અને પથ્થરનું ઊભું શહેર',
-      p1: 'અડાલજની વાવ, જેને રુદાબાઈની વાવ પણ કહેવામાં આવે છે, અડાલજ ગામમાં આવેલી પાંચ માળની ઐતિહાસિક સોપાનવાવ છે. જિલ્લા અને રાષ્ટ્રીય પ્રવાસન સ્ત્રોતો તેને 15મી સદીના અંતની રચના તરીકે દર્શાવે છે અને તેની શિલ્પકામવાળી સ્તંભમાળા, અષ્ટકોણીય ખુલ્લું કેન્દ્ર અને પાણી સુધી ઉતરતા સ્તરોને વિશેષતા ગણાવે છે.',
-      p2: 'વાવ માત્ર પાણી મેળવવાનું સાધન નહોતી; વેપારીઓ, યાત્રિકો અને સ્થાનિક લોકો માટે આરામ અને સામાજિક મેળાવડાનું સ્થળ પણ હતી. કોતરણીમાં ફૂલપાન, જ્યોમેટ્રિક પેટર્ન, દૈવી આકૃતિઓ અને રોજિંદા જીવનના દૃશ્યો મળે છે. અડાલજની વાવની મુલાકાતે જનારાઓ નજીકનાં ઐતિહાસિક સીમાચિહ્નો — ગાંધીનગરનું અક્ષરધામ અને અડાલજનું ત્રિમંદિર — પણ સરળતાથી જોઈ શકે છે.',
-      links: [
-        { label: 'ભારત સરકારનું પ્રવાસન પોર્ટલ', href: GOVT },
-        { label: 'ગાંધીનગર જિલ્લા પ્રશાસન', href: DISTRICT },
-        { label: 'ગુજરાત પ્રવાસન', href: GUJ_TOUR },
-      ],
+    "history": {
+      "eyebrow": "સ્થાપત્ય અને વારસો",
+      "title": "પ્રકાશ, છાંયો અને પથ્થરનું ઊભું શહેર",
+      "p1": "ગુજરાત પ્રવાસન આ વાવને 15મી સદીની, પાંચ માળ અને ભારતીય-ઇસ્લામી સ્થાપત્ય ધરાવતી રચના કહે છે. Incredible India બાંધકામની શરૂઆત 1498માં દર્શાવે છે અને તેને રાણી રૂડાબાઈ સાથે જોડે છે.",
+      "p2": "ભૂગર્ભ ગેલેરીઓ પાણીની વ્યવસ્થા ઉપરાંત લોકોના મળવાના સ્થળની ભૂમિકા સમજાવે છે. કોતરેલા થાંભલા અને ઉપરનું ખુલ્લું સ્થાન જુઓ; તે દિવસે મંજૂર માર્ગ પર જ ચાલો.",
+      "links": [
+        {
+          "label": "Gujarat Tourism · Adalaj ni Vav",
+          "href": "https://gujarattourism.com/central-zone/gandhinagar/adalaj-ni-vav.html"
+        },
+        {
+          "label": "Incredible India · Adalaj Stepwell",
+          "href": "https://www.incredibleindia.gov.in/en/gujarat/gandhinagar/adalaj-stepwell"
+        }
+      ]
     },
-    stories: { eyebrow: 'દંતકથા અને વારસો', title: 'રાણી રુદાબાઈની ગાથા', p: 'સૌથી પ્રચલિત દંતકથા રાણી રુદાબાઈની છે — વાવ પૂર્ણ થતાં તેમણે દિવંગત પતિ માટે પ્રાર્થના કરી અને કૂવામાં સમર્પિત થયાં; આથી વાવને પ્રેમ અને પ્રતિભાવનું સ્મારક કહેવાય છે. આ કથા પેઢીઓથી ગુજરાતી લોકગીતો અને કથાઓમાં જીવંત છે.' },
-    architecture: { eyebrow: 'સ્થાપત્ય', title: 'પાંચ માળ અને અષ્ટકોણીય કુંડ', p: 'વાવ પાંચ માળની છે, જેમાં નીચે તરફ ઓરડાઓ, છાયાદાર ગલારીઓ અને પાણી સુધી ઉતરતી સીડીઓ છે. કેન્દ્રમાં અષ્ટકોણીય ખુલ્લું કુંડ છે. સ્તંભ, મેહરાબ અને છત પર કોતરણી હિંદુ, જૈન અને ઇસ્લામિક શૈલીઓનું મિશ્રણ દર્શાવે છે.' },
-    climate: { eyebrow: 'આબોહવા', title: 'ગુજરાતની કઠોળ અને ચોમાસુ', p: 'અડાલજ કઠોળ (માર્ચ–જૂન) ગરમ અને શુષ્ક, ચોમાસુ (જૂન–સપ્ટેમ્બર) ભેજવાળું, અને શિયાળો (નવેમ્બર–ફેબ્રુઆરી) આરામદાયક હોય છે. મુલાકાત માટે શિયાળો શ્રેષ્ઠ ગણાય છે.' },
-    itineraries: { eyebrow: 'માર્ગ', title: 'કયા પ્રકારના મુલાકાતી માટે', p: 'ટૂંકી મુલાકાત (૬૦–૯૦ મિનિટ) માટે મુખ્ય સ્તર અને કોતરણી પૂરતાં છે. ફોટોગ્રાફી અને ધ્યાન માટે ૨ કલાક રાખો. અક્ષરધામ અને ત્રિમંદિર સાથે જોડીને અડધો અથવા પૂરો દિવસ ગાળી શકાય.' },
-    visit: {
-      eyebrow: 'મુલાકાતની યોજના', title: 'જતાં પહેલાં જાણવું જરૂરી',
-      cards: [
-        { title: 'ટિકિટ / ખર્ચ', body: 'પ્રવેશ ફી અને ફોટોગ્રાફી સંબંધિત નિયમો બદલાઈ શકે છે. મુલાકાત પહેલાં ASI અથવા સ્થાનિક સત્તાવાર સૂચના ચકાસો.' },
-        { title: 'શ્રેષ્ઠ સમય', body: 'ઓક્ટોબરથી માર્ચ વધુ આરામદાયક. નરમ પ્રકાશ માટે વહેલી સવાર અથવા સાંજ પહેલાં આવવું સારું.' },
-        { title: 'સૂચિત સમય', body: 'સામાન્ય મુલાકાત માટે 60–90 મિનિટ; કોતરણી, ફોટોગ્રાફી અને શાંતિથી દરેક સ્તર જોવું હોય તો 2 કલાક સુધી રાખો.' },
-        { title: 'પાર્કિંગ', body: 'સ્થળ આસપાસ રોડ આધારિત પહોંચ ઉપલબ્ધ છે. પાર્કિંગ વ્યવસ્થા સ્થળ પર બદલાઈ શકે; ભીડના દિવસોમાં વહેલા આવવું વધુ સરળ રહે છે.' },
-        { title: 'પહેરવેશ અને સલામતી', body: 'પથ્થરના પગથિયાં માટે સારી ગ્રિપવાળા શૂઝ પહેરો. ઐતિહાસિક કોતરણીને સ્પર્શ/ખરોચ ન કરો અને સીમિત વિસ્તારોના નિર્દેશો માનશો.' },
-        { title: 'સરનામું', body: 'અડાલજ રોડ, અડાલજ, ગુજરાત 382421, ભારત · પ્લસ કોડ: 5H8J+P2' },
-      ],
+    "stories": {
+      "eyebrow": "દંતકથા અને વારસો",
+      "title": "રાણી રુદાબાઈની ગાથા",
+      "p": "Incredible India રાણી રૂડાબાઈ અને સુલતાન મહમૂદ બેગડાની વાતને દંતકથા તરીકે રજૂ કરે છે. અહીં તે ગાથાને દેખાતી ઇમારત અને 15મી સદીના ઐતિહાસિક સંદર્ભથી અલગ રાખવામાં આવી છે."
     },
-    reach: {
-      eyebrow: 'વિગતવાર પરિવહન', title: 'અમદાવાદ અને ગાંધીનગર વચ્ચે સરળ રોડ પહોંચ',
-      blocks: [
-        { h: 'હવાઈ માર્ગ (એરપોર્ટ → વાવ)', p: 'સૌથી નજીકનું મોટું એરપોર્ટ સરદાર વલ્લભભાઈ પટેલ ઇન્ટરનેશનલ એરપોર્ટ (અમદાવાદ) છે, જે અડાલજથી લગભગ ૧૮ કિ.મી. દૂર છે. એરપોર્ટથી પ્રીપેઇડ ટેક્સી અથવા કેબ લઈ SG હાઇવે થઈ અડાલજ પહોંચી શકાય છે; ટ્રાફિક પ્રમાણે ૪૫–૬૦ મિનિટ લાગે છે.' },
-        { h: 'રેલ + સ્થાનિક વાહન', p: 'ગાંધીનગર કેપિટલ અથવા અમદાવાદ જંક્શન ઉતરો. ત્યાંથી GSRTC બસ, શેર્ડ ઓટો અથવા કેબ દ્વારા અડાલજ પહોંચી શકાય છે. અમે કોઈ ચોક્કસ ઓપરેટરની ભલામણ કરતા નથી — રવાના પહેલાં તાજી સ્થાનિક સમીક્ષાઓ તપાસો.' },
-        { h: 'રોડ / ટેક્સી', p: 'અમદાવાદ અથવા ગાંધીનગરથી એપ-આધારિત કેબ કે ટેક્સી લો અને ગંતવ્ય "Adalaj Stepwell, Adalaj" સેટ કરો. અંતર લગભગ ૨૦–૩૦ કિ.મી. છે.' },
-      ],
-      sourceNote: 'અધિકૃત માહિતી: ભારત સરકાર પ્રવાસન પોર્ટલ · ગુજરાત પ્રવાસન',
+    "architecture": {
+      "eyebrow": "સ્થાપત્ય",
+      "title": "પાંચ માળ અને અષ્ટકોણીય કુંડ",
+      "p": "ગુજરાત પ્રવાસન ત્રણ પ્રવેશ, અષ્ટકોણીય ખુલ્લું સ્થાન અને પાંચ માળને ટેકો આપતા કોતરેલા થાંભલા વર્ણવે છે. સ્થાનિક અને ઇસ્લામી શૈલીનું સંમિશ્રણ જોવા મળે છે. પાંચ માળ હોવાનો અર્થ બધા માળ મુલાકાત માટે ખુલ્લા છે એવો નથી."
     },
-    facilities: { eyebrow: 'સુવિધાઓ', title: 'આસપાસ શું મળે છે', p: 'પાર્કિંગ, શૌચાલય, શાકાહારી ભોજન, કરિયાણું, ઇંધણ, ફાર્મસી અને ATM નજીકમાં મળી શકે છે. ચોક્કસ વ્યવસ્થા સ્થળ પર ચકાસો — અમે કોઈ વ્યાપારી સંસ્થાની ભલામણ કરતા નથી.' },
-    etiquette: { eyebrow: 'શિષ્ટાચાર', title: 'મુલાકાતી માટે ટિપ્સ', p: 'પવિત્ર સ્થળ તરીકે વિનમ્ર વેશ રાખો, અન્ય મુલાકાતીઓને માર્ગ આપો, અને કચરો પોતાની સાથે લઈ જાઓ. કોતરણીને નુકસાન ન પહોંચાડો.' },
-    nearby: {
-      eyebrow: 'આસપાસની યોજના', title: 'અડાલજ આસપાસ શું કરવું',
-      cards: [
-        { title: 'આસપાસનું ભોજન', body: 'અડાલજ–ગાંધીનગર માર્ગ પર ગુજરાતી થાળી, ફરસાણ, ચા અને શાકાહારી ભોજન સરળતાથી મળે છે.' },
-        { title: 'અક્ષરધામ, ગાંધીનગર', body: 'ગાંધીનગરનો જાણીતા મંદિર સંકુલ. સમય, બંધ દિવસ અને સુરક્ષા નિયમો માટે સત્તાવાર માહિતી ચકાસો.' },
-        { title: 'ત્રિમંદિર, અડાલજ', body: 'અડાલજ નજીકનું ધાર્મિક સંકુલ; ગાંધીનગર જિલ્લા પ્રવાસન પૃષ્ઠ પર આસપાસના રસપ્રદ સ્થળ તરીકે દર્શાવવામાં આવે છે.' },
-      ],
+    "climate": {
+      "eyebrow": "આબોહવા",
+      "title": "ગુજરાતની કઠોળ અને ચોમાસુ",
+      "p": "Incredible India ઑક્ટોબરથી માર્ચની મુલાકાત સૂચવે છે. નીકળતા પહેલાં વાસ્તવિક હવામાન જુઓ; વાવની છાંય ગરમી કે વરસાદથી રક્ષણની ખાતરી આપતી નથી."
     },
-    faq: {
-      eyebrow: 'પ્રશ્નોત્તરી', title: 'સામાન્ય પ્રશ્નો',
-      items: [
-        { q: 'અડાલજની વાવ જોવા માટે કેટલો સમય રાખવો?', a: 'મોટાભાગના મુલાકાતીઓ માટે 60 થી 90 મિનિટ પૂરતી છે. કોતરણી, પ્રકાશ અને ફોટોગ્રાફી માટે વધુ સમય રાખી શકાય.' },
-        { q: 'અડાલજની વાવ માટે પ્રવેશ ફી છે?', a: 'પ્રવેશ નીતિ બદલાઈ શકે છે. મુસાફરી પહેલાં ASI અથવા સ્થાનિક સત્તાવાર સ્ત્રોતથી હાલની ફી અને નિયમો ચકાસો.' },
-        { q: 'કયો સમય શ્રેષ્ઠ છે?', a: 'ઓક્ટોબરથી માર્ચનું હવામાન વધુ આરામદાયક હોય છે. વહેલી સવાર અથવા સાંજ પહેલાંનો સમય કોતરણી પર નરમ પ્રકાશ માટે અનુકૂળ છે.' },
-        { q: 'અમદાવાદથી કેવી રીતે પહોંચવું?', a: 'અડાલજ અમદાવાદ અને ગાંધીનગર વચ્ચે આવેલું છે. ટેક્સી, કાર અથવા બસ દ્વારા રોડ માર્ગે પહોંચી શકાય છે; નજીકના મુખ્ય રેલવે કેન્દ્રો અમદાવાદ અને ગાંધીનગર છે.' },
-        { q: 'અડાલજમાં શું સુવિધાઓ મળે છે?', a: 'પાર્કિંગ, શૌચાલય, શાકાહારી ભોજન, કરિયાણું, ઇંધણ, ફાર્મસી અને ATM નજીકમાં મળી શકે છે.' },
-        { q: 'અમદાવાદ એરપોર્ટથી અડાલજની વાવ કેવી રીતે પહોંચવું?', a: 'સૌથી નજીકનું મોટું એરપોર્ટ સરદાર વલ્લભભાઈ પટેલ ઇન્ટરનેશનલ એરપોર્ટ (અમદાવાદ) છે. ત્યાંથી ટેક્સી અથવા કેબ દ્વારા રોડ માર્ગે અડાલજ પહોંચી શકાય છે.' },
-        { q: 'વર્ષમાં કયા સમયે જવું શ્રેષ્ઠ છે?', a: 'નવેમ્બરથી ફેબ્રુઆરી (શિયાળો) સૌથી આરામદાયક છે. એપ્રિલ–મે ની તીવ્ર ગરમી અને જૂન–સપ્ટેમ્બર નો ચોમાસુ ટાળવા જેવા છે.' },
-        { q: 'અડાલજની વાવ પાસે પાર્કિંગ છે?', a: 'પ્રવેશદ્વાર નજીક રસ્તા કિનારે અથવા નિયત પાર્કિંગ વ્યવસ્થા હોઈ શકે છે. રજાઓ અને ભીડના દિવસોમાં વહેલા આવવું સલાહભર્યું છે.' },
-      ],
+    "itineraries": {
+      "eyebrow": "માર્ગ",
+      "title": "કયા પ્રકારના મુલાકાતી માટે",
+      "p": "પગથિયાં અને કોતરણી તમારા અનુકૂળ ગતિએ જોવા સમય રાખો. ગુજરાત પ્રવાસન દર્શાવતાં નજીકનાં સ્થળોમાં ગાંધીનગરનું અક્ષરધામ અને અડાલજનું ત્રિમંદિર છે. દરેકના સમય અને પ્રવેશ નિયમ અલગ તપાસો; આ સંયુક્ત ટિકિટ નથી."
     },
-    sources: {
-      eyebrow: 'સ્ત્રોતો', title: 'અધિકૃત અને સાર્વજનિક સ્ત્રોતો',
-      items: [
-        { label: 'ભારત સરકાર પ્રવાસન પોર્ટલ', href: GOVT },
-        { label: 'ગાંધીનગર જિલ્લા પ્રશાસન', href: DISTRICT },
-        { label: 'ગુજરાત પ્રવાસન', href: GUJ_TOUR },
-      ],
+    "visit": {
+      "eyebrow": "મુલાકાતની યોજના",
+      "title": "જતાં પહેલાં જાણવું જરૂરી",
+      "cards": [
+        {
+          "title": "ટિકિટ / ખર્ચ",
+          "body": "ASI ટિકિટ પોર્ટલમાં અડાલજ/રૂડાબાઈનું સ્મારક અને મુલાકાતની તારીખ પસંદ કરો. ASI ફીમાં ભારતીય, SAARC/BIMSTEC અને અન્ય વિદેશી પ્રવાસીઓ વચ્ચે તફાવત હોઈ શકે છે; લાગુ રાષ્ટ્રીયતા, ઉંમરની છૂટ અને ઇલેક્ટ્રોનિક કે કાઉન્ટર ચુકવણીની શરતો તપાસો. આ માર્ગદર્શિકાએ અડાલજનો હાલનો રૂપિયામાં ચોક્કસ દર સ્વતંત્ર રીતે પુષ્ટિ કર્યો નથી."
+        },
+        {
+          "title": "શ્રેષ્ઠ સમય",
+          "body": "Incredible India ઑક્ટોબરથી માર્ચની મુલાકાત સૂચવે છે. નીકળતા પહેલાં વાસ્તવિક હવામાન જુઓ; વાવની છાંય ગરમી કે વરસાદથી રક્ષણની ખાતરી આપતી નથી."
+        },
+        {
+          "title": "સૂચિત સમય",
+          "body": "પગથિયાં અને કોતરણી તમારા અનુકૂળ ગતિએ જોવા સમય રાખો. ગુજરાત પ્રવાસન દર્શાવતાં નજીકનાં સ્થળોમાં ગાંધીનગરનું અક્ષરધામ અને અડાલજનું ત્રિમંદિર છે. દરેકના સમય અને પ્રવેશ નિયમ અલગ તપાસો; આ સંયુક્ત ટિકિટ નથી."
+        },
+        {
+          "title": "નીકળતા પહેલાં",
+          "body": "પાર્કિંગ, શૌચાલય, પીવાનું પાણી અને પગથિયાં વિનાના પ્રવેશની સીધી તપાસ કરો, ખાસ કરીને તે જરૂરી હોય ત્યારે. ઐતિહાસિક પગથિયાંથી મુશ્કેલી થઈ શકે છે; આ માર્ગદર્શિકા વ્હીલચેર પ્રવેશ કે કોઈ ચોક્કસ સુવિધાની ખાતરી આપતી નથી."
+        },
+        {
+          "title": "પહેરવેશ અને સલામતી",
+          "body": "સારી પકડવાળાં પગરખાં પહેરો, પાણી લો અને મંજૂર પગથિયાં વાપરો. કોતરણી પર ચઢશો નહીં કે અવરોધ પાર કરશો નહીં. ભારે વરસાદ કે વીજળીમાં સલામત આશ્રય અને કર્મચારીઓની સૂચના અનુસરો; અનુમાન પરથી પ્રવેશ ખુલ્લો છે એવું ન માનો."
+        },
+        {
+          "title": "સરનામું",
+          "body": "Adalaj Rd, અડાલજ, ગુજરાત 382421, ભારત. નકશાનો પિન 23.1668106, 72.5800895 છે; પહોંચીને મુલાકાતીઓનો પ્રવેશ ચકાસો."
+        }
+      ]
     },
+    "reach": {
+      "eyebrow": "વિગતવાર પરિવહન",
+      "title": "અમદાવાદ અને ગાંધીનગર વચ્ચે સરળ રોડ પહોંચ",
+      "blocks": [
+        {
+          "h": "હવાઈમથકથી જોડાણ",
+          "p": "ગુજરાત પ્રવાસન અમદાવાદના સરદાર વલ્લભભાઈ પટેલ આંતરરાષ્ટ્રીય હવાઈમથકનો ઉલ્લેખ કરે છે. ત્યાંથી અડાલજનો હાલનો માર્ગ તપાસો; મુસાફરીનો સમય નિશ્ચિત નથી."
+        },
+        {
+          "h": "રેલ જોડાણ",
+          "p": "અમદાવાદ અને ગાંધીનગર વિસ્તારનાં રેલ જોડાણો છે. બુકિંગ પહેલાં વાસ્તવિક સ્ટેશન, ટ્રેન અને આગળનો માર્ગ તપાસો; દરેક સ્ટેશનથી સીધી બસ હશે એવું ન માનો."
+        },
+        {
+          "h": "સ્થળ અને રોડ માર્ગ",
+          "p": "ગંતવ્યમાં Adalaj Stepwell/Rudabai Stepwell, Adalaj પસંદ કરો. અંતર શરૂઆતના સ્થળ પ્રમાણે બદલાય છે. ઉતરવાનું સ્થાન અને પરતની મુસાફરી તપાસો; અહીં અચકાસેલા બસ નંબર કે નિશ્ચિત ટેક્સી ભાડાં આપ્યાં નથી."
+        }
+      ],
+      "sourceNote": "Google Mapsમાં સ્થળ જુઓ (તૃતીય પક્ષ)"
+    },
+    "facilities": {
+      "eyebrow": "સુવિધાઓ",
+      "title": "આસપાસ શું મળે છે",
+      "p": "પાર્કિંગ, શૌચાલય, પીવાનું પાણી અને પગથિયાં વિનાના પ્રવેશની સીધી તપાસ કરો, ખાસ કરીને તે જરૂરી હોય ત્યારે. ઐતિહાસિક પગથિયાંથી મુશ્કેલી થઈ શકે છે; આ માર્ગદર્શિકા વ્હીલચેર પ્રવેશ કે કોઈ ચોક્કસ સુવિધાની ખાતરી આપતી નથી."
+    },
+    "etiquette": {
+      "eyebrow": "શિષ્ટાચાર",
+      "title": "મુલાકાતી માટે ટિપ્સ",
+      "p": "સારી પકડવાળાં પગરખાં પહેરો, પાણી લો અને મંજૂર પગથિયાં વાપરો. કોતરણી પર ચઢશો નહીં કે અવરોધ પાર કરશો નહીં. ભારે વરસાદ કે વીજળીમાં સલામત આશ્રય અને કર્મચારીઓની સૂચના અનુસરો; અનુમાન પરથી પ્રવેશ ખુલ્લો છે એવું ન માનો."
+    },
+    "nearby": {
+      "eyebrow": "આસપાસની યોજના",
+      "title": "અડાલજ આસપાસ શું કરવું",
+      "cards": [
+        {
+          "title": "અક્ષરધામની આગળની મુલાકાત",
+          "body": "અક્ષરધામ જવા વાવથી ચોક્કસ મંદિર પ્રવેશ સુધીનો રોડ માર્ગ ગણો. સીધી રેખાનું અંતર કે શહેરનું સામાન્ય અંતર મુસાફરીનો વિશ્વસનીય સમય આપતું નથી."
+        },
+        {
+          "title": "અક્ષરધામ, ગાંધીનગર",
+          "body": "પગથિયાં અને કોતરણી તમારા અનુકૂળ ગતિએ જોવા સમય રાખો. ગુજરાત પ્રવાસન દર્શાવતાં નજીકનાં સ્થળોમાં ગાંધીનગરનું અક્ષરધામ અને અડાલજનું ત્રિમંદિર છે. દરેકના સમય અને પ્રવેશ નિયમ અલગ તપાસો; આ સંયુક્ત ટિકિટ નથી."
+        },
+        {
+          "title": "ત્રિમંદિર, અડાલજ",
+          "body": "પગથિયાં અને કોતરણી તમારા અનુકૂળ ગતિએ જોવા સમય રાખો. ગુજરાત પ્રવાસન દર્શાવતાં નજીકનાં સ્થળોમાં ગાંધીનગરનું અક્ષરધામ અને અડાલજનું ત્રિમંદિર છે. દરેકના સમય અને પ્રવેશ નિયમ અલગ તપાસો; આ સંયુક્ત ટિકિટ નથી."
+        }
+      ]
+    },
+    "faq": {
+      "eyebrow": "પ્રશ્નોત્તરી",
+      "title": "સામાન્ય પ્રશ્નો",
+      "items": [
+        {
+          "q": "અડાલજની વાવ ક્યાં આવેલી છે?",
+          "a": "Adalaj Rd, અડાલજ, ગુજરાત 382421, ભારત. નકશાનો પિન 23.1668106, 72.5800895 છે; પહોંચીને મુલાકાતીઓનો પ્રવેશ ચકાસો."
+        },
+        {
+          "q": "મુલાકાતનો સમય કયો છે?",
+          "a": "23 ઑક્ટોબર 2026ની તપાસમાં Google Maps પર સાતેય દિવસ 08:00–18:00 દર્શાવાયું હતું. આ તૃતીય-પક્ષનો તારીખવાળો સંદર્ભ છે, આજના છેલ્લાં પ્રવેશ કે બધા માળ ખુલ્લા હોવાની ખાતરી નથી. નીકળતાં પહેલાં ટિકિટ અને પ્રવેશદ્વારની સૂચના તપાસો."
+        },
+        {
+          "q": "પ્રવેશ ફી કેટલી છે?",
+          "a": "ASI ટિકિટ પોર્ટલમાં અડાલજ/રૂડાબાઈનું સ્મારક અને મુલાકાતની તારીખ પસંદ કરો. ASI ફીમાં ભારતીય, SAARC/BIMSTEC અને અન્ય વિદેશી પ્રવાસીઓ વચ્ચે તફાવત હોઈ શકે છે; લાગુ રાષ્ટ્રીયતા, ઉંમરની છૂટ અને ઇલેક્ટ્રોનિક કે કાઉન્ટર ચુકવણીની શરતો તપાસો. આ માર્ગદર્શિકાએ અડાલજનો હાલનો રૂપિયામાં ચોક્કસ દર સ્વતંત્ર રીતે પુષ્ટિ કર્યો નથી."
+        },
+        {
+          "q": "શું આ અડાલજની વાવની સત્તાવાર વેબસાઇટ છે?",
+          "a": "સ્વતંત્ર મુલાકાતી માર્ગદર્શિકા; સ્મારક સંચાલક, ASI કે સત્તાવાર સરકારી વેબસાઇટ નથી."
+        },
+        {
+          "q": "શું પાંચેય માળ પર જઈ શકાય?",
+          "a": "પાંચ માળ સ્થાપત્યનું વર્ણન છે, જાહેર પ્રવેશની ખાતરી નથી. હાલના માર્ગ, અવરોધ અને કર્મચારીઓની સૂચના અનુસરો."
+        }
+      ]
+    },
+    "sources": {
+      "eyebrow": "સ્ત્રોતો",
+      "title": "અધિકૃત અને સાર્વજનિક સ્ત્રોતો",
+      "items": [
+        {
+          "label": "Gujarat Tourism · Adalaj ni Vav",
+          "href": "https://gujarattourism.com/central-zone/gandhinagar/adalaj-ni-vav.html"
+        },
+        {
+          "label": "Incredible India · Adalaj Stepwell",
+          "href": "https://www.incredibleindia.gov.in/en/gujarat/gandhinagar/adalaj-stepwell"
+        },
+        {
+          "label": "ASI · Tickets",
+          "href": "https://asi.paygov.org.in/asi-webapp/#/ticketbooking"
+        }
+      ]
+    }
   },
-  en: {
-    heroEyebrow: 'Adalaj · Gandhinagar District · Gujarat · India',
-    h1: 'Adalaj Stepwell (Adalaj, Gujarat)',
-    heroLead: 'The Adalaj Stepwell, widely known as Rudabai ni Vav, is a late-15th-century monument in Adalaj, Gandhinagar district, Gujarat, India — where the ingenuity of water storage, cool shade and Hindu–Jain–Islamic carving meet in a single structure.',
-    facts: [
-      { value: '15th c.', label: 'Rudabai ni Vav' },
-      { value: '5 storeys', label: 'Underground galleries' },
-      { value: '08:00–18:00', label: 'Verify before travel' },
-      { value: '4.5 ★', label: '31,158 Google reviews*' },
+  "en": {
+    "heroEyebrow": "Adalaj · Gandhinagar District · Gujarat · India",
+    "h1": "Adalaj Stepwell (Adalaj, Gujarat)",
+    "heroLead": "Adalaj Stepwell (Adalaj ni Vav or Rudabai Stepwell) is a five-storey heritage stepwell in Adalaj, Gandhinagar district, Gujarat. Plan the location, visiting hours, ASI tickets and journey from Ahmedabad with this independent guide.",
+    "facts": [
+      {
+        "value": "15th c.",
+        "label": "Rudabai ni Vav"
+      },
+      {
+        "value": "5 storeys",
+        "label": "Underground galleries"
+      },
+      {
+        "value": "08:00–18:00",
+        "label": "Maps snapshot · 23 Oct 2026"
+      },
+      {
+        "value": "4.5 ★",
+        "label": "31,310 Google Maps reviews · 23 Oct 2026"
+      }
     ],
-    history: {
-      eyebrow: 'Architecture & heritage',
-      title: 'Light, shadow and a vertical city of stone',
-      p1: 'The Adalaj Stepwell, also called Rudabai ni Vav, is a five-storey historic stepwell in the village of Adalaj. District and national tourism sources describe it as a late-15th-century construction, noted for its carved pillared halls, an octagonal open well and flights of steps descending to the water.',
-      p2: 'The stepwell was never only a source of water; it was also a place of rest and social gathering for traders, pilgrims and locals. The carvings show floral motifs, geometric patterns, divine figures and scenes of everyday life. Visitors to Adalaj Stepwell can easily combine nearby landmarks — Akshardham in Gandhinagar and Trimandir in Adalaj.',
-      links: [
-        { label: 'Government of India tourism portal', href: GOVT },
-        { label: 'Gandhinagar district administration', href: DISTRICT },
-        { label: 'Gujarat Tourism', href: GUJ_TOUR },
-      ],
+    "history": {
+      "eyebrow": "Architecture & heritage",
+      "title": "Light, shadow and a vertical city of stone",
+      "p1": "Gujarat Tourism describes a 15th-century stepwell with five storeys and Indo-Islamic architecture. Incredible India places the beginning of construction in 1498 and associates the monument with Queen Rudabai.",
+      "p2": "The underground galleries show how water architecture also provided a place to gather. Look at the carved pillars and the opening above the well; follow the accessible route marked on the day.",
+      "links": [
+        {
+          "label": "Gujarat Tourism · Adalaj ni Vav",
+          "href": "https://gujarattourism.com/central-zone/gandhinagar/adalaj-ni-vav.html"
+        },
+        {
+          "label": "Incredible India · Adalaj Stepwell",
+          "href": "https://www.incredibleindia.gov.in/en/gujarat/gandhinagar/adalaj-stepwell"
+        }
+      ]
     },
-    stories: { eyebrow: 'Legend & heritage', title: "Queen Rudabai's tale", p: 'The most popular legend is of Queen Rudabai — when the stepwell was completed she prayed for her late husband and dedicated herself to the well; hence the stepwell is called a monument of love and devotion. The story lives on across generations in Gujarati folk songs and tales.' },
-    architecture: { eyebrow: 'Architecture', title: 'Five storeys and an octagonal kund', p: 'The stepwell has five storeys with rooms, shaded galleries and flights of steps leading down to the water. At its centre is an octagonal open kund. The carving on pillars, arches and ceilings blends Hindu, Jain and Islamic styles.' },
-    climate: { eyebrow: 'Climate', title: 'Gujarat’s heat and monsoon', p: 'Adalaj has a hot, dry summer (Mar–Jun), a humid monsoon (Jun–Sep) and a comfortable winter (Nov–Feb). Winter is considered the best season to visit.' },
-    itineraries: { eyebrow: 'Itineraries', title: 'For what kind of visitor', p: 'A short visit (60–90 minutes) covers the main storeys and carvings. Allow 2 hours for photography and quiet exploration. Combine with Akshardham and Trimandir for a half or full day.' },
-    visit: {
-      eyebrow: 'Plan your visit', title: 'Know before you go',
-      cards: [
-        { title: 'Ticket / cost', body: 'Entry fees and photography rules can change. Verify current ASI or local official notice before visiting.' },
-        { title: 'Best time', body: 'Oct–Mar is more comfortable. Arrive early morning or before sunset for soft light.' },
-        { title: 'Suggested duration', body: '60–90 min for a standard visit; up to 2 hours to see every storey at leisure with photography.' },
-        { title: 'Parking', body: 'Roadside access is available around the site. Parking arrangement may vary on site; arriving early on busy days is easier.' },
-        { title: 'Dress & safety', body: 'Wear good-grip shoes for the stone steps. Do not touch or scratch the historic carvings and follow restricted-area signs.' },
-        { title: 'Address', body: 'Adalaj Rd, Adalaj, Gujarat 382421, India · Plus Code: 5H8J+P2' },
-      ],
+    "stories": {
+      "eyebrow": "Legend & heritage",
+      "title": "Queen Rudabai's tale",
+      "p": "Incredible India recounts the story of Queen Rudabai and Sultan Mahmud Begada as a legend. This guide distinguishes that narrative from the visible building and its documented late-15th-century origins."
     },
-    reach: {
-      eyebrow: 'Getting there in detail', title: 'Easy road access between Ahmedabad and Gandhinagar',
-      blocks: [
-        { h: 'By air (Airport → Stepwell)', p: 'The nearest major airport is Sardar Vallabhbhai Patel International Airport (Ahmedabad), about 18 km from Adalaj. From the airport take a prepaid taxi or app cab via SG Highway to Adalaj; 45–60 minutes depending on traffic.' },
-        { h: 'Rail + local transport', p: 'Alight at Gandhinagar Capital or Ahmedabad Junction. From there reach Adalaj by GSRTC bus, shared auto or cab; ask for the "Adalaj" stop for the bus. We do not recommend a specific operator — check fresh local reviews before departure.' },
-        { h: 'Road / taxi', p: 'Take an app cab or taxi from Ahmedabad or Gandhinagar and set destination "Adalaj Stepwell, Adalaj". Distance is about 20–30 km.' },
-      ],
-      sourceNote: 'Official info: Government of India tourism portal · Gujarat Tourism',
+    "architecture": {
+      "eyebrow": "Architecture",
+      "title": "Five storeys and an octagonal kund",
+      "p": "Gujarat Tourism describes three entrances, an octagonal opening and carved pillars supporting five storeys. These features combine local and Islamic design traditions. Five storeys does not mean every level is open to visitors."
     },
-    facilities: { eyebrow: 'Facilities', title: 'What is available nearby', p: 'Parking, restrooms, vegetarian food, groceries, fuel, pharmacy and ATM may be found nearby. Confirm specific arrangements on site — we do not recommend any commercial establishment.' },
-    etiquette: { eyebrow: 'Etiquette', title: 'Tips for visitors', p: 'As a place of worship, dress modestly, give way to other visitors and take your litter with you. Do not damage the carvings.' },
-    nearby: {
-      eyebrow: 'Plan around', title: 'What to do near Adalaj',
-      cards: [
-        { title: 'Food nearby', body: 'Gujarati thali, farsan, tea and vegetarian meals are easily found along the Adalaj–Gandhinagar road.' },
-        { title: 'Akshardham, Gandhinagar', body: 'A well-known temple complex in Gandhinagar. Check official info for timings, closed days and security rules.' },
-        { title: 'Trimandir, Adalaj', body: 'A religious complex near Adalaj; featured as an interesting nearby place on the Gandhinagar district tourism page.' },
-      ],
+    "climate": {
+      "eyebrow": "Climate",
+      "title": "Gujarat’s heat and monsoon",
+      "p": "Incredible India recommends October–March for a visit. Check the actual forecast before leaving; shade in the stepwell does not guarantee protection from heat or rain."
     },
-    faq: {
-      eyebrow: 'FAQ', title: 'Frequently asked questions',
-      items: [
-        { q: 'How much time should I keep to see Adalaj Stepwell?', a: '60 to 90 minutes is enough for most visitors. Allow more for carvings, light and photography.' },
-        { q: 'Is there an entry fee for Adalaj Stepwell?', a: 'Entry policy can change. Verify current fee and rules from ASI or the local official source before travel.' },
-        { q: 'Which time is best?', a: 'Oct–Mar weather is more comfortable. Early morning or before sunset gives soft light on the carvings.' },
-        { q: 'How to reach from Ahmedabad?', a: 'Adalaj lies between Ahmedabad and Gandhinagar. Reach by road via taxi, car or bus; the nearest major rail hubs are Ahmedabad and Gandhinagar.' },
-        { q: 'What facilities are available at Adalaj?', a: 'Parking, restrooms, vegetarian food, groceries, fuel, pharmacy and ATM may be found nearby.' },
-        { q: 'How to reach Adalaj Stepwell from Ahmedabad airport?', a: 'The nearest major airport is Sardar Vallabhbhai Patel International Airport (Ahmedabad). From there reach Adalaj by taxi or cab via road.' },
-        { q: 'What time of year is best to go?', a: 'Nov–Feb (winter) is most comfortable. Avoid the intense heat of Apr–May and the Jun–Sep monsoon.' },
-        { q: 'Is there parking near Adalaj Stepwell?', a: 'Roadside or designated parking may be available near the entrance. Space is limited on holidays and busy days — arrive early.' },
-      ],
+    "itineraries": {
+      "eyebrow": "Itineraries",
+      "title": "For what kind of visitor",
+      "p": "Allow time for the steps and carvings at your own pace. A proposed onward stop is Akshardham in Gandhinagar or Trimandir in Adalaj, listed by Gujarat Tourism. Check each destination’s separate hours and entry rules; this is not a combined ticket."
     },
-    sources: {
-      eyebrow: 'Sources', title: 'Official and public sources',
-      items: [
-        { label: 'Government of India tourism portal', href: GOVT },
-        { label: 'Gandhinagar district administration', href: DISTRICT },
-        { label: 'Gujarat Tourism', href: GUJ_TOUR },
-      ],
+    "visit": {
+      "eyebrow": "Plan your visit",
+      "title": "Know before you go",
+      "cards": [
+        {
+          "title": "Ticket / cost",
+          "body": "Use the ASI ticket portal and select the Adalaj/Rudabai monument and visit date. ASI fees can distinguish Indian, SAARC/BIMSTEC and other foreign visitors; check the applicable nationality, age exemption and electronic or counter payment conditions. This guide has not independently confirmed a current Adalaj rupee tariff."
+        },
+        {
+          "title": "Best time",
+          "body": "Incredible India recommends October–March for a visit. Check the actual forecast before leaving; shade in the stepwell does not guarantee protection from heat or rain."
+        },
+        {
+          "title": "Suggested duration",
+          "body": "Allow time for the steps and carvings at your own pace. A proposed onward stop is Akshardham in Gandhinagar or Trimandir in Adalaj, listed by Gujarat Tourism. Check each destination’s separate hours and entry rules; this is not a combined ticket."
+        },
+        {
+          "title": "Before leaving",
+          "body": "Check parking, toilets, drinking water and step-free access directly before travel, especially if these are essential to your visit. The historic stairs can make access difficult; this guide does not certify wheelchair access or a particular facility."
+        },
+        {
+          "title": "Dress & safety",
+          "body": "Wear shoes with grip, take water, and use permitted steps. Do not climb carvings or cross barriers. During heavy rain or thunder, seek a safe shelter and follow staff advice rather than relying on this forecast to determine access."
+        },
+        {
+          "title": "Address",
+          "body": "Adalaj Rd, Adalaj, Gujarat 382421, India. The map pin is 23.1668106, 72.5800895; confirm the visitor entrance on arrival."
+        }
+      ]
     },
+    "reach": {
+      "eyebrow": "Getting there in detail",
+      "title": "Easy road access between Ahmedabad and Gandhinagar",
+      "blocks": [
+        {
+          "h": "Airport connection",
+          "p": "Ahmedabad’s Sardar Vallabhbhai Patel International Airport is the main air gateway described by Gujarat Tourism. Plan your road connection to Adalaj using a current route, not a guaranteed travel time."
+        },
+        {
+          "h": "Rail connection",
+          "p": "Ahmedabad and Gandhinagar are rail gateways for the area. Confirm your actual station, train and onward road connection before booking; do not assume a direct bus from every station."
+        },
+        {
+          "h": "Location and road journey",
+          "p": "Set the destination to Adalaj Stepwell/Rudabai Stepwell, Adalaj. Route distance depends on your starting point. Confirm drop-off and the return journey; we do not publish unverified bus numbers or fixed taxi fares."
+        }
+      ],
+      "sourceNote": "Open the location in Google Maps (third party)"
+    },
+    "facilities": {
+      "eyebrow": "Facilities",
+      "title": "What is available nearby",
+      "p": "Check parking, toilets, drinking water and step-free access directly before travel, especially if these are essential to your visit. The historic stairs can make access difficult; this guide does not certify wheelchair access or a particular facility."
+    },
+    "etiquette": {
+      "eyebrow": "Etiquette",
+      "title": "Tips for visitors",
+      "p": "Wear shoes with grip, take water, and use permitted steps. Do not climb carvings or cross barriers. During heavy rain or thunder, seek a safe shelter and follow staff advice rather than relying on this forecast to determine access."
+    },
+    "nearby": {
+      "eyebrow": "Plan around",
+      "title": "What to do near Adalaj",
+      "cards": [
+        {
+          "title": "Akshardham onward trip",
+          "body": "For an onward journey to Akshardham, calculate the road route from the stepwell to the exact temple entrance. Straight-line distances and general city distances do not give a reliable journey time."
+        },
+        {
+          "title": "Akshardham, Gandhinagar",
+          "body": "Allow time for the steps and carvings at your own pace. A proposed onward stop is Akshardham in Gandhinagar or Trimandir in Adalaj, listed by Gujarat Tourism. Check each destination’s separate hours and entry rules; this is not a combined ticket."
+        },
+        {
+          "title": "Trimandir, Adalaj",
+          "body": "Allow time for the steps and carvings at your own pace. A proposed onward stop is Akshardham in Gandhinagar or Trimandir in Adalaj, listed by Gujarat Tourism. Check each destination’s separate hours and entry rules; this is not a combined ticket."
+        }
+      ]
+    },
+    "faq": {
+      "eyebrow": "FAQ",
+      "title": "Frequently asked questions",
+      "items": [
+        {
+          "q": "Where is Adalaj Stepwell?",
+          "a": "Adalaj Rd, Adalaj, Gujarat 382421, India. The map pin is 23.1668106, 72.5800895; confirm the visitor entrance on arrival."
+        },
+        {
+          "q": "What are the visiting hours?",
+          "a": "Google Maps listed 08:00–18:00 on all seven days when checked on 23 October 2026. This is a third-party snapshot, not confirmation of today’s last admission or access to every level. Verify the ticket and entrance notice before departure."
+        },
+        {
+          "q": "What is the entry fee?",
+          "a": "Use the ASI ticket portal and select the Adalaj/Rudabai monument and visit date. ASI fees can distinguish Indian, SAARC/BIMSTEC and other foreign visitors; check the applicable nationality, age exemption and electronic or counter payment conditions. This guide has not independently confirmed a current Adalaj rupee tariff."
+        },
+        {
+          "q": "Is this the official Adalaj Stepwell website?",
+          "a": "Independent visitor guide; not the monument operator, ASI or an official government website."
+        },
+        {
+          "q": "Can I access all five levels?",
+          "a": "Five storeys describes the architecture, not guaranteed public access. Follow the current route, barriers and staff instructions."
+        }
+      ]
+    },
+    "sources": {
+      "eyebrow": "Sources",
+      "title": "Official and public sources",
+      "items": [
+        {
+          "label": "Gujarat Tourism · Adalaj ni Vav",
+          "href": "https://gujarattourism.com/central-zone/gandhinagar/adalaj-ni-vav.html"
+        },
+        {
+          "label": "Incredible India · Adalaj Stepwell",
+          "href": "https://www.incredibleindia.gov.in/en/gujarat/gandhinagar/adalaj-stepwell"
+        },
+        {
+          "label": "ASI · Tickets",
+          "href": "https://asi.paygov.org.in/asi-webapp/#/ticketbooking"
+        }
+      ]
+    }
   },
-  hi: {
-    heroEyebrow: 'अडालज · गांधीनगर ज़िला · गुजरात · भारत',
-    h1: 'अडालज स्टेपवेल (अडालज, गुजरात)',
-    heroLead: 'अडालज स्टेपवेल, जिसे आमतौर पर रुदाबाई नी वाव कहा जाता है, गांधीनगर ज़िला, गुजरात, भारत के अडालज गाँव में 15वीं सदी के अंत का एक स्मारक है — जहाँ जल संग्रह की समझ, छायादार शांति और हिंदू–जैन–इस्लामी नक्काशी एक ही संरचना में मिलती हैं.',
-    facts: [
-      { value: '15वीं सदी', label: 'रुदाबाई नी वाव' },
-      { value: '5 मंज़िल', label: 'भूमिगत दीर्घाएँ' },
-      { value: '08:00–18:00', label: 'यात्रा से पहले जाँचें' },
-      { value: '4.5 ★', label: '31,158 गूगल समीक्षाएँ*' },
+  "hi": {
+    "heroEyebrow": "अडालज · गांधीनगर ज़िला · गुजरात · भारत",
+    "h1": "अडालज स्टेपवेल (अडालज, गुजरात)",
+    "heroLead": "अडालज की वाव (Adalaj ni Vav या रुदाबाई स्टेपवेल) गुजरात के गांधीनगर जिले में अडालज स्थित पाँच मंज़िला ऐतिहासिक बावड़ी है। इस स्वतंत्र गाइड में स्थान, समय, ASI टिकट और अहमदाबाद से पहुँचने की जानकारी देखें।",
+    "facts": [
+      {
+        "value": "15वीं सदी",
+        "label": "रुदाबाई नी वाव"
+      },
+      {
+        "value": "5 मंज़िल",
+        "label": "भूमिगत दीर्घाएँ"
+      },
+      {
+        "value": "08:00–18:00",
+        "label": "Maps संदर्भ · 23 अक्तू 2026"
+      },
+      {
+        "value": "4.5 ★",
+        "label": "31,310 Google Maps समीक्षाएँ · 23 अक्तू 2026"
+      }
     ],
-    history: {
-      eyebrow: 'वास्तुकला और विरासत',
-      title: 'प्रकाश, छाया और पत्थर का एक खड़ा शहर',
-      p1: 'अडालज स्टेपवेल, जिसे रुदाबाई नी वाव भी कहा जाता है, अडालज गाँव में पाँच मंज़िला ऐतिहासिक सोपान-कूप है। ज़िला और राष्ट्रीय पर्यटन स्रोत इसे 15वीं सदी के अंत की रचना बताते हैं और इसके नक्काशीदार स्तंभों, अष्टकोणीय खुले कुंड और जल तक उतरती सीढ़ियों को विशेष बताते हैं।',
-      p2: 'वाव केवल पानी का स्रोत नहीं थी; यह व्यापारियों, तीर्थयात्रियों और स्थानीय लोगों के आराम और मेलजोल का स्थान भी था। नक्काशी में फूल-पत्तियाँ, ज्यामितीय पैटर्न, दिव्य आकृतियाँ और दैनिक जीवन के दृश्य मिलते हैं। अडालज स्टेपवेल आने वाले पास के ऐतिहासिक स्थल — गांधीनगर का अक्षरधाम और अडालज का त्रिमंदिर — भी आसानी से देख सकते हैं।',
-      links: [
-        { label: 'भारत सरकार पर्यटन पोर्टल', href: GOVT },
-        { label: 'गांधीनगर ज़िला प्रशासन', href: DISTRICT },
-        { label: 'गुजरात पर्यटन', href: GUJ_TOUR },
-      ],
+    "history": {
+      "eyebrow": "वास्तुकला और विरासत",
+      "title": "प्रकाश, छाया और पत्थर का एक खड़ा शहर",
+      "p1": "गुजरात पर्यटन इसे 15वीं सदी की पाँच मंज़िला बावड़ी और भारतीय-इस्लामी स्थापत्य का उदाहरण बताता है। Incredible India निर्माण की शुरुआत 1498 में बताता है और स्मारक को रानी रुदाबाई से जोड़ता है।",
+      "p2": "भूमिगत दीर्घाएँ जल व्यवस्था के साथ लोगों के मिलने की भूमिका भी समझाती हैं। नक्काशीदार स्तंभ और ऊपर का खुला भाग देखें; उस दिन अनुमति वाले रास्ते पर ही चलें।",
+      "links": [
+        {
+          "label": "Gujarat Tourism · Adalaj ni Vav",
+          "href": "https://gujarattourism.com/central-zone/gandhinagar/adalaj-ni-vav.html"
+        },
+        {
+          "label": "Incredible India · Adalaj Stepwell",
+          "href": "https://www.incredibleindia.gov.in/en/gujarat/gandhinagar/adalaj-stepwell"
+        }
+      ]
     },
-    stories: { eyebrow: 'कथा और विरासत', title: 'रानी रुदाबाई की गाथा', p: 'सबसे लोकप्रिय कथा रानी रुदाबाई की है — वाव पूरी होने पर उन्होंने दिवंगत पति के लिए प्रार्थना की और कुएँ को समर्पित हो गईं; इसलिए वाव को प्रेम और भक्ति का स्मारक कहा जाता है। यह कथा पीढ़ियों से गुजराती लोकगीतों और कहानियों में जीवित है।' },
-    architecture: { eyebrow: 'वास्तुकला', title: 'पाँच मंज़िल और अष्टकोणीय कुंड', p: 'वाव पाँच मंज़िल की है, जिसमें नीचे की ओर कमरे, छायादार दीर्घाएँ और जल तक उतरती सीढ़ियाँ हैं। इसके केंद्र में अष्टकोणीय खुला कुंड है। स्तंभ, मेहराब और छत की नक्काशी हिंदू, जैन और इस्लामी शैलियों का मिश्रण दिखाती है।' },
-    climate: { eyebrow: 'जलवायु', title: 'गुजरात की गर्मी और मानसून', p: 'अडालज में ग्रीष्म (मार्च–जून) गर्म और शुष्क, मानसून (जून–सितंबर) नम, और शीतकाल (नवंबर–फरवरी) आरामदायक होता है। मुलाकात के लिए शीतकाल सर्वोत्तम माना जाता है।' },
-    itineraries: { eyebrow: 'यात्रा योजना', title: 'किस प्रकार के आगंतुक के लिए', p: 'छोटी मुलाकात (६०–९० मिनट) के लिए मुख्य मंज़िलें और नक्काशी पर्याप्त हैं। फ़ोटोग्राफ़ी और ध्यान के लिए २ घंटे रखें। अक्षरधाम और त्रिमंदिर को मिलाकर आधा या पूरा दिन बिताया जा सकता है।' },
-    visit: {
-      eyebrow: 'भ्रमण की योजना', title: 'जाने से पहले जानना आवश्यक',
-      cards: [
-        { title: 'टिकट / ख़र्च', body: 'प्रवेश शुल्क और फ़ोटोग्राफ़ी नियम बदल सकते हैं। यात्रा से पहले ASI या स्थानीय आधिकारिक सूचना जाँच लें।' },
-        { title: 'सर्वोत्तम समय', body: 'अक्टूबर–मार्च अधिक आरामदायक है। कोमल प्रकाश के लिए सुबह जल्दी या शाम से पहले आएँ।' },
-        { title: 'सुझाया गया समय', body: 'सामान्य मुलाकात के लिए 60–90 मिनट; नक्काशी, फ़ोटोग्राफ़ी और हर मंज़िल को धीरे देखने हेतु 2 घंटे तक रखें।' },
-        { title: 'पार्किंग', body: 'स्थल के आसपास सड़क आधारित पहुँच उपलब्ध है। पार्किंग व्यवस्था स्थल पर बदल सकती है; व्यस्त दिनों में जल्दी आना आसान रहता है।' },
-        { title: 'पहनावा और सुरक्षा', body: 'पत्थर की सीढ़ियों के लिए अच्छी पकड़ वाले जूते पहनें। ऐतिहासिक नक्काशी को छूँ या खरोंचें नहीं और प्रतिबंधित क्षेत्रों के निर्देश मानें।' },
-        { title: 'पता', body: 'अडालज रोड, अडालज, गुजरात 382421, भारत · प्लस कोड: 5H8J+P2' },
-      ],
+    "stories": {
+      "eyebrow": "कथा और विरासत",
+      "title": "रानी रुदाबाई की गाथा",
+      "p": "Incredible India रानी रुदाबाई और सुल्तान महमूद बेगड़ा की कहानी को किंवदंती के रूप में प्रस्तुत करता है। यह गाइड उस कथा को इमारत और 15वीं सदी के ऐतिहासिक संदर्भ से अलग रखता है।"
     },
-    reach: {
-      eyebrow: 'विस्तृत परिवहन', title: 'अहमदाबाद और गांधीनगर के बीच आसान सड़क पहुँच',
-      blocks: [
-        { h: 'हवाई मार्ग (एयरपोर्ट → वाव)', p: 'सबसे नज़दीकी बड़ा एयरपोर्ट सरदार वल्लभभाई पटेल अंतरराष्ट्रीय एयरपोर्ट (अहमदाबाद) है, जो अडालज से लगभग १८ किमी दूर है। एयरपोर्ट से प्रीपेड टैक्सी या ऐप-कैब लेकर SG हाइवे से अडालज पहुँचा जा सकता है; ट्रैफ़िक के अनुसार ४५–६० मिनट लगते हैं।' },
-        { h: 'रेल + स्थानीय वाहन', p: 'गांधीनगर कैपिटल या अहमदाबाद जंक्शन उतरें। वहाँ से GSRTC बस, शेयर्ड ऑटो या कैब से अडालज पहुँचा जा सकता है। हम किसी विशेष ऑपरेटर की सिफ़ारिश नहीं करते — जाने से पहले ताज़ी स्थानीय समीक्षाएँ देखें।' },
-        { h: 'सड़क / टैक्सी', p: 'अहमदाबाद या गांधीनगर से ऐप-कैब या टैक्सी लें और गंतव्य "Adalaj Stepwell, Adalaj" सेट करें। दूरी लगभग २०–३० किमी है।' },
-      ],
-      sourceNote: 'आधिकारिक जानकारी: भारत सरकार पर्यटन पोर्टल · गुजरात पर्यटन',
+    "architecture": {
+      "eyebrow": "वास्तुकला",
+      "title": "पाँच मंज़िल और अष्टकोणीय कुंड",
+      "p": "गुजरात पर्यटन तीन प्रवेश, अष्टकोणीय खुला भाग और पाँच मंज़िलों को सहारा देते नक्काशीदार स्तंभ बताता है। स्थानीय और इस्लामी शैली साथ दिखती हैं। पाँच मंज़िल होने का अर्थ हर स्तर पर सार्वजनिक प्रवेश नहीं है।"
     },
-    facilities: { eyebrow: 'सुविधाएँ', title: 'आसपास क्या उपलब्ध है', p: 'पार्किंग, शौचालय, शाकाहारी भोजन, किराना, ईंधन, फ़ार्मेसी और एटीएम पास में मिल सकते हैं। विशिष्ट व्यवस्था स्थल पर जाँच लें — हम किसी व्यावसायिक संस्था की सिफ़ारिश नहीं करते।' },
-    etiquette: { eyebrow: 'शिष्टाचार', title: 'आगंतुकों के लिए सुझाव', p: 'एक पवित्र स्थल के रूप में विनम्र वेश रखें, अन्य आगंतुकों को रास्ता दें और अपना कचरा साथ ले जाएँ। नक्काशी को नुक़सान न पहुँचाएँ।' },
-    nearby: {
-      eyebrow: 'आसपास की योजना', title: 'अडालज के आसपास क्या करें',
-      cards: [
-        { title: 'आसपास का भोजन', body: 'अडालज–गांधीनगर मार्ग पर गुजराती थाली, फरसाण, चाय और शाकाहारी भोजन आसानी से मिलता है।' },
-        { title: 'अक्षरधाम, गांधीनगर', body: 'गांधीनगर का प्रसिद्ध मंदिर परिसर। समय, बंद दिन और सुरक्षा नियमों के लिए आधिकारिक जानकारी जाँच लें।' },
-        { title: 'त्रिमंदिर, अडालज', body: 'अडालज के पास का धार्मिक परिसर; गांधीनगर ज़िला पर्यटन पृष्ठ पर आसपास के रोचक स्थल के रूप में दिखाया गया है।' },
-      ],
+    "climate": {
+      "eyebrow": "जलवायु",
+      "title": "गुजरात की गर्मी और मानसून",
+      "p": "Incredible India अक्टूबर–मार्च में यात्रा की सलाह देता है। निकलने से पहले वास्तविक पूर्वानुमान देखें; बावड़ी की छाया गर्मी या बारिश से सुरक्षा की गारंटी नहीं है।"
     },
-    faq: {
-      eyebrow: 'प्रश्नोत्तर', title: 'अक्सर पूछे जाने वाले प्रश्न',
-      items: [
-        { q: 'अडालज स्टेपवेल देखने के लिए कितना समय रखें?', a: 'अधिकांश आगंतुकों के लिए 60 से 90 मिनट पर्याप्त हैं। नक्काशी, प्रकाश और फ़ोटोग्राफ़ी के लिए अधिक समय रखें।' },
-        { q: 'अडालज स्टेपवेल के लिए प्रवेश शुल्क है?', a: 'प्रवेश नीति बदल सकती है। यात्रा से पहले ASI या स्थानीय आधिकारिक स्रोत से वर्तमान शुल्क और नियम जाँच लें।' },
-        { q: 'कौन सा समय सर्वोत्तम है?', a: 'अक्टूबर–मार्च का मौसम अधिक आरामदायक है। कोमल प्रकाश के लिए सुबह जल्दी या शाम से पहले आएँ।' },
-        { q: 'अहमदाबाद से कैसे पहुँचें?', a: 'अडालज अहमदाबाद और गांधीनगर के बीच स्थित है। सड़क मार्ग से टैक्सी, कार या बस से पहुँचा जा सकता है; नज़दीकी प्रमुख रेल केंद्र अहमदाबाद और गांधीनगर हैं।' },
-        { q: 'अडालज में कौन सी सुविधाएँ मिलती हैं?', a: 'पार्किंग, शौचालय, शाकाहारी भोजन, किराना, ईंधन, फ़ार्मेसी और एटीएम पास में मिल सकते हैं।' },
-        { q: 'अहमदाबाद एयरपोर्ट से अडालज स्टेपवेल कैसे पहुँचें?', a: 'सबसे नज़दीकी बड़ा एयरपोर्ट सरदार वल्लभभाई पटेल अंतरराष्ट्रीय एयरपोर्ट (अहमदाबाद) है। वहाँ से टैक्सी या कैब से सड़क मार्ग से अडालज पहुँचा जा सकता है।' },
-        { q: 'वर्ष में कौन सा समय सर्वोत्तम है?', a: 'नवंबर–फरवरी (शीतकाल) सबसे आरामदायक है। अप्रैल–मई की तीव्र गर्मी और जून–सितंबर के मानसून से बचें।' },
-        { q: 'अडालज स्टेपवेल के पास पार्किंग है?', a: 'प्रवेश द्वार के पास सड़क किनारे या निर्धारित पार्किंग व्यवस्था हो सकती है। छुट्टियों और व्यस्त दिनों में जगह सीमित होती है — जल्दी आएँ।' },
-      ],
+    "itineraries": {
+      "eyebrow": "यात्रा योजना",
+      "title": "किस प्रकार के आगंतुक के लिए",
+      "p": "सीढ़ियाँ और नक्काशी अपनी गति से देखने का समय रखें। गुजरात पर्यटन के आसपास के स्थलों में गांधीनगर का अक्षरधाम और अडालज का त्रिमंदिर हैं। प्रत्येक के समय और प्रवेश नियम अलग जाँचें; यह संयुक्त टिकट नहीं है।"
     },
-    sources: {
-      eyebrow: 'स्रोत', title: 'आधिकारिक और सार्वजनिक स्रोत',
-      items: [
-        { label: 'भारत सरकार पर्यटन पोर्टल', href: GOVT },
-        { label: 'गांधीनगर ज़िला प्रशासन', href: DISTRICT },
-        { label: 'गुजरात पर्यटन', href: GUJ_TOUR },
-      ],
+    "visit": {
+      "eyebrow": "भ्रमण की योजना",
+      "title": "जाने से पहले जानना आवश्यक",
+      "cards": [
+        {
+          "title": "टिकट / ख़र्च",
+          "body": "ASI टिकट पोर्टल में अडालज/रुदाबाई स्मारक और यात्रा की तारीख चुनें। ASI शुल्क भारतीय, SAARC/BIMSTEC और अन्य विदेशी यात्रियों के लिए अलग हो सकते हैं; लागू राष्ट्रीयता, आयु छूट और इलेक्ट्रॉनिक या काउंटर भुगतान की शर्तें जाँचें। इस गाइड ने अडालज की वर्तमान रुपये वाली दर की स्वतंत्र पुष्टि नहीं की है।"
+        },
+        {
+          "title": "सर्वोत्तम समय",
+          "body": "Incredible India अक्टूबर–मार्च में यात्रा की सलाह देता है। निकलने से पहले वास्तविक पूर्वानुमान देखें; बावड़ी की छाया गर्मी या बारिश से सुरक्षा की गारंटी नहीं है।"
+        },
+        {
+          "title": "सुझाया गया समय",
+          "body": "सीढ़ियाँ और नक्काशी अपनी गति से देखने का समय रखें। गुजरात पर्यटन के आसपास के स्थलों में गांधीनगर का अक्षरधाम और अडालज का त्रिमंदिर हैं। प्रत्येक के समय और प्रवेश नियम अलग जाँचें; यह संयुक्त टिकट नहीं है।"
+        },
+        {
+          "title": "निकलने से पहले",
+          "body": "पार्किंग, शौचालय, पेयजल और बिना सीढ़ियों के प्रवेश की सीधे पुष्टि करें, विशेषकर यदि ये आवश्यक हों। ऐतिहासिक सीढ़ियाँ कठिनाई पैदा कर सकती हैं; गाइड व्हीलचेयर प्रवेश या किसी सुविधा की गारंटी नहीं देता।"
+        },
+        {
+          "title": "पहनावा और सुरक्षा",
+          "body": "पकड़ वाले जूते पहनें, पानी रखें और अनुमति वाली सीढ़ियाँ प्रयोग करें। नक्काशी पर न चढ़ें, अवरोध पार न करें। भारी बारिश या बिजली में सुरक्षित आश्रय और कर्मचारियों की सलाह लें; पूर्वानुमान से प्रवेश खुला होना तय न करें।"
+        },
+        {
+          "title": "पता",
+          "body": "Adalaj Rd, अडालज, गुजरात 382421, भारत। मानचित्र पिन 23.1668106, 72.5800895 है; पहुँचकर आगंतुक प्रवेश जाँचें।"
+        }
+      ]
     },
-  },
+    "reach": {
+      "eyebrow": "विस्तृत परिवहन",
+      "title": "अहमदाबाद और गांधीनगर के बीच आसान सड़क पहुँच",
+      "blocks": [
+        {
+          "h": "हवाई अड्डा संपर्क",
+          "p": "गुजरात पर्यटन अहमदाबाद के सरदार वल्लभभाई पटेल अंतरराष्ट्रीय हवाई अड्डे का उल्लेख करता है। वहाँ से अडालज का वर्तमान सड़क मार्ग जाँचें; यात्रा का समय निश्चित नहीं है।"
+        },
+        {
+          "h": "रेल संपर्क",
+          "p": "अहमदाबाद और गांधीनगर क्षेत्र के रेल संपर्क हैं। बुकिंग से पहले वास्तविक स्टेशन, ट्रेन और आगे का सड़क संपर्क जाँचें; हर स्टेशन से सीधी बस न मानें।"
+        },
+        {
+          "h": "स्थान और सड़क मार्ग",
+          "p": "गंतव्य में Adalaj Stepwell/Rudabai Stepwell, Adalaj चुनें। दूरी शुरुआती स्थान पर निर्भर है। उतरने की जगह और वापसी की योजना जाँचें; यहाँ अपुष्ट बस नंबर या तय टैक्सी किराया नहीं दिया जाता।"
+        }
+      ],
+      "sourceNote": "Google Maps में स्थान देखें (तीसरा पक्ष)"
+    },
+    "facilities": {
+      "eyebrow": "सुविधाएँ",
+      "title": "आसपास क्या उपलब्ध है",
+      "p": "पार्किंग, शौचालय, पेयजल और बिना सीढ़ियों के प्रवेश की सीधे पुष्टि करें, विशेषकर यदि ये आवश्यक हों। ऐतिहासिक सीढ़ियाँ कठिनाई पैदा कर सकती हैं; गाइड व्हीलचेयर प्रवेश या किसी सुविधा की गारंटी नहीं देता।"
+    },
+    "etiquette": {
+      "eyebrow": "शिष्टाचार",
+      "title": "आगंतुकों के लिए सुझाव",
+      "p": "पकड़ वाले जूते पहनें, पानी रखें और अनुमति वाली सीढ़ियाँ प्रयोग करें। नक्काशी पर न चढ़ें, अवरोध पार न करें। भारी बारिश या बिजली में सुरक्षित आश्रय और कर्मचारियों की सलाह लें; पूर्वानुमान से प्रवेश खुला होना तय न करें।"
+    },
+    "nearby": {
+      "eyebrow": "आसपास की योजना",
+      "title": "अडालज के आसपास क्या करें",
+      "cards": [
+        {
+          "title": "अक्षरधाम की अगली यात्रा",
+          "body": "अक्षरधाम जाने के लिए बावड़ी से मंदिर के सही प्रवेश तक सड़क मार्ग निकालें। सीधी रेखा की दूरी या शहर की सामान्य दूरी से यात्रा समय तय नहीं होता।"
+        },
+        {
+          "title": "अक्षरधाम, गांधीनगर",
+          "body": "सीढ़ियाँ और नक्काशी अपनी गति से देखने का समय रखें। गुजरात पर्यटन के आसपास के स्थलों में गांधीनगर का अक्षरधाम और अडालज का त्रिमंदिर हैं। प्रत्येक के समय और प्रवेश नियम अलग जाँचें; यह संयुक्त टिकट नहीं है।"
+        },
+        {
+          "title": "त्रिमंदिर, अडालज",
+          "body": "सीढ़ियाँ और नक्काशी अपनी गति से देखने का समय रखें। गुजरात पर्यटन के आसपास के स्थलों में गांधीनगर का अक्षरधाम और अडालज का त्रिमंदिर हैं। प्रत्येक के समय और प्रवेश नियम अलग जाँचें; यह संयुक्त टिकट नहीं है।"
+        }
+      ]
+    },
+    "faq": {
+      "eyebrow": "प्रश्नोत्तर",
+      "title": "अक्सर पूछे जाने वाले प्रश्न",
+      "items": [
+        {
+          "q": "अडालज की वाव कहाँ है?",
+          "a": "Adalaj Rd, अडालज, गुजरात 382421, भारत। मानचित्र पिन 23.1668106, 72.5800895 है; पहुँचकर आगंतुक प्रवेश जाँचें।"
+        },
+        {
+          "q": "दर्शन का समय क्या है?",
+          "a": "23 अक्टूबर 2026 की जाँच में Google Maps पर सातों दिन 08:00–18:00 दिखा। यह तीसरे पक्ष का तारीख वाला संदर्भ है, आज के अंतिम प्रवेश या सभी स्तरों के खुलने की पुष्टि नहीं। निकलने से पहले टिकट और प्रवेश सूचना जाँचें।"
+        },
+        {
+          "q": "प्रवेश शुल्क कितना है?",
+          "a": "ASI टिकट पोर्टल में अडालज/रुदाबाई स्मारक और यात्रा की तारीख चुनें। ASI शुल्क भारतीय, SAARC/BIMSTEC और अन्य विदेशी यात्रियों के लिए अलग हो सकते हैं; लागू राष्ट्रीयता, आयु छूट और इलेक्ट्रॉनिक या काउंटर भुगतान की शर्तें जाँचें। इस गाइड ने अडालज की वर्तमान रुपये वाली दर की स्वतंत्र पुष्टि नहीं की है।"
+        },
+        {
+          "q": "क्या यह अडालज स्टेपवेल की आधिकारिक वेबसाइट है?",
+          "a": "स्वतंत्र आगंतुक गाइड; स्मारक संचालक, ASI या आधिकारिक सरकारी वेबसाइट नहीं।"
+        },
+        {
+          "q": "क्या सभी पाँच स्तर खुले हैं?",
+          "a": "पाँच मंज़िलें स्थापत्य का वर्णन है, सार्वजनिक प्रवेश की गारंटी नहीं। वर्तमान रास्ते, अवरोध और कर्मचारियों के निर्देश मानें।"
+        }
+      ]
+    },
+    "sources": {
+      "eyebrow": "स्रोत",
+      "title": "आधिकारिक और सार्वजनिक स्रोत",
+      "items": [
+        {
+          "label": "Gujarat Tourism · Adalaj ni Vav",
+          "href": "https://gujarattourism.com/central-zone/gandhinagar/adalaj-ni-vav.html"
+        },
+        {
+          "label": "Incredible India · Adalaj Stepwell",
+          "href": "https://www.incredibleindia.gov.in/en/gujarat/gandhinagar/adalaj-stepwell"
+        },
+        {
+          "label": "ASI · Tickets",
+          "href": "https://asi.paygov.org.in/asi-webapp/#/ticketbooking"
+        }
+      ]
+    }
+  }
 };
 
 export const subpages: Record<Locale, Record<SubSlug, SubPageDict>> = {
-  gu: {
-    timings: {
-      eyebrow: 'મુલાકાત માહિતી', h1: 'અડાલજની વાવ: મુલાકાત સમય અને ઉપલબ્ધતા',
-      intro: 'અડાલજની વાવ સામાન્ય રીતે સવારે ૮:૦૦ થી સાંજે ૬:૦૦ સુધી ખુલ્લી રહે છે. અહીં મુલાકાત સમય, શ્રેષ્ઠ કલાકો અને ઋતુ પ્રમાણે શું રાખવું તે આપેલ છે.',
-      blocks: [
-        { h: 'મુલાકાત સમય', p: 'સામાન્ય સમયપત્રક સવારે ૦૮:૦૦ થી સાંજે ૧૮:૦૦ છે. અधિકૃત સમય ઋતુ અને તહેવાર પ્રમાણે બદલાઈ શકે; મુસાફરી પહેલાં ASI અથવા સ્થાનિક સત્તાવાર સૂચના ચકાસો.' },
-        { h: 'શ્રેષ્ઠ કલાકો', p: 'વહેલી સવાર (૦૮:૦૦–૧૦:૦૦) અને સાંજ (૧૬:૩૦–૧૮:૦૦) પ્રકાશ અને ગરમી માટે આરામદાયક છે. બપોરના તાપથી ટાળો.' },
-        { h: 'બંધ દિવસ', p: 'કોઈ નિયત સાપ્તાહિક બંધ દિવસ નોંધાયેલ નથી, પણ તહેવારો અથવા જાળવણીના કારણે સમય બદલાઈ શકે. સ્થાનિક સૂચના ચકાસો.' },
+  "gu": {
+    "timings": {
+      "eyebrow": "મુલાકાત માહિતી",
+      "h1": "અડાલજની વાવનો સમય: મુલાકાત અને છેલ્લા પ્રવેશની તપાસ",
+      "intro": "23 ઑક્ટોબર 2026ની તપાસમાં Google Maps પર સાતેય દિવસ 08:00–18:00 દર્શાવાયું હતું. આ તૃતીય-પક્ષનો તારીખવાળો સંદર્ભ છે, આજના છેલ્લાં પ્રવેશ કે બધા માળ ખુલ્લા હોવાની ખાતરી નથી. નીકળતાં પહેલાં ટિકિટ અને પ્રવેશદ્વારની સૂચના તપાસો.",
+      "blocks": [
+        {
+          "h": "મુલાકાતનો સમય",
+          "p": "23 ઑક્ટોબર 2026ની તપાસમાં Google Maps પર સાતેય દિવસ 08:00–18:00 દર્શાવાયું હતું. આ તૃતીય-પક્ષનો તારીખવાળો સંદર્ભ છે, આજના છેલ્લાં પ્રવેશ કે બધા માળ ખુલ્લા હોવાની ખાતરી નથી. નીકળતાં પહેલાં ટિકિટ અને પ્રવેશદ્વારની સૂચના તપાસો."
+        },
+        {
+          "h": "નીકળતા પહેલાં",
+          "p": "Incredible India ઑક્ટોબરથી માર્ચની મુલાકાત સૂચવે છે. નીકળતા પહેલાં વાસ્તવિક હવામાન જુઓ; વાવની છાંય ગરમી કે વરસાદથી રક્ષણની ખાતરી આપતી નથી."
+        },
+        {
+          "h": "સ્થાપત્ય",
+          "p": "પાંચ માળ સ્થાપત્યનું વર્ણન છે, જાહેર પ્રવેશની ખાતરી નથી. હાલના માર્ગ, અવરોધ અને કર્મચારીઓની સૂચના અનુસરો."
+        }
       ],
-      faq: [
-        { q: 'અડાલજની વાવ કયા સમયે ખુલે છે?', a: 'સામાન્ય રીતે સવારે ૦૮:૦૦ થી સાંજે ૧૮:૦૦ સુધી. અधिकૃત સમય માટે ASI સૂચના ચકાસો.' },
-        { q: 'સોમવારે બંધ રહે છે?', a: 'કોઈ નિયત સાપ્તાહિક બંધ દિવસ નોંધાયેલ નથી; છતાં મુસાફરી પહેલાં સ્થાનિક સત્તાવાર સૂચના ચકાસવી હિતાવહ છે.' },
+      "faq": [
+        {
+          "q": "મુલાકાતનો સમય કયો છે?",
+          "a": "23 ઑક્ટોબર 2026ની તપાસમાં Google Maps પર સાતેય દિવસ 08:00–18:00 દર્શાવાયું હતું. આ તૃતીય-પક્ષનો તારીખવાળો સંદર્ભ છે, આજના છેલ્લાં પ્રવેશ કે બધા માળ ખુલ્લા હોવાની ખાતરી નથી. નીકળતાં પહેલાં ટિકિટ અને પ્રવેશદ્વારની સૂચના તપાસો."
+        },
+        {
+          "q": "શું પાંચેય માળ પર જઈ શકાય?",
+          "a": "પાંચ માળ સ્થાપત્યનું વર્ણન છે, જાહેર પ્રવેશની ખાતરી નથી. હાલના માર્ગ, અવરોધ અને કર્મચારીઓની સૂચના અનુસરો."
+        }
       ],
-      related: [
-        { label: 'પ્રવેશ ફી', href: '/entry-fee' },
-        { label: 'પહોંચ', href: '/transport' },
-        { label: 'ઇતિહાસ', href: '/history' },
-      ],
+      "related": [
+        {
+          "label": "પ્રવેશ ફી",
+          "href": "/entry-fee/"
+        },
+        {
+          "label": "પહોંચ",
+          "href": "/transport/"
+        },
+        {
+          "label": "ઇતિહાસ",
+          "href": "/history/"
+        }
+      ]
     },
-    'entry-fee': {
-      eyebrow: 'મુલાકાત માહિતી', h1: 'અડાલજની વાવ: પ્રવેશ ફી અને ટિકિટ',
-      intro: 'અડાલજની વાવ એ ASI (Archaeological Survey of India) સંરક્ષિત સ્મારક છે. પ્રવેશ ફી અને ફોટોગ્રાફી નિયમો સમય સાથે બદલાઈ શકે છે.',
-      blocks: [
-        { h: 'પ્રવેશ ફી', p: 'પ્રવેશ ફી અને ભારતીય/વિદેશી મુલાકાતી માટે અલગ ધોરણ હોઈ શકે. હાલની ફી ASI અથવા સ્થાનિક સત્તાવાર સૂચના પરથી ચકાસો.' },
-        { h: 'ફોટોગ્રાફી', p: 'વ્યક્તિગત ફોટોગ્રાફી સામાન્ય રીતે મંજૂર છે, પણ ટ્રાઇપોડ અથવા વ્યાવસાયિક શૂટિંગ માટે નિયમો અલગ હોઈ શકે. સ્થળ પર ચકાસો.' },
-        { h: 'માર્ગદર્શક / પરિવહન', p: 'માર્ગદર્શક અને પરિવહનનો ખર્ચ અલગ હોઈ શકે. અમે કોઈ ચોક્કસ ઓપરેટરની ભલામણ કરતા નથી.' },
+    "entry-fee": {
+      "eyebrow": "મુલાકાત માહિતી",
+      "h1": "અડાલજની વાવની પ્રવેશ ફી: ASI ટિકિટ અને પ્રવાસી શ્રેણીઓ",
+      "intro": "ASI ટિકિટ પોર્ટલમાં અડાલજ/રૂડાબાઈનું સ્મારક અને મુલાકાતની તારીખ પસંદ કરો. ASI ફીમાં ભારતીય, SAARC/BIMSTEC અને અન્ય વિદેશી પ્રવાસીઓ વચ્ચે તફાવત હોઈ શકે છે; લાગુ રાષ્ટ્રીયતા, ઉંમરની છૂટ અને ઇલેક્ટ્રોનિક કે કાઉન્ટર ચુકવણીની શરતો તપાસો. આ માર્ગદર્શિકાએ અડાલજનો હાલનો રૂપિયામાં ચોક્કસ દર સ્વતંત્ર રીતે પુષ્ટિ કર્યો નથી.",
+      "blocks": [
+        {
+          "h": "પ્રવેશ ફી અને શ્રેણીઓ",
+          "p": "ASI ટિકિટ પોર્ટલમાં અડાલજ/રૂડાબાઈનું સ્મારક અને મુલાકાતની તારીખ પસંદ કરો. ASI ફીમાં ભારતીય, SAARC/BIMSTEC અને અન્ય વિદેશી પ્રવાસીઓ વચ્ચે તફાવત હોઈ શકે છે; લાગુ રાષ્ટ્રીયતા, ઉંમરની છૂટ અને ઇલેક્ટ્રોનિક કે કાઉન્ટર ચુકવણીની શરતો તપાસો. આ માર્ગદર્શિકાએ અડાલજનો હાલનો રૂપિયામાં ચોક્કસ દર સ્વતંત્ર રીતે પુષ્ટિ કર્યો નથી."
+        },
+        {
+          "h": "ચલણ અને અલગ સેવાઓ",
+          "p": "Mapsમાં ચલણ રૂપાંતરિત રકમ ભારતની દરેક ટિકિટનો એકસમાન દર નથી. સત્તાવાર પસંદગીમાં રૂપિયાની અંતિમ કિંમત તપાસો; વાહન, ગાઇડ અને વ્યાવસાયિક ટૂર અલગ સેવાઓ છે."
+        },
+        {
+          "h": "ફોટોગ્રાફીના નિયમ",
+          "p": "કૅમેરા, ટ્રાઇપોડ અને વ્યાવસાયિક ફોટોગ્રાફીના હાલના નિયમ પ્રવેશદ્વારે પૂછો. સામાન્ય પ્રવેશ ટિકિટ દરેક પ્રકારના શૂટિંગની મંજૂરી આપતી નથી."
+        }
       ],
-      faq: [
-        { q: 'અડાલજની વાવની પ્રવેશ ફી શું છે?', a: 'ફી સમય સાથે બદલાઈ શકે છે; મુસાફરી પહેલાં ASI અથવા સ્થાનિક સત્તાવાર સૂચના ચકાસો.' },
-        { q: 'ફોટોગ્રાફી માટે અલગ ચાર્જ છે?', a: 'વ્યક્તિગત ફોટોગ્રાફી સામાન્ય રીતે મંજૂર છે; વ્યાવસાયિક શૂટિંગ માટે સ્થાનિક નિયમ ચકાસો.' },
+      "faq": [
+        {
+          "q": "પ્રવેશ ફી કેટલી છે?",
+          "a": "ASI ટિકિટ પોર્ટલમાં અડાલજ/રૂડાબાઈનું સ્મારક અને મુલાકાતની તારીખ પસંદ કરો. ASI ફીમાં ભારતીય, SAARC/BIMSTEC અને અન્ય વિદેશી પ્રવાસીઓ વચ્ચે તફાવત હોઈ શકે છે; લાગુ રાષ્ટ્રીયતા, ઉંમરની છૂટ અને ઇલેક્ટ્રોનિક કે કાઉન્ટર ચુકવણીની શરતો તપાસો. આ માર્ગદર્શિકાએ અડાલજનો હાલનો રૂપિયામાં ચોક્કસ દર સ્વતંત્ર રીતે પુષ્ટિ કર્યો નથી."
+        },
+        {
+          "q": "શું આ અડાલજની વાવની સત્તાવાર વેબસાઇટ છે?",
+          "a": "સ્વતંત્ર મુલાકાતી માર્ગદર્શિકા; સ્મારક સંચાલક, ASI કે સત્તાવાર સરકારી વેબસાઇટ નથી."
+        }
       ],
-      related: [
-        { label: 'મુલાકાત સમય', href: '/timings' },
-        { label: 'પહોંચ', href: '/transport' },
-        { label: 'ઇતિહાસ', href: '/history' },
-      ],
+      "related": [
+        {
+          "label": "મુલાકાત સમય",
+          "href": "/timings/"
+        },
+        {
+          "label": "પહોંચ",
+          "href": "/transport/"
+        },
+        {
+          "label": "ઇતિહાસ",
+          "href": "/history/"
+        }
+      ]
     },
-    transport: {
-      eyebrow: 'પરિવહન', h1: 'અડાલજની વાવ: કેવી રીતે પહોંચવું',
-      intro: 'અડાલજ અમદાવાદ અને ગાંધીનગર વચ્ચે આવેલું છે. અહીં એરપોર્ટ, રેલ, રોડ અને સ્થાનિક વાહન દ્વારા પહોંચવાની રીતો આપેલ છે.',
-      blocks: [
-        { h: 'એરપોર્ટથી', p: 'સૌથી નજીકનું મોટું એરપોર્ટ સરદાર વલ્લભભાઈ પટેલ ઇન્ટરનેશનલ એરપોર્ટ (અમદાવાદ), લગભગ ૧૮ કિ.મી. દૂર. ટેક્સી/કેબ દ્વારા ૪૫–૬૦ મિનિટ.' },
-        { h: 'રેલવેથી', p: 'અમદાવાદ જંક્શન અથવા ગાંધીનગર કેપિટલ ઉતરો; ત્યાંથી GSRTC બસ/કેબ દ્વારા અડાલજ.' },
-        { h: 'રોડ/કેબ', p: 'અમદાવાદ અથવા ગાંધીનગરથી એપ-કેબ લઈ ગંતવ્ય "Adalaj Stepwell, Adalaj" સેટ કરો. અંતર ૨૦–૩૦ કિ.મી.' },
+    "transport": {
+      "eyebrow": "પરિવહન",
+      "h1": "અમદાવાદ અને ગાંધીનગરથી અડાલજની વાવ કેવી રીતે પહોંચવું",
+      "intro": "Adalaj Rd, અડાલજ, ગુજરાત 382421, ભારત. નકશાનો પિન 23.1668106, 72.5800895 છે; પહોંચીને મુલાકાતીઓનો પ્રવેશ ચકાસો.",
+      "blocks": [
+        {
+          "h": "સ્થળ અને રોડ માર્ગ",
+          "p": "Adalaj Rd, અડાલજ, ગુજરાત 382421, ભારત. નકશાનો પિન 23.1668106, 72.5800895 છે; પહોંચીને મુલાકાતીઓનો પ્રવેશ ચકાસો."
+        },
+        {
+          "h": "હવાઈમથકથી જોડાણ",
+          "p": "ગુજરાત પ્રવાસન અમદાવાદના સરદાર વલ્લભભાઈ પટેલ આંતરરાષ્ટ્રીય હવાઈમથકનો ઉલ્લેખ કરે છે. ત્યાંથી અડાલજનો હાલનો માર્ગ તપાસો; મુસાફરીનો સમય નિશ્ચિત નથી."
+        },
+        {
+          "h": "રેલ જોડાણ",
+          "p": "અમદાવાદ અને ગાંધીનગર વિસ્તારનાં રેલ જોડાણો છે. બુકિંગ પહેલાં વાસ્તવિક સ્ટેશન, ટ્રેન અને આગળનો માર્ગ તપાસો; દરેક સ્ટેશનથી સીધી બસ હશે એવું ન માનો."
+        },
+        {
+          "h": "સ્થળ અને રોડ માર્ગ",
+          "p": "ગંતવ્યમાં Adalaj Stepwell/Rudabai Stepwell, Adalaj પસંદ કરો. અંતર શરૂઆતના સ્થળ પ્રમાણે બદલાય છે. ઉતરવાનું સ્થાન અને પરતની મુસાફરી તપાસો; અહીં અચકાસેલા બસ નંબર કે નિશ્ચિત ટેક્સી ભાડાં આપ્યાં નથી."
+        },
+        {
+          "h": "અક્ષરધામની આગળની મુલાકાત",
+          "p": "અક્ષરધામ જવા વાવથી ચોક્કસ મંદિર પ્રવેશ સુધીનો રોડ માર્ગ ગણો. સીધી રેખાનું અંતર કે શહેરનું સામાન્ય અંતર મુસાફરીનો વિશ્વસનીય સમય આપતું નથી."
+        }
       ],
-      faq: [
-        { q: 'અમદાવાદથી અડાલજની વાવ કેટલા કિ.મી. છે?', a: 'અમદાવાદ શહેરથી લગભગ ૨૦–૩૦ કિ.મી. અને એરપોર્ટથી લગભગ ૧૮ કિ.મી.' },
-        { q: 'સૌથી નજીકનું રેલવે સ્ટેશન કયું છે?', a: 'અમદાવાદ જંક્શન અથવા ગાંધીનગર કેપિટલ. ત્યાંથી સ્થાનિક વાહન દ્વારા અડાલજ પહોંચી શકાય છે.' },
+      "faq": [
+        {
+          "q": "અડાલજની વાવ ક્યાં આવેલી છે?",
+          "a": "Adalaj Rd, અડાલજ, ગુજરાત 382421, ભારત. નકશાનો પિન 23.1668106, 72.5800895 છે; પહોંચીને મુલાકાતીઓનો પ્રવેશ ચકાસો."
+        },
+        {
+          "q": "શું પાંચેય માળ પર જઈ શકાય?",
+          "a": "પાર્કિંગ, શૌચાલય, પીવાનું પાણી અને પગથિયાં વિનાના પ્રવેશની સીધી તપાસ કરો, ખાસ કરીને તે જરૂરી હોય ત્યારે. ઐતિહાસિક પગથિયાંથી મુશ્કેલી થઈ શકે છે; આ માર્ગદર્શિકા વ્હીલચેર પ્રવેશ કે કોઈ ચોક્કસ સુવિધાની ખાતરી આપતી નથી."
+        }
       ],
-      related: [
-        { label: 'મુલાકાત સમય', href: '/timings' },
-        { label: 'પ્રવેશ ફી', href: '/entry-fee' },
-        { label: 'ઇતિહાસ', href: '/history' },
-      ],
+      "related": [
+        {
+          "label": "મુલાકાત સમય",
+          "href": "/timings/"
+        },
+        {
+          "label": "પ્રવેશ ફી",
+          "href": "/entry-fee/"
+        },
+        {
+          "label": "ઇતિહાસ",
+          "href": "/history/"
+        }
+      ]
     },
-    history: {
-      eyebrow: 'ઇતિહાસ', h1: 'અડાલજની વાવ: ઇતિહાસ અને દંતકથા',
-      intro: 'અડાલજની વાવ 15મી સદીના અંતની રચના છે. અહીં તેનો ઇતિહાસ, વાસ્તુકલા અને રાણી રુદાબાઈની દંતકથા આપેલ છે.',
-      blocks: [
-        { h: 'નિર્માણ', p: 'વાવ રાણી રુદાબાઈએ 15મી સદીના અંતમાં બંધાવી હતી. જિલ્લા અને રાષ્ટ્રીય પ્રવાસન સ્ત્રોતો તેને સોલંકી-શૈલી પછીની રચના તરીકે દર્શાવે છે.' },
-        { h: 'વાસ્તુકલા', p: 'પાંચ માળ, અષ્ટકોણીય ખુલ્લું કુંડ, અને હિંદુ–જૈન–ઇસ્લામિક નક્કાશી — પાણી સુધી ઉતરતી સીડીઓ સાથે.' },
-        { h: 'દંતકથા', p: 'રાણી રુદાબાઈએ દિવંગત પતિ માટે પ્રાર્થના કરી અને વાવને સમર્પિત કરી; આથી તે પ્રેમ અને પ્રતિભાવનું સ્મારક કહેવાય છે.' },
+    "history": {
+      "eyebrow": "ઇતિહાસ",
+      "h1": "અડાલજની વાવનો ઇતિહાસ: રૂડાબાઈ, સમય અને સ્થાપત્ય",
+      "intro": "ગુજરાત પ્રવાસન આ વાવને 15મી સદીની, પાંચ માળ અને ભારતીય-ઇસ્લામી સ્થાપત્ય ધરાવતી રચના કહે છે. Incredible India બાંધકામની શરૂઆત 1498માં દર્શાવે છે અને તેને રાણી રૂડાબાઈ સાથે જોડે છે.",
+      "blocks": [
+        {
+          "h": "ઇતિહાસ અને વર્ષ",
+          "p": "ગુજરાત પ્રવાસન આ વાવને 15મી સદીની, પાંચ માળ અને ભારતીય-ઇસ્લામી સ્થાપત્ય ધરાવતી રચના કહે છે. Incredible India બાંધકામની શરૂઆત 1498માં દર્શાવે છે અને તેને રાણી રૂડાબાઈ સાથે જોડે છે."
+        },
+        {
+          "h": "સ્થાપત્ય",
+          "p": "ગુજરાત પ્રવાસન ત્રણ પ્રવેશ, અષ્ટકોણીય ખુલ્લું સ્થાન અને પાંચ માળને ટેકો આપતા કોતરેલા થાંભલા વર્ણવે છે. સ્થાનિક અને ઇસ્લામી શૈલીનું સંમિશ્રણ જોવા મળે છે. પાંચ માળ હોવાનો અર્થ બધા માળ મુલાકાત માટે ખુલ્લા છે એવો નથી."
+        },
+        {
+          "h": "રૂડાબાઈની દંતકથા",
+          "p": "Incredible India રાણી રૂડાબાઈ અને સુલતાન મહમૂદ બેગડાની વાતને દંતકથા તરીકે રજૂ કરે છે. અહીં તે ગાથાને દેખાતી ઇમારત અને 15મી સદીના ઐતિહાસિક સંદર્ભથી અલગ રાખવામાં આવી છે."
+        }
       ],
-      faq: [
-        { q: 'અડાલજની વાવ ક્યારે બની?', a: '15મી સદીના અંતમાં, રાણી રુદાબાઈ દ્વારા.' },
-        { q: 'અડાલજની વાવનું બીજું નામ શું છે?', a: 'તેને રુદાબાઈની વાવ, Rudabai Stepwell અને Adalaj ni Vav તરીકે પણ ઓળખવામાં આવે છે.' },
+      "faq": [
+        {
+          "q": "અડાલજની વાવ ક્યાં આવેલી છે?",
+          "a": "Adalaj Rd, અડાલજ, ગુજરાત 382421, ભારત. નકશાનો પિન 23.1668106, 72.5800895 છે; પહોંચીને મુલાકાતીઓનો પ્રવેશ ચકાસો."
+        },
+        {
+          "q": "શું પાંચેય માળ પર જઈ શકાય?",
+          "a": "પાંચ માળ સ્થાપત્યનું વર્ણન છે, જાહેર પ્રવેશની ખાતરી નથી. હાલના માર્ગ, અવરોધ અને કર્મચારીઓની સૂચના અનુસરો."
+        }
       ],
-      related: [
-        { label: 'મુલાકાત સમય', href: '/timings' },
-        { label: 'પ્રવેશ ફી', href: '/entry-fee' },
-        { label: 'પહોંચ', href: '/transport' },
-      ],
-    },
+      "related": [
+        {
+          "label": "મુલાકાત સમય",
+          "href": "/timings/"
+        },
+        {
+          "label": "પ્રવેશ ફી",
+          "href": "/entry-fee/"
+        },
+        {
+          "label": "પહોંચ",
+          "href": "/transport/"
+        }
+      ]
+    }
   },
-  en: {
-    timings: {
-      eyebrow: 'Visit info', h1: 'Adalaj Stepwell: visiting hours & availability',
-      intro: 'Adalaj Stepwell is generally open from 8:00 am to 6:00 pm. Here are the visiting hours, best times and what to expect by season.',
-      blocks: [
-        { h: 'Opening hours', p: 'The usual schedule is 08:00–18:00. Official hours may change by season and festival; verify current ASI or local official notice before travel.' },
-        { h: 'Best hours', p: 'Early morning (08:00–10:00) and late afternoon (16:30–18:00) are comfortable for light and heat. Avoid the midday sun.' },
-        { h: 'Closed days', p: 'No fixed weekly closed day is recorded, but hours may shift for festivals or maintenance. Check local notice.' },
+  "en": {
+    "timings": {
+      "eyebrow": "Visit info",
+      "h1": "Adalaj Stepwell timings: opening hours and last-entry checks",
+      "intro": "Google Maps listed 08:00–18:00 on all seven days when checked on 23 October 2026. This is a third-party snapshot, not confirmation of today’s last admission or access to every level. Verify the ticket and entrance notice before departure.",
+      "blocks": [
+        {
+          "h": "Visiting hours",
+          "p": "Google Maps listed 08:00–18:00 on all seven days when checked on 23 October 2026. This is a third-party snapshot, not confirmation of today’s last admission or access to every level. Verify the ticket and entrance notice before departure."
+        },
+        {
+          "h": "Before leaving",
+          "p": "Incredible India recommends October–March for a visit. Check the actual forecast before leaving; shade in the stepwell does not guarantee protection from heat or rain."
+        },
+        {
+          "h": "Architecture",
+          "p": "Five storeys describes the architecture, not guaranteed public access. Follow the current route, barriers and staff instructions."
+        }
       ],
-      faq: [
-        { q: 'What time does Adalaj Stepwell open?', a: 'Usually 08:00–18:00. Verify official hours with ASI notice.' },
-        { q: 'Is it closed on Monday?', a: 'No fixed weekly closed day is recorded; still check local official notice before travel.' },
+      "faq": [
+        {
+          "q": "What are the visiting hours?",
+          "a": "Google Maps listed 08:00–18:00 on all seven days when checked on 23 October 2026. This is a third-party snapshot, not confirmation of today’s last admission or access to every level. Verify the ticket and entrance notice before departure."
+        },
+        {
+          "q": "Can I access all five levels?",
+          "a": "Five storeys describes the architecture, not guaranteed public access. Follow the current route, barriers and staff instructions."
+        }
       ],
-      related: [
-        { label: 'Entry fee', href: '/en/entry-fee' },
-        { label: 'Getting there', href: '/en/transport' },
-        { label: 'History', href: '/en/history' },
-      ],
+      "related": [
+        {
+          "label": "Entry fee",
+          "href": "/en/entry-fee/"
+        },
+        {
+          "label": "Getting there",
+          "href": "/en/transport/"
+        },
+        {
+          "label": "History",
+          "href": "/en/history/"
+        }
+      ]
     },
-    'entry-fee': {
-      eyebrow: 'Visit info', h1: 'Adalaj Stepwell: entry fee & tickets',
-      intro: 'Adalaj Stepwell is an ASI (Archaeological Survey of India) protected monument. Entry fees and photography rules can change over time.',
-      blocks: [
-        { h: 'Entry fee', p: 'There may be separate rates for Indian and foreign visitors. Check the current fee via ASI or the local official notice.' },
-        { h: 'Photography', p: 'Personal photography is generally allowed, but tripod or commercial shoots may have different rules. Check on site.' },
-        { h: 'Guide / transport', p: 'Guide and transport costs are separate. We do not recommend a specific operator.' },
+    "entry-fee": {
+      "eyebrow": "Visit info",
+      "h1": "Adalaj Stepwell entry fee: ASI tickets and visitor categories",
+      "intro": "Use the ASI ticket portal and select the Adalaj/Rudabai monument and visit date. ASI fees can distinguish Indian, SAARC/BIMSTEC and other foreign visitors; check the applicable nationality, age exemption and electronic or counter payment conditions. This guide has not independently confirmed a current Adalaj rupee tariff.",
+      "blocks": [
+        {
+          "h": "Entry fee and categories",
+          "p": "Use the ASI ticket portal and select the Adalaj/Rudabai monument and visit date. ASI fees can distinguish Indian, SAARC/BIMSTEC and other foreign visitors; check the applicable nationality, age exemption and electronic or counter payment conditions. This guide has not independently confirmed a current Adalaj rupee tariff."
+        },
+        {
+          "h": "Currency and separate services",
+          "p": "A currency-converted Maps amount is not a universal Indian ticket price. Check the final official selection in rupees; transport, guides and commercial tours are separate products."
+        },
+        {
+          "h": "Photography rules",
+          "p": "Ask at the entrance about current camera, tripod and commercial photography conditions. A general entry ticket does not establish permission for every type of filming."
+        }
       ],
-      faq: [
-        { q: 'What is the entry fee for Adalaj Stepwell?', a: 'Fees can change over time; verify current fee and rules from ASI or the local official source before travel.' },
-        { q: 'Is there a separate charge for photography?', a: 'Personal photography is generally allowed; check local rules for commercial shoots.' },
+      "faq": [
+        {
+          "q": "What is the entry fee?",
+          "a": "Use the ASI ticket portal and select the Adalaj/Rudabai monument and visit date. ASI fees can distinguish Indian, SAARC/BIMSTEC and other foreign visitors; check the applicable nationality, age exemption and electronic or counter payment conditions. This guide has not independently confirmed a current Adalaj rupee tariff."
+        },
+        {
+          "q": "Is this the official Adalaj Stepwell website?",
+          "a": "Independent visitor guide; not the monument operator, ASI or an official government website."
+        }
       ],
-      related: [
-        { label: 'Visiting hours', href: '/en/timings' },
-        { label: 'Getting there', href: '/en/transport' },
-        { label: 'History', href: '/en/history' },
-      ],
+      "related": [
+        {
+          "label": "Visiting hours",
+          "href": "/en/timings/"
+        },
+        {
+          "label": "Getting there",
+          "href": "/en/transport/"
+        },
+        {
+          "label": "History",
+          "href": "/en/history/"
+        }
+      ]
     },
-    transport: {
-      eyebrow: 'Transport', h1: 'Adalaj Stepwell: how to get there',
-      intro: 'Adalaj lies between Ahmedabad and Gandhinagar. Here are ways to reach it by air, rail, road and local transport.',
-      blocks: [
-        { h: 'From airport', p: 'Nearest major airport is Sardar Vallabhbhai Patel International Airport (Ahmedabad), about 18 km away. 45–60 min by taxi/cab.' },
-        { h: 'By rail', p: 'Alight at Ahmedabad Junction or Gandhinagar Capital; from there reach Adalaj by GSRTC bus/cab.' },
-        { h: 'Road / cab', p: 'Take an app cab from Ahmedabad or Gandhinagar and set destination "Adalaj Stepwell, Adalaj". Distance 20–30 km.' },
+    "transport": {
+      "eyebrow": "Transport",
+      "h1": "How to reach Adalaj Stepwell from Ahmedabad and Gandhinagar",
+      "intro": "Adalaj Rd, Adalaj, Gujarat 382421, India. The map pin is 23.1668106, 72.5800895; confirm the visitor entrance on arrival.",
+      "blocks": [
+        {
+          "h": "Location and road journey",
+          "p": "Adalaj Rd, Adalaj, Gujarat 382421, India. The map pin is 23.1668106, 72.5800895; confirm the visitor entrance on arrival."
+        },
+        {
+          "h": "Airport connection",
+          "p": "Ahmedabad’s Sardar Vallabhbhai Patel International Airport is the main air gateway described by Gujarat Tourism. Plan your road connection to Adalaj using a current route, not a guaranteed travel time."
+        },
+        {
+          "h": "Rail connection",
+          "p": "Ahmedabad and Gandhinagar are rail gateways for the area. Confirm your actual station, train and onward road connection before booking; do not assume a direct bus from every station."
+        },
+        {
+          "h": "Location and road journey",
+          "p": "Set the destination to Adalaj Stepwell/Rudabai Stepwell, Adalaj. Route distance depends on your starting point. Confirm drop-off and the return journey; we do not publish unverified bus numbers or fixed taxi fares."
+        },
+        {
+          "h": "Akshardham onward trip",
+          "p": "For an onward journey to Akshardham, calculate the road route from the stepwell to the exact temple entrance. Straight-line distances and general city distances do not give a reliable journey time."
+        }
       ],
-      faq: [
-        { q: 'How many km from Ahmedabad to Adalaj Stepwell?', a: 'About 20–30 km from Ahmedabad city and about 18 km from the airport.' },
-        { q: 'Which is the nearest railway station?', a: 'Ahmedabad Junction or Gandhinagar Capital. From there reach Adalaj by local transport.' },
+      "faq": [
+        {
+          "q": "Where is Adalaj Stepwell?",
+          "a": "Adalaj Rd, Adalaj, Gujarat 382421, India. The map pin is 23.1668106, 72.5800895; confirm the visitor entrance on arrival."
+        },
+        {
+          "q": "Can I access all five levels?",
+          "a": "Check parking, toilets, drinking water and step-free access directly before travel, especially if these are essential to your visit. The historic stairs can make access difficult; this guide does not certify wheelchair access or a particular facility."
+        }
       ],
-      related: [
-        { label: 'Visiting hours', href: '/en/timings' },
-        { label: 'Entry fee', href: '/en/entry-fee' },
-        { label: 'History', href: '/en/history' },
-      ],
+      "related": [
+        {
+          "label": "Visiting hours",
+          "href": "/en/timings/"
+        },
+        {
+          "label": "Entry fee",
+          "href": "/en/entry-fee/"
+        },
+        {
+          "label": "History",
+          "href": "/en/history/"
+        }
+      ]
     },
-    history: {
-      eyebrow: 'History', h1: 'Adalaj Stepwell: history & legend',
-      intro: 'Adalaj Stepwell is a late-15th-century construction. Here is its history, architecture and the legend of Queen Rudabai.',
-      blocks: [
-        { h: 'Construction', p: 'The stepwell was built by Queen Rudabai in the late 15th century. District and national tourism sources describe it as a post-Solanki construction.' },
-        { h: 'Architecture', p: 'Five storeys, an octagonal open kund, and Hindu–Jain–Islamic carving — with steps descending to the water.' },
-        { h: 'Legend', p: 'Queen Rudabai prayed for her late husband and dedicated the stepwell; hence it is called a monument of love and devotion.' },
+    "history": {
+      "eyebrow": "History",
+      "h1": "Adalaj Stepwell history: Rudabai, dates and architecture",
+      "intro": "Gujarat Tourism describes a 15th-century stepwell with five storeys and Indo-Islamic architecture. Incredible India places the beginning of construction in 1498 and associates the monument with Queen Rudabai.",
+      "blocks": [
+        {
+          "h": "History and dates",
+          "p": "Gujarat Tourism describes a 15th-century stepwell with five storeys and Indo-Islamic architecture. Incredible India places the beginning of construction in 1498 and associates the monument with Queen Rudabai."
+        },
+        {
+          "h": "Architecture",
+          "p": "Gujarat Tourism describes three entrances, an octagonal opening and carved pillars supporting five storeys. These features combine local and Islamic design traditions. Five storeys does not mean every level is open to visitors."
+        },
+        {
+          "h": "Rudabai’s legend",
+          "p": "Incredible India recounts the story of Queen Rudabai and Sultan Mahmud Begada as a legend. This guide distinguishes that narrative from the visible building and its documented late-15th-century origins."
+        }
       ],
-      faq: [
-        { q: 'When was Adalaj Stepwell built?', a: 'In the late 15th century, by Queen Rudabai.' },
-        { q: 'What is Adalaj Stepwell also called?', a: 'It is also known as Rudabai ni Vav, Rudabai Stepwell and Adalaj ni Vav.' },
+      "faq": [
+        {
+          "q": "Where is Adalaj Stepwell?",
+          "a": "Adalaj Rd, Adalaj, Gujarat 382421, India. The map pin is 23.1668106, 72.5800895; confirm the visitor entrance on arrival."
+        },
+        {
+          "q": "Can I access all five levels?",
+          "a": "Five storeys describes the architecture, not guaranteed public access. Follow the current route, barriers and staff instructions."
+        }
       ],
-      related: [
-        { label: 'Visiting hours', href: '/en/timings' },
-        { label: 'Entry fee', href: '/en/entry-fee' },
-        { label: 'Getting there', href: '/en/transport' },
-      ],
-    },
+      "related": [
+        {
+          "label": "Visiting hours",
+          "href": "/en/timings/"
+        },
+        {
+          "label": "Entry fee",
+          "href": "/en/entry-fee/"
+        },
+        {
+          "label": "Getting there",
+          "href": "/en/transport/"
+        }
+      ]
+    }
   },
-  hi: {
-    timings: {
-      eyebrow: 'भ्रमण जानकारी', h1: 'अडालज स्टेपवेल: मुलाकात समय और उपलब्धता',
-      intro: 'अडालज स्टेपवेल आमतौर पर सुबह ८:०० से शाम ६:०० तक खुला रहता है। यहाँ मुलाकात समय, सर्वोत्तम घंटे और ऋतु के अनुसार क्या रखना है दिया गया है।',
-      blocks: [
-        { h: 'मुलाकात समय', p: 'सामान्य अनुसूची ०८:००–१८:०० है। आधिकारिक समय ऋतु और त्योहार के अनुसार बदल सकता है; यात्रा से पहले ASI या स्थानीय आधिकारिक सूचना जाँच लें।' },
-        { h: 'सर्वोत्तम घंटे', p: 'सुबह जल्दी (०८:००–१०:००) और शाम (१६:३०–१८:००) प्रकाश और गर्मी के लिहाज़ से आरामदायक हैं। दोपहर की धूप से बचें।' },
-        { h: 'बंद दिन', p: 'कोई निश्चित साप्ताहिक बंद दिन दर्ज नहीं है, पर त्योहार या रखरखाव के कारण समय बदल सकता है। स्थानीय सूचना देखें।' },
+  "hi": {
+    "timings": {
+      "eyebrow": "भ्रमण जानकारी",
+      "h1": "अडालज स्टेपवेल समय: खुलने और अंतिम प्रवेश की जाँच",
+      "intro": "23 अक्टूबर 2026 की जाँच में Google Maps पर सातों दिन 08:00–18:00 दिखा। यह तीसरे पक्ष का तारीख वाला संदर्भ है, आज के अंतिम प्रवेश या सभी स्तरों के खुलने की पुष्टि नहीं। निकलने से पहले टिकट और प्रवेश सूचना जाँचें।",
+      "blocks": [
+        {
+          "h": "दर्शन का समय",
+          "p": "23 अक्टूबर 2026 की जाँच में Google Maps पर सातों दिन 08:00–18:00 दिखा। यह तीसरे पक्ष का तारीख वाला संदर्भ है, आज के अंतिम प्रवेश या सभी स्तरों के खुलने की पुष्टि नहीं। निकलने से पहले टिकट और प्रवेश सूचना जाँचें।"
+        },
+        {
+          "h": "निकलने से पहले",
+          "p": "Incredible India अक्टूबर–मार्च में यात्रा की सलाह देता है। निकलने से पहले वास्तविक पूर्वानुमान देखें; बावड़ी की छाया गर्मी या बारिश से सुरक्षा की गारंटी नहीं है।"
+        },
+        {
+          "h": "स्थापत्य",
+          "p": "पाँच मंज़िलें स्थापत्य का वर्णन है, सार्वजनिक प्रवेश की गारंटी नहीं। वर्तमान रास्ते, अवरोध और कर्मचारियों के निर्देश मानें।"
+        }
       ],
-      faq: [
-        { q: 'अडालज स्टेपवेल किस समय खुलता है?', a: 'आमतौर पर सुबह ०८:०० से शाम १८:०० तक। आधिकारिक समय के लिए ASI सूचना देखें।' },
-        { q: 'क्या यह सोमवार को बंद रहता है?', a: 'कोई निश्चित साप्ताहिक बंद दिन दर्ज नहीं है; फिर भी यात्रा से पहले स्थानीय आधिकारिक सूचना जाँचना हितावह है।' },
+      "faq": [
+        {
+          "q": "दर्शन का समय क्या है?",
+          "a": "23 अक्टूबर 2026 की जाँच में Google Maps पर सातों दिन 08:00–18:00 दिखा। यह तीसरे पक्ष का तारीख वाला संदर्भ है, आज के अंतिम प्रवेश या सभी स्तरों के खुलने की पुष्टि नहीं। निकलने से पहले टिकट और प्रवेश सूचना जाँचें।"
+        },
+        {
+          "q": "क्या सभी पाँच स्तर खुले हैं?",
+          "a": "पाँच मंज़िलें स्थापत्य का वर्णन है, सार्वजनिक प्रवेश की गारंटी नहीं। वर्तमान रास्ते, अवरोध और कर्मचारियों के निर्देश मानें।"
+        }
       ],
-      related: [
-        { label: 'प्रवेश शुल्क', href: '/hi/entry-fee' },
-        { label: 'पहुँच', href: '/hi/transport' },
-        { label: 'इतिहास', href: '/hi/history' },
-      ],
+      "related": [
+        {
+          "label": "प्रवेश शुल्क",
+          "href": "/hi/entry-fee/"
+        },
+        {
+          "label": "पहुँच",
+          "href": "/hi/transport/"
+        },
+        {
+          "label": "इतिहास",
+          "href": "/hi/history/"
+        }
+      ]
     },
-    'entry-fee': {
-      eyebrow: 'भ्रमण जानकारी', h1: 'अडालज स्टेपवेल: प्रवेश शुल्क और टिकट',
-      intro: 'अडालज स्टेपवेल ASI (Archaeological Survey of India) संरक्षित स्मारक है। प्रवेश शुल्क और फ़ोटोग्राफ़ी नियम समय के साथ बदल सकते हैं।',
-      blocks: [
-        { h: 'प्रवेश शुल्क', p: 'भारतीय और विदेशी आगंतुकों के लिए अलग दरें हो सकती हैं। वर्तमान शुल्क ASI या स्थानीय आधिकारिक सूचना से जाँच लें।' },
-        { h: 'फ़ोटोग्राफ़ी', p: 'व्यक्तिगत फ़ोटोग्राफ़ी आमतौर पर अनुमत है, पर ट्राइपोड या व्यावसायिक शूटिंग के अलग नियम हो सकते हैं। स्थल पर जाँच लें।' },
-        { h: 'गाइड / परिवहन', p: 'गाइड और परिवहन का ख़र्च अलग होता है। हम किसी विशेष ऑपरेटर की सिफ़ारिश नहीं करते।' },
+    "entry-fee": {
+      "eyebrow": "भ्रमण जानकारी",
+      "h1": "अडालज स्टेपवेल प्रवेश शुल्क: ASI टिकट और यात्री श्रेणियाँ",
+      "intro": "ASI टिकट पोर्टल में अडालज/रुदाबाई स्मारक और यात्रा की तारीख चुनें। ASI शुल्क भारतीय, SAARC/BIMSTEC और अन्य विदेशी यात्रियों के लिए अलग हो सकते हैं; लागू राष्ट्रीयता, आयु छूट और इलेक्ट्रॉनिक या काउंटर भुगतान की शर्तें जाँचें। इस गाइड ने अडालज की वर्तमान रुपये वाली दर की स्वतंत्र पुष्टि नहीं की है।",
+      "blocks": [
+        {
+          "h": "प्रवेश शुल्क और श्रेणियाँ",
+          "p": "ASI टिकट पोर्टल में अडालज/रुदाबाई स्मारक और यात्रा की तारीख चुनें। ASI शुल्क भारतीय, SAARC/BIMSTEC और अन्य विदेशी यात्रियों के लिए अलग हो सकते हैं; लागू राष्ट्रीयता, आयु छूट और इलेक्ट्रॉनिक या काउंटर भुगतान की शर्तें जाँचें। इस गाइड ने अडालज की वर्तमान रुपये वाली दर की स्वतंत्र पुष्टि नहीं की है।"
+        },
+        {
+          "h": "मुद्रा और अलग सेवाएँ",
+          "p": "Maps की मुद्रा-परिवर्तित राशि भारत में सबके टिकट की एक समान कीमत नहीं है। आधिकारिक चयन की अंतिम रुपये वाली राशि जाँचें; परिवहन, गाइड और व्यावसायिक टूर अलग सेवाएँ हैं।"
+        },
+        {
+          "h": "फ़ोटोग्राफ़ी नियम",
+          "p": "कैमरा, ट्राइपॉड और व्यावसायिक फ़ोटोग्राफ़ी के वर्तमान नियम प्रवेश पर पूछें। सामान्य प्रवेश टिकट हर प्रकार की शूटिंग की अनुमति नहीं देता।"
+        }
       ],
-      faq: [
-        { q: 'अडालज स्टेपवेल का प्रवेश शुल्क क्या है?', a: 'शुल्क समय के साथ बदल सकता है; यात्रा से पहले ASI या स्थानीय आधिकारिक स्रोत से वर्तमान शुल्क और नियम जाँच लें।' },
-        { q: 'क्या फ़ोटोग्राफ़ी के लिए अलग शुल्क है?', a: 'व्यक्तिगत फ़ोटोग्राफ़ी आमतौर पर अनुमत है; व्यावसायिक शूटिंग के लिए स्थानीय नियम देखें।' },
+      "faq": [
+        {
+          "q": "प्रवेश शुल्क कितना है?",
+          "a": "ASI टिकट पोर्टल में अडालज/रुदाबाई स्मारक और यात्रा की तारीख चुनें। ASI शुल्क भारतीय, SAARC/BIMSTEC और अन्य विदेशी यात्रियों के लिए अलग हो सकते हैं; लागू राष्ट्रीयता, आयु छूट और इलेक्ट्रॉनिक या काउंटर भुगतान की शर्तें जाँचें। इस गाइड ने अडालज की वर्तमान रुपये वाली दर की स्वतंत्र पुष्टि नहीं की है।"
+        },
+        {
+          "q": "क्या यह अडालज स्टेपवेल की आधिकारिक वेबसाइट है?",
+          "a": "स्वतंत्र आगंतुक गाइड; स्मारक संचालक, ASI या आधिकारिक सरकारी वेबसाइट नहीं।"
+        }
       ],
-      related: [
-        { label: 'मुलाकात समय', href: '/hi/timings' },
-        { label: 'पहुँच', href: '/hi/transport' },
-        { label: 'इतिहास', href: '/hi/history' },
-      ],
+      "related": [
+        {
+          "label": "मुलाकात समय",
+          "href": "/hi/timings/"
+        },
+        {
+          "label": "पहुँच",
+          "href": "/hi/transport/"
+        },
+        {
+          "label": "इतिहास",
+          "href": "/hi/history/"
+        }
+      ]
     },
-    transport: {
-      eyebrow: 'परिवहन', h1: 'अडालज स्टेपवेल: वहाँ कैसे पहुँचें',
-      intro: 'अडालज अहमदाबाद और गांधीनगर के बीच स्थित है। यहाँ हवाई, रेल, सड़क और स्थानीय वाहन से पहुँचने के तरीके दिए गए हैं।',
-      blocks: [
-        { h: 'एयरपोर्ट से', p: 'सबसे नज़दीकी बड़ा एयरपोर्ट सरदार वल्लभभाई पटेल अंतरराष्ट्रीय एयरपोर्ट (अहमदाबाद), लगभग १८ किमी दूर। टैक्सी/कैब से ४५–६० मिनट।' },
-        { h: 'रेलवे से', p: 'अहमदाबाद जंक्शन या गांधीनगर कैपिटल उतरें; वहाँ से GSRTC बस/कैब से अडालज।' },
-        { h: 'सड़क / कैब', p: 'अहमदाबाद या गांधीनगर से ऐप-कैब लें और गंतव्य "Adalaj Stepwell, Adalaj" सेट करें। दूरी २०–३० किमी।' },
+    "transport": {
+      "eyebrow": "परिवहन",
+      "h1": "अहमदाबाद और गांधीनगर से अडालज स्टेपवेल कैसे पहुँचें",
+      "intro": "Adalaj Rd, अडालज, गुजरात 382421, भारत। मानचित्र पिन 23.1668106, 72.5800895 है; पहुँचकर आगंतुक प्रवेश जाँचें।",
+      "blocks": [
+        {
+          "h": "स्थान और सड़क मार्ग",
+          "p": "Adalaj Rd, अडालज, गुजरात 382421, भारत। मानचित्र पिन 23.1668106, 72.5800895 है; पहुँचकर आगंतुक प्रवेश जाँचें।"
+        },
+        {
+          "h": "हवाई अड्डा संपर्क",
+          "p": "गुजरात पर्यटन अहमदाबाद के सरदार वल्लभभाई पटेल अंतरराष्ट्रीय हवाई अड्डे का उल्लेख करता है। वहाँ से अडालज का वर्तमान सड़क मार्ग जाँचें; यात्रा का समय निश्चित नहीं है।"
+        },
+        {
+          "h": "रेल संपर्क",
+          "p": "अहमदाबाद और गांधीनगर क्षेत्र के रेल संपर्क हैं। बुकिंग से पहले वास्तविक स्टेशन, ट्रेन और आगे का सड़क संपर्क जाँचें; हर स्टेशन से सीधी बस न मानें।"
+        },
+        {
+          "h": "स्थान और सड़क मार्ग",
+          "p": "गंतव्य में Adalaj Stepwell/Rudabai Stepwell, Adalaj चुनें। दूरी शुरुआती स्थान पर निर्भर है। उतरने की जगह और वापसी की योजना जाँचें; यहाँ अपुष्ट बस नंबर या तय टैक्सी किराया नहीं दिया जाता।"
+        },
+        {
+          "h": "अक्षरधाम की अगली यात्रा",
+          "p": "अक्षरधाम जाने के लिए बावड़ी से मंदिर के सही प्रवेश तक सड़क मार्ग निकालें। सीधी रेखा की दूरी या शहर की सामान्य दूरी से यात्रा समय तय नहीं होता।"
+        }
       ],
-      faq: [
-        { q: 'अहमदाबाद से अडालज स्टेपवेल कितने किमी है?', a: 'अहमदाबाद शहर से लगभग २०–३० किमी और एयरपोर्ट से लगभग १८ किमी।' },
-        { q: 'सबसे नज़दीकी रेलवे स्टेशन कौन सा है?', a: 'अहमदाबाद जंक्शन या गांधीनगर कैपिटल। वहाँ से स्थानीय वाहन से अडालज पहुँचा जा सकता है।' },
+      "faq": [
+        {
+          "q": "अडालज की वाव कहाँ है?",
+          "a": "Adalaj Rd, अडालज, गुजरात 382421, भारत। मानचित्र पिन 23.1668106, 72.5800895 है; पहुँचकर आगंतुक प्रवेश जाँचें।"
+        },
+        {
+          "q": "क्या सभी पाँच स्तर खुले हैं?",
+          "a": "पार्किंग, शौचालय, पेयजल और बिना सीढ़ियों के प्रवेश की सीधे पुष्टि करें, विशेषकर यदि ये आवश्यक हों। ऐतिहासिक सीढ़ियाँ कठिनाई पैदा कर सकती हैं; गाइड व्हीलचेयर प्रवेश या किसी सुविधा की गारंटी नहीं देता।"
+        }
       ],
-      related: [
-        { label: 'मुलाकात समय', href: '/hi/timings' },
-        { label: 'प्रवेश शुल्क', href: '/hi/entry-fee' },
-        { label: 'इतिहास', href: '/hi/history' },
-      ],
+      "related": [
+        {
+          "label": "मुलाकात समय",
+          "href": "/hi/timings/"
+        },
+        {
+          "label": "प्रवेश शुल्क",
+          "href": "/hi/entry-fee/"
+        },
+        {
+          "label": "इतिहास",
+          "href": "/hi/history/"
+        }
+      ]
     },
-    history: {
-      eyebrow: 'इतिहास', h1: 'अडालज स्टेपवेल: इतिहास और कथा',
-      intro: 'अडालज स्टेपवेल 15वीं सदी के अंत की रचना है। यहाँ इसका इतिहास, वास्तुकला और रानी रुदाबाई की कथा दी गई है।',
-      blocks: [
-        { h: 'निर्माण', p: 'वाव का निर्माण रानी रुदाबाई ने 15वीं सदी के अंत में करवाया था। ज़िला और राष्ट्रीय पर्यटन स्रोत इसे सोलंकी-शैली के बाद की रचना बताते हैं।' },
-        { h: 'वास्तुकला', p: 'पाँच मंज़िल, अष्टकोणीय खुला कुंड, और हिंदू–जैन–इस्लामी नक्काशी — जल तक उतरती सीढ़ियों के साथ।' },
-        { h: 'कथा', p: 'रानी रुदाबाई ने दिवंगत पति के लिए प्रार्थना की और वाव को समर्पित किया; इसलिए यह प्रेम और भक्ति का स्मारक कहलाता है।' },
+    "history": {
+      "eyebrow": "इतिहास",
+      "h1": "अडालज स्टेपवेल इतिहास: रुदाबाई, तारीखें और स्थापत्य",
+      "intro": "गुजरात पर्यटन इसे 15वीं सदी की पाँच मंज़िला बावड़ी और भारतीय-इस्लामी स्थापत्य का उदाहरण बताता है। Incredible India निर्माण की शुरुआत 1498 में बताता है और स्मारक को रानी रुदाबाई से जोड़ता है।",
+      "blocks": [
+        {
+          "h": "इतिहास और तारीखें",
+          "p": "गुजरात पर्यटन इसे 15वीं सदी की पाँच मंज़िला बावड़ी और भारतीय-इस्लामी स्थापत्य का उदाहरण बताता है। Incredible India निर्माण की शुरुआत 1498 में बताता है और स्मारक को रानी रुदाबाई से जोड़ता है।"
+        },
+        {
+          "h": "स्थापत्य",
+          "p": "गुजरात पर्यटन तीन प्रवेश, अष्टकोणीय खुला भाग और पाँच मंज़िलों को सहारा देते नक्काशीदार स्तंभ बताता है। स्थानीय और इस्लामी शैली साथ दिखती हैं। पाँच मंज़िल होने का अर्थ हर स्तर पर सार्वजनिक प्रवेश नहीं है।"
+        },
+        {
+          "h": "रुदाबाई की किंवदंती",
+          "p": "Incredible India रानी रुदाबाई और सुल्तान महमूद बेगड़ा की कहानी को किंवदंती के रूप में प्रस्तुत करता है। यह गाइड उस कथा को इमारत और 15वीं सदी के ऐतिहासिक संदर्भ से अलग रखता है।"
+        }
       ],
-      faq: [
-        { q: 'अडालज स्टेपवेल कब बना?', a: '15वीं सदी के अंत में, रानी रुदाबाई द्वारा।' },
-        { q: 'अडालज स्टेपवेल किस और नाम से जाना जाता है?', a: 'इसे रुदाबाई नी वाव, Rudabai Stepwell और Adalaj ni Vav के नाम से भी जाना जाता है।' },
+      "faq": [
+        {
+          "q": "अडालज की वाव कहाँ है?",
+          "a": "Adalaj Rd, अडालज, गुजरात 382421, भारत। मानचित्र पिन 23.1668106, 72.5800895 है; पहुँचकर आगंतुक प्रवेश जाँचें।"
+        },
+        {
+          "q": "क्या सभी पाँच स्तर खुले हैं?",
+          "a": "पाँच मंज़िलें स्थापत्य का वर्णन है, सार्वजनिक प्रवेश की गारंटी नहीं। वर्तमान रास्ते, अवरोध और कर्मचारियों के निर्देश मानें।"
+        }
       ],
-      related: [
-        { label: 'मुलाकात समय', href: '/hi/timings' },
-        { label: 'प्रवेश शुल्क', href: '/hi/entry-fee' },
-        { label: 'पहुँच', href: '/hi/transport' },
-      ],
-    },
-  },
+      "related": [
+        {
+          "label": "मुलाकात समय",
+          "href": "/hi/timings/"
+        },
+        {
+          "label": "प्रवेश शुल्क",
+          "href": "/hi/entry-fee/"
+        },
+        {
+          "label": "पहुँच",
+          "href": "/hi/transport/"
+        }
+      ]
+    }
+  }
 };

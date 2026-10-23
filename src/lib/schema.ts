@@ -1,7 +1,7 @@
 import {
   ATTRACTION_FULL_NAME, ATTRACTION_SHORT_NAME, ATTRACTION_GUJARATI_NAME,
   CITY_NAME, STATE_PROVINCE, POSTAL_CODE, COUNTRY_CODE_2LETTER,
-  LATITUDE, LONGITUDE, MAPS_SHARE_URL, GOVT_TOURISM_URL, RATING_VALUE, REVIEW_COUNT,
+  LATITUDE, LONGITUDE, MAPS_SHARE_URL, GOVT_TOURISM_URL,
 } from '../data/site';
 import type { Locale } from '../i18n';
 import { home, type FaqItem } from '../content/translations';
@@ -12,17 +12,17 @@ const ATTRACTION_NAME: Record<Locale, string> = {
   hi: 'अडालज स्टेपवेल',
 };
 
-export function attractionSchema(locale: Locale, pageUrl: string) {
+export function attractionSchema(locale: Locale, _pageUrl: string) {
   return {
     '@context': 'https://schema.org',
-    '@type': ['TouristAttraction', 'LocalBusiness'],
+    '@type': 'TouristAttraction',
     name: ATTRACTION_NAME[locale],
     alternateName: [ATTRACTION_FULL_NAME, ATTRACTION_SHORT_NAME, 'Adalaj ni Vav', 'Rudabai Stepwell'],
     description: home[locale].heroLead,
-    url: pageUrl,
-    '@id': pageUrl + '#attraction',
+    url: 'https://adalajstepwell.com/',
+    '@id': 'https://adalajstepwell.com/#attraction',
     hasMap: MAPS_SHARE_URL,
-    sameAs: [MAPS_SHARE_URL, GOVT_TOURISM_URL, 'https://www.gujarattourism.com/'],
+    sameAs: [MAPS_SHARE_URL, GOVT_TOURISM_URL, 'https://gujarattourism.com/central-zone/gandhinagar/adalaj-ni-vav.html'],
     address: {
       '@type': 'PostalAddress',
       streetAddress: 'Adalaj Rd',
@@ -32,18 +32,7 @@ export function attractionSchema(locale: Locale, pageUrl: string) {
       addressCountry: COUNTRY_CODE_2LETTER,
     },
     geo: { '@type': 'GeoCoordinates', latitude: LATITUDE, longitude: LONGITUDE },
-    openingHoursSpecification: {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-      opens: '08:00',
-      closes: '18:00',
-    },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: RATING_VALUE,
-      reviewCount: REVIEW_COUNT,
-      bestRating: '5',
-    },
+
   };
 }
 
@@ -53,7 +42,7 @@ export function breadcrumbSchema(homeUrl: string, pageUrl: string, name: string)
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: ATTRACTION_FULL_NAME, item: homeUrl },
-      { '@type': 'ListItem', position: 2, name, item: pageUrl },
+      ...(homeUrl === pageUrl ? [] : [{ '@type': 'ListItem', position: 2, name, item: pageUrl }]),
     ],
   };
 }

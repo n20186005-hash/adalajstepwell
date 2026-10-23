@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import WeatherSection from './WeatherSection.astro';
 import LocaleSwitcher from './LocaleSwitcher.astro';
-import { home, ui } from '../content/translations';
+import { home, ui, subpages } from '../content/translations';
 import { localizedPath, type Locale } from '../i18n';
 import { SITE_NAME, MAPS_EMBED_SRC, MAPS_SHARE_URL } from '../data/site';
 import { attractionSchema, breadcrumbSchema, faqSchema } from '../lib/schema';
@@ -29,9 +29,9 @@ const navHref: Record<string, string> = {
 ---
 <BaseLayout title={title} description={description} locale={locale} path={path} image="/images/adalaj-stepwell-guide-1.jpg">
   <Fragment slot="head">
-    {pageUrl && <script type="application/ld+json" set:html={JSON.stringify(attractionSchema(locale, pageUrl))}></script>}
-    {pageUrl && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema(pageUrl, pageUrl, t.h1))}></script>}
-    <script type="application/ld+json" set:html={JSON.stringify(faqSchema(t.faq.items))}></script>
+    {pageUrl && <script is:inline type="application/ld+json" set:html={JSON.stringify(attractionSchema(locale, pageUrl))}></script>}
+    {pageUrl && <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema(pageUrl, pageUrl, t.h1))}></script>}
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema(t.faq.items))}></script>
   </Fragment>
 
   <header class="legal-nav">
@@ -42,7 +42,7 @@ const navHref: Record<string, string> = {
     </div>
   </header>
 
-  <main>
+  <main><nav class="shell nav" aria-label={U.relatedLabel}>{Object.entries(subpages[locale]).map(([key,value])=><a href={localizedPath('/'+key,locale)}>{value.h1}</a>)}</nav>
     <section class="hero">
       <img class="hero-bg" src={photos[0][0]} alt={t.h1} fetchpriority="high" />
       <div class="shell hero-content">
@@ -55,6 +55,7 @@ const navHref: Record<string, string> = {
       </div>
     </section>
 
+    <p class="shell small">Photo: <a class="source-link" href="https://commons.wikimedia.org/wiki/File:Adalaj_Stepwell_(Rudabai_Stepwell).jpg">Hasmukh3006</a> · <a class="source-link" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> · resized / CSS crop</p>
     <section class="section" id="history">
       <div class="shell grid2">
         <div>
@@ -66,7 +67,7 @@ const navHref: Record<string, string> = {
             {t.history.links.map((l, i) => (<><Fragment>{i > 0 ? ' · ' : ''}</Fragment><a class="source-link" href={l.href} rel="noopener">{l.label}</a></>))}
           </p>
         </div>
-        <div class="photo-frame stone-border"><img class="photo" src={photos[1][0]} alt={photos[1][1]} loading="lazy" /></div>
+        <figure><div class="photo-frame stone-border"><img class="photo" src={photos[1][0]} alt={photos[1][1]} loading="lazy" /></div><figcaption class="small"><a class="source-link" href="https://commons.wikimedia.org/wiki/File:Steps_of_Adalaj_Stepwell.jpg">Kushpatel3240</a> · <a class="source-link" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> · resized / CSS crop</figcaption></figure>
       </div>
     </section>
 
@@ -163,7 +164,7 @@ const navHref: Record<string, string> = {
       </div>
       <p>{U.footer.project}</p>
       <p>{U.footer.sources}</p>
-      <p>{U.footer.photo}</p>
+      <p>{U.footer.photo} <a href="/photo-credits/">Photo credits · ફોટો ક્રેડિટ · फ़ोटो श्रेय</a></p>
       <p>{U.footer.copyright}</p>
     </div>
   </footer>

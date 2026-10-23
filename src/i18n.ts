@@ -27,7 +27,7 @@ export const localeLabel: Record<Locale, string> = {
 export function localizedPath(path: string, locale: Locale): string {
   const p = prefix[locale];
   if (path === '/') return p === '' ? '/' : `${p}/`;
-  return `${p}${path}`;
+  return `${p}${path.replace(/\/$/, "")}/`;
 }
 
 // 从带语言前缀的完整路径反推基础路径（去前缀）

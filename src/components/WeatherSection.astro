@@ -26,9 +26,9 @@ const adviceHead: Record<Locale, [string, string, string]> = {
   hi: ['पहनावा', 'क्या करें', 'साथ रखें'],
 };
 const note: Record<Locale, string> = {
-  gu: 'હવામાન માહિતી લગભગ દર 30 મિનિટે અપડેટ થાય છે; મુલાકાત પહેલાં સ્થાનિક આકાશ પણ તપાસો.',
-  en: 'Weather updates about every 30 minutes; also check the local forecast before your visit.',
-  hi: 'मौसम लगभग हर 30 मिनट में अपडेट होता है; यात्रा से पहले स्थानीय पूर्वानुमान भी देखें.',
+  gu: 'Open-Meteoનું પ્રાદેશિક અનુમાન; પ્રવેશ અથવા સત્તાવાર ચેતવણીની માહિતી નથી.',
+  en: 'Regional Open-Meteo forecast; it does not establish access or official alerts.',
+  hi: 'Open-Meteo का क्षेत्रीय पूर्वानुमान; यह प्रवेश या आधिकारिक चेतावनी की जानकारी नहीं है।',
 };
 ---
 <section class="section weather" id="weather">
@@ -36,7 +36,7 @@ const note: Record<Locale, string> = {
     <span class="eyebrow">{w.heading} · {w.current} + {w.sevenDay}</span>
     <h2 class="section-title">{ATTRACTION_SHORT_NAME} {w.heading}</h2>
     {
-      now && days ? (
+      now && days && advice ? (
         <>
           <div class="weather-now card">
             <div class="weather-now-icon" aria-hidden="true" set:html={wmoGlyph(now.weather_code)} />
@@ -50,7 +50,7 @@ const note: Record<Locale, string> = {
                 <span class="weather-stat">{w.feels} {Math.round(now.apparent_temperature)}°C</span>
                 <span class="weather-stat">{humidity[locale]} {Math.round(now.relative_humidity_2m)}%</span>
                 <span class="weather-stat">{w.wind} {Math.round(now.wind_speed_10m)} km/h</span>
-                <span class="weather-stat">{w.precip} {Math.round(now.precipitation ?? 0)} mm</span>
+                <span class="weather-stat">{{gu:'વરસાદ',en:'Precipitation',hi:'वर्षा'}[locale]} {now.precipitation} mm</span>
               </div>
             </div>
           </div>
@@ -83,6 +83,6 @@ const note: Record<Locale, string> = {
         <p class="small">{w.noData}</p>
       )
     }
-    <p class="small weather-note">{note[locale]}</p>
+    <p class="small weather-note">{note[locale]} {data && <time datetime={data.current.time+'+05:30'}>{data.current.time.replace('T',' ')} IST</time>} · <a class="source-link" href="https://open-meteo.com/">Open-Meteo</a></p>
   </div>
 </section>

@@ -1,20 +1,13 @@
-Self-hosted real-photo assets (renamed + compressed; Wikimedia Commons originals):
+# Adalaj Stepwell photo credits
 
-adalaj-stepwell-guide-1.jpg  (hero / exterior columns)
-  Source: Adalaj Stepwell (Rudabai Stepwell).jpg — Hasmukh3006 — CC BY-SA 4.0
-  https://commons.wikimedia.org/wiki/File:Adalaj_Stepwell_(Rudabai_Stepwell).jpg
+Current file descriptions and file histories checked 23 October 2026. All four existing local derivatives visually match their linked Commons source. Original download succeeded for2/3; current960pxsource previews verified1/4. Photos are resized/re-encoded JPEGs; siteCSSmaycrop. CC BY-SA derivatives remain CC BY-SA4.0.
 
-adalaj-stepwell-guide-2.jpg  (multi-level interior)
-  Source: Steps of Adalaj Stepwell.jpg — Kushpatel3240 — CC BY-SA 4.0
-  https://commons.wikimedia.org/wiki/File:Steps_of_Adalaj_Stepwell.jpg
+public/images/adalaj-stepwell-guide-1.jpg: Hasmukh3006 (Hasmukh Patel); CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Adalaj_Stepwell_%28Rudabai_Stepwell%29.jpg
 
-adalaj-stepwell-guide-3.jpg  (fine stone carving detail)
-  Source: 0082423 Rudabai Step Well, Adalaj Gujarat 045.jpg — Ms Sarah Welch — CC0 1.0
-  https://commons.wikimedia.org/wiki/File:0082423_Rudabai_Step_Well,_Adalaj_Gujarat_045.jpg
+public/images/adalaj-stepwell-guide-2.jpg: Kushpatel3240; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Steps_of_Adalaj_Stepwell.jpg
 
-adalaj-stepwell-guide-4.jpg  (dominant carvings)
-  Source: The dominant carvings at Premises of Rudabai Stepwell, Adalaj.jpg — BSSKrishnaS — CC BY-SA 4.0
-  https://commons.wikimedia.org/wiki/File:The_dominant_carvings_at_Premises_of_Rudabai_Stepwell,_Adalaj.jpg
+public/images/adalaj-stepwell-guide-3.jpg: Ms Sarah Welch; CC0 1.0; https://commons.wikimedia.org/wiki/File:0082423_Rudabai_Step_Well%2C_Adalaj_Gujarat_045.jpg
 
-All photos are re-encoded as progressive JPEGs (max edge 1600px, quality 82)
-via scripts/optimize-images.py. Attribution is kept in PHOTO-CREDITS.md.
+public/images/adalaj-stepwell-guide-4.jpg: BSSKrishnaS; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:The_dominant_carvings_at_Premises_of_Rudabai_Stepwell%2C_Adalaj.jpg
+
+Visible linked attribution: /photo-credits/.

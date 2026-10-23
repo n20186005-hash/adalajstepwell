@@ -1,33 +1,19 @@
-# અડાલજની વાવ પ્રવાસ માર્ગદર્શિકા
+# અડાલજની વાવ · Adalaj Stepwell visitor guide
 
-ગુજરાતી ભાષામાં અડાલજની વાવ (Rudabai Stepwell), અડાલજ, ગાંધીનગર જિલ્લો માટે સ્વતંત્ર નફારહિત પ્રવાસ માહિતી સાઇટ.
+Independent visitor information for Adalaj/Rudabai Stepwell in Adalaj, Gandhinagar district, Gujarat. The guide is not the monument operator or an official government website.
 
-## ટેક સ્ટેક
-- Astro 7.2.9
-- @astrojs/cloudflare 14.2.5
-- Tailwind CSS 4.3.3 + @tailwindcss/vite 4.3.3
-- TypeScript 6.0.3 + @astrojs/check 0.9.10
-- Wrangler 4.127.1
-- pnpm 11.24.0
-- Node.js 24.20.0 LTS
+Gujarati is served at `/`, English at `/en/`, and Hindi at `/hi/`. Each language has home, timings, entry-fee, transport and history pages. Existing legal and cookie settings pages are shared in Gujarati. Linked photo authors and licences are at `/photo-credits/` and in `PHOTO-CREDITS.md`.
 
-## ડોમેન
-`astro.config.mjs` ના `SITE` constant માં જ production URL મૂકો. ખાલી હોય ત્યારે canonical absolute URL/sitemap છોડવામાં આવે છે અને buildમાં placeholder domain નાખાતો નથી.
+Astro7.2.9, Cloudflare adapter14.2.5, Tailwind4.3.3, TypeScript6.0.3 and Wrangler4.127.1 are pinned. The declared runtime is Node24.20.0; package manager pnpm11.24.0.
 
-## ચકાસણી
-```bash
-rm -rf node_modules dist .astro
-CI=1 corepack pnpm install --frozen-lockfile
-pnpm audit:source
-pnpm check
-pnpm build
+```sh
+corepack pnpm install --frozen-lockfile
+corepack pnpm audit:source
+corepack pnpm check
+corepack pnpm build
+npx wrangler deploy --dry-run
 ```
 
-## પેજ
-- `/` મુખ્ય પ્રવાસ પાનું
-- `/privacy/` ગોપનીયતા નીતિ
-- `/terms/` સેવા શરતો
-- `/cookies/` Cookie સેટિંગ્સ
+The Cloudflare project is `adalajstepwell`. The default generated Worker entry preserves server-rendered weather and guards the apex HTTP protocol before asset handling. Dry-run is local verification; native HTTP and browser checks remain separate.
 
-## GA4
-`G-HXM22WWPKP` ફક્ત વિશ્લેષણ Cookie માટે વપરાશકર્તા સંમતિ બાદ લોડ થાય છે.
+Google Analytics `G-HXM22WWPKP` uses the existing analytics choice in browser storage. Cookie settings apply grants only after storage readback, and withdrawal immediately denies this page even when saving fails. Cloudflare hosting performance measurement is separate; see `/privacy/`.

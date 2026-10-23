@@ -31,15 +31,15 @@ export interface WeatherData {
 }
 
 // Adalaj Stepwell (Rudabai Stepwell) — Gandhinagar district, Gujarat.
-export const WEATHER_LAT = 23.1668;
-export const WEATHER_LON = 72.5801;
+export const WEATHER_LAT = 23.1668106;
+export const WEATHER_LON = 72.5800895;
 export const CACHE_TTL_SECONDS = 1800; // 30 minutes
 
 export const WEATHER_URL =
   `https://api.open-meteo.com/v1/forecast?latitude=${WEATHER_LAT}&longitude=${WEATHER_LON}` +
   '&current=temperature_2m,apparent_temperature,relative_humidity_2m,precipitation,weather_code,wind_speed_10m,is_day' +
   '&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,wind_speed_10m_max,uv_index_max' +
-  '&timezone=auto&forecast_days=7';
+  '&timezone=Asia%2FKolkata&forecast_days=7';
 
 // Minimal structural type for the Workers Cache API (global `caches`).
 interface CacheLike {
@@ -52,36 +52,37 @@ function defaultCache(): CacheLike | undefined {
   return g.caches?.default;
 }
 
+export function parseWeather(raw: unknown): WeatherData {
+ const d=raw as WeatherData;
+ if(!d?.current||!d.daily||d.timezone!=='Asia/Kolkata')throw new Error('Incomplete weather');
+ const c=d.current,x=d.daily;
+ const numeric=(v:unknown,min:number,max:number):number=>{if(typeof v!=='number'||!Number.isFinite(v)||v<min||v>max)throw new Error('Invalid weather value');return v;};
+ const codes=new Set([0,1,2,3,45,48,51,53,55,56,57,61,63,65,66,67,71,73,75,77,80,81,82,85,86,95,96,99]);
+ const code=(v:unknown)=>{if(typeof v!=='number'||!codes.has(v))throw new Error('Invalid weather code');};
+ if(typeof c.time!=='string'||!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/.test(c.time))throw new Error('Missing weather time');
+ const stamp=Date.parse(c.time+'+05:30'),age=Date.now()-stamp;
+ if(!Number.isFinite(stamp)||age>3*60*60*1000||age< -15*60*1000)throw new Error('Weather time outside freshness window');
+ const today=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Kolkata',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+ if(c.time.slice(0,10)!==today)throw new Error('Weather date is not today');
+ numeric(c.temperature_2m,-100,65);numeric(c.apparent_temperature,-120,80);numeric(c.relative_humidity_2m,0,100);numeric(c.wind_speed_10m,0,500);numeric(c.precipitation,0,500);if(c.is_day!==0&&c.is_day!==1)throw new Error('Invalid daylight');code(c.weather_code);
+ const keys=['time','weather_code','temperature_2m_max','temperature_2m_min','precipitation_probability_max','uv_index_max','wind_speed_10m_max'] as const;
+ if(keys.some(k=>!Array.isArray(x[k])||x[k].length!==7))throw new Error('Incomplete forecast');
+ x.time.forEach((date,i)=>{
+  if(!/^\d{4}-\d{2}-\d{2}$/.test(date)||!Number.isFinite(Date.parse(date))||new Date(date).toISOString().slice(0,10)!==date)throw new Error('Invalid forecast date');
+  if(i===0&&date!==today||i>0&&Date.parse(date)-Date.parse(x.time[i-1])!==86400000)throw new Error('Forecast date sequence');
+  const min=numeric(x.temperature_2m_min[i],-100,65),max=numeric(x.temperature_2m_max[i],-100,65);if(min>max)throw new Error('Inverted temperature range');
+  code(x.weather_code[i]);numeric(x.precipitation_probability_max[i],0,100);numeric(x.uv_index_max[i],0,50);numeric(x.wind_speed_10m_max[i],0,500);
+ });
+ return d;
+}
+
 export async function getWeather(): Promise<WeatherData | null> {
-  const cache = defaultCache();
-  try {
-    if (cache) {
-      const hit = await cache.match(WEATHER_URL);
-      if (hit) {
-        const parsed = (await hit.json()) as WeatherData;
-        if (parsed?.current && parsed?.daily?.time?.length) return parsed;
-      }
-    }
-    const res = await fetch(WEATHER_URL, { headers: { accept: 'application/json' } });
-    if (!res.ok) return null;
-    const data = (await res.json()) as WeatherData;
-    if (!data?.current || !data?.daily?.time?.length) return null;
-    if (cache) {
-      try {
-        await cache.put(
-          WEATHER_URL,
-          new Response(JSON.stringify(data), {
-            headers: { 'Cache-Control': `public, max-age=${CACHE_TTL_SECONDS}` }
-          })
-        );
-      } catch {
-        /* cache write failure is non-fatal */
-      }
-    }
-    return data;
-  } catch {
-    return null;
-  }
+ const cache=defaultCache();
+ if(cache)try{const hit=await cache.match(WEATHER_URL);if(hit)return parseWeather(await hit.json());}catch{}
+ const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),4500);
+ try{const res=await fetch(WEATHER_URL,{headers:{accept:'application/json'},signal:controller.signal});if(!res.ok)return null;const data=parseWeather(await res.json());
+ if(cache)try{await cache.put(WEATHER_URL,new Response(JSON.stringify(data),{headers:{'Cache-Control':`public, max-age=${CACHE_TTL_SECONDS}`}}));}catch{}
+ return data;}catch{return null;}finally{clearTimeout(timer);}
 }
 
 export type WeatherGroup = 'sun' | 'partly' | 'cloud' | 'fog' | 'rain' | 'snow' | 'storm';
@@ -162,9 +163,9 @@ export function beaufort(kmh: number): number {
 const ADVICE: Record<Locale, Record<string, string>> = {
   gu: {
     rainOutfit: 'વરસાદ માટે પાણી ન ભીંજાય તેવો રેઇનકોટ અથવા જળરોધક કપડા પહેરો.',
-    rainActivity: 'વરસાદની શક્યતા વધારે છે — વાવની અંદરની છાંય અને બગીચો માણો; પથ્થરનાં પગથિયાં સરકતાં હોઈ સાવધાની રાખો.',
+    rainActivity: 'વરસાદની શક્યતા વધારે છે — પથ્થરનાં પગથિયાં સરકી શકે છે; કર્મચારીઓની સૂચના અનુસરો.',
     rainItem: 'છતરી અથવા રેઇનકોટ',
-    heavyRainActivity: 'ભારે વરસાદમાં નીચેનાં પગથિયાં પર ન ઉતરવું; આંતરિક છાંય રાખો.',
+    heavyRainActivity: 'ભારે વરસાદમાં ખુલ્લાં પગથિયાં ટાળો, સલામત આશ્રય લો અને કર્મચારીઓની સૂચના તપાસો.',
     thunderActivity: 'વીજળી સાથે વરસાદ છે — ખુલ્લી જગ્યા, પગથિયાં અને ઝાડ નીચે ન રહો, સલામત સ્થાને રાહ જુઓ.',
     heatOutfit: 'તાપમાન તીવ્ર છે — હલકા, શ્વાસ લેતા કપડા અને ટોપી પહેરો.',
     heatActivity: 'બપોરનો તાપ ટાળો — વહેલી સવારે અથવા સાંજે જાઓ, વચ્ચે આરામ લો.',
@@ -184,21 +185,22 @@ const ADVICE: Record<Locale, Record<string, string>> = {
     windItem: 'ટોપી (પવનમાં ઉડી ન જાય)',
     windModOutfit: 'પવન થોડો વધારે છે — ટોપી ઉડી ન જાય તેનું ધ્યાન રાખો.',
     windModItem: 'ટોપી',
-    sunActivity: 'હવામાન સાફ છે — બહારના પ્લેટફોર્મ અને કોતરણી જોવા માટે શ્રેષ્ઠ સમય.',
-    cloudActivity: 'વાદળછાયું હવામાન — ફોટોગ્રાફી માટે સરળ પ્રકાશ, લાંબી મુલાકાત યોગ્ય.',
+    sunActivity: 'સાફ આકાશ — વાસ્તવિક ગરમી, પવન અને પ્રવેશની સ્થિતિ મુજબ મુલાકાત ગોઠવો.',
+    cloudActivity: 'વાદળછાયું આકાશ પ્રકાશ નરમ કરી શકે છે; મુલાકાતનો સમય વાસ્તવિક પરિસ્થિતિ મુજબ રાખો.',
     fogActivity: 'ધુમ્મસ — દૃશ્યતા ઓછી છે, ફોટોગ્રાફી માટે ઓછું યોગ્ય.',
+    riskRainProbability: 'વરસાદની ઊંચી શક્યતા — વરસાદથી બચાવનો સામાન રાખો અને સ્થાનિક પરિસ્થિતિ તપાસો; આ વરસાદની તીવ્રતા દર્શાવતું નથી.',
     riskThunder: '⚠️ વીજળી સાથે વરસાદ — ખુલ્લી જગ્યા, પગથિયાં અને ઝાડ નીચે ન રહો; સલામત સ્થાને રાહ જુઓ.',
-    riskHeavyRain: '⚠️ ભારે વરસાદ — પથ્થરનાં પગથિયાં સરકતાં હોઈ નીચે ન ઉતરો, છાંય રાખો.',
+    riskHeavyRain: '⚠️ ભારે વરસાદનું જોખમ — સરકતાં પગથિયાં ટાળો, સલામત આશ્રય અને કર્મચારીઓની સૂચના અનુસરો.',
     riskWind: '⚠️ તીવ્ર પવન — ખુલ્લી જગ્યાએ સાવધાની, ઢીલી વસ્તુઓ ઉડી ન જાય.',
     riskHeat: '⚠️ તીવ્ર ગરમી — બપોરે બહાર ન નીકળવું, પાણી પીતા રહો.',
     fallbackOutfit: 'હવામાન સામાન્ય છે — આરામદાયક પહેરવેશ યોગ્ય છે.',
-    fallbackActivity: 'હવામાન મુલાકાત માટે અનુકૂળ છે — વાવ અને બગીચાનો આનંદ લો.',
+    fallbackActivity: 'સ્થાનિક પરિસ્થિતિ અને મંજૂર મુલાકાત માર્ગ તપાસો.',
   },
   en: {
     rainOutfit: 'Wear a waterproof raincoat or water-resistant clothes for rain.',
-    rainActivity: 'Higher chance of rain — enjoy the shaded interior of the stepwell and the garden; stone steps are slippery, take care.',
+    rainActivity: 'Rain is more likely — check for slippery stone steps and follow staff advice.',
     rainItem: 'Umbrella or raincoat',
-    heavyRainActivity: 'In heavy rain do not go down the lower steps; stay in the shaded interior.',
+    heavyRainActivity: 'In heavy rain avoid exposed steps and seek safe shelter; check staff instructions.',
     thunderActivity: 'Thunderstorm — avoid open areas, steps and trees; wait in a safe place.',
     heatOutfit: 'Heat is intense — wear light, breathable clothes and a hat.',
     heatActivity: 'Avoid the midday heat — go early morning or evening and rest in between.',
@@ -218,21 +220,22 @@ const ADVICE: Record<Locale, Record<string, string>> = {
     windItem: 'Hat (so it does not blow away)',
     windModOutfit: 'Wind is a bit high — mind that your hat does not blow away.',
     windModItem: 'Hat',
-    sunActivity: 'Clear weather — best time to see the outer platforms and carvings.',
-    cloudActivity: 'Cloudy weather — easy light for photography, good for a long visit.',
+    sunActivity: 'Clear skies — plan your visit around the actual heat, wind and access conditions.',
+    cloudActivity: 'Cloudy skies can soften the light; choose visit duration according to actual conditions.',
     fogActivity: 'Fog — visibility is low, less suitable for photography.',
+    riskRainProbability: 'High chance of rain — carry rain protection and check local conditions; probability does not indicate rain intensity.',
     riskThunder: '⚠️ Thunderstorm — avoid open areas, steps and trees; wait in a safe place.',
-    riskHeavyRain: '⚠️ Heavy rain — stone steps are slippery, do not go down, keep to shade.',
+    riskHeavyRain: '⚠️ Heavy rain risk — avoid slippery steps, seek safe shelter and follow staff instructions.',
     riskWind: '⚠️ Strong wind — caution in open areas, loose items may blow away.',
     riskHeat: '⚠️ Intense heat — do not go out at noon, keep drinking water.',
     fallbackOutfit: 'Weather is normal — comfortable clothing is fine.',
-    fallbackActivity: 'Weather is favourable for a visit — enjoy the stepwell and garden.',
+    fallbackActivity: 'Check local conditions and the permitted visitor route before exploring.',
   },
   hi: {
     rainOutfit: 'बारिश के लिए जलरोधक रेनकोट या कपड़े पहनें.',
-    rainActivity: 'बारिश की संभावना अधिक है — वाव की छायादार अंदरूनी जगह और बगीचे का आनंद लें; पत्थर की सीढ़ियाँ फिसलन भरी हैं, सावधान रहें।',
+    rainActivity: 'बारिश की संभावना अधिक है — पत्थर की सीढ़ियाँ फिसल सकती हैं; कर्मचारियों की सलाह मानें।',
     rainItem: 'छाता या रेनकोट',
-    heavyRainActivity: 'भारी बारिश में नीचे की सीढ़ियों पर न उतरें; छायादार अंदरूनी हिस्से में रहें।',
+    heavyRainActivity: 'भारी बारिश में खुली सीढ़ियाँ टालें, सुरक्षित आश्रय लें और कर्मचारियों के निर्देश जाँचें।',
     thunderActivity: 'आंधी-पानी — खुली जगह, सीढ़ियाँ और पेड़ों के नीचे न रहें; सुरक्षित जगह प्रतीक्षा करें।',
     heatOutfit: 'गर्मी तीव्र है — हल्के, साँस लेने वाले कपड़े और टोपी पहनें।',
     heatActivity: 'दोपहर की गर्मी से बचें — सुबह जल्दी या शाम को जाएँ, बीच में आराम करें।',
@@ -252,15 +255,16 @@ const ADVICE: Record<Locale, Record<string, string>> = {
     windItem: 'टोपी (हवा में उड़े नहीं)',
     windModOutfit: 'हवा थोड़ी तेज़ है — ध्यान रखें कि टोपी उड़ न जाए।',
     windModItem: 'टोपी',
-    sunActivity: 'साफ मौसम — बाहरी मंज़िलें और नक्काशी देखने का सर्वोत्तम समय।',
-    cloudActivity: 'बादलों वाला मौसम — फ़ोटोग्राफ़ी के लिए सरल प्रकाश, लंबी मुलाकात के लिए उत्तम।',
+    sunActivity: 'साफ आसमान — वास्तविक गर्मी, हवा और प्रवेश की स्थिति के अनुसार यात्रा रखें।',
+    cloudActivity: 'बादल प्रकाश नरम कर सकते हैं; वास्तविक स्थिति के अनुसार यात्रा की अवधि चुनें।',
     fogActivity: 'कोहरा — दृश्यता कम है, फ़ोटोग्राफ़ी के लिए कम उपयुक्त।',
+    riskRainProbability: 'बारिश की अधिक संभावना — बारिश से बचाव का सामान रखें और स्थानीय स्थिति जाँचें; संभावना बारिश की तीव्रता नहीं बताती।',
     riskThunder: '⚠️ आंधी-पानी — खुली जगह, सीढ़ियाँ और पेड़ों के नीचे न रहें; सुरक्षित जगह प्रतीक्षा करें।',
-    riskHeavyRain: '⚠️ भारी बारिश — पत्थर की सीढ़ियाँ फिसलन भरी हैं, नीचे न उतरें, छाया में रहें।',
+    riskHeavyRain: '⚠️ भारी बारिश का जोखिम — फिसलन वाली सीढ़ियाँ टालें, सुरक्षित आश्रय लें और कर्मचारियों के निर्देश मानें।',
     riskWind: '⚠️ तेज़ हवा — खुली जगहों पर सावधानी, ढीली वस्तुएँ उड़ सकती हैं।',
     riskHeat: '⚠️ तीव्र गर्मी — दोपहर में बाहर न निकलें, पानी पीते रहें।',
     fallbackOutfit: 'मौसम सामान्य है — आरामदायक कपड़े ठीक हैं।',
-    fallbackActivity: 'मौसम मुलाकात के लिए अनुकूल है — वाव और बगीचे का आनंद लें।',
+    fallbackActivity: 'स्थानीय स्थिति और अनुमति वाले आगंतुक मार्ग की जाँच करें।',
   },
 };
 
@@ -288,7 +292,7 @@ export function buildAdvice(now: WeatherCurrent, days: WeatherDaily, locale: Loc
   const dayDiff = tMax - tMin;
   const isThunder = code >= 95;
   const isRain = group === 'rain' || precip >= 60;
-  const isHeavyRain = code >= 65 || code === 82 || (group === 'rain' && code >= 61);
+  const isHeavyRain = [65,67,82].includes(code);
 
   const outfit: string[] = [];
   const activity: string[] = [];
@@ -345,9 +349,10 @@ export function buildAdvice(now: WeatherCurrent, days: WeatherDaily, locale: Loc
 
   let risk: string | null = null;
   if (isThunder) risk = L.riskThunder;
-  else if (isHeavyRain || precip >= 80) risk = L.riskHeavyRain;
+  else if (isHeavyRain) risk = L.riskHeavyRain;
   else if (wind >= 50) risk = L.riskWind;
   else if (tMax >= 43) risk = L.riskHeat;
+  else if (precip >= 80) risk = L.riskRainProbability;
 
   if (outfit.length === 0) pushU(L.fallbackOutfit);
   if (activity.length === 0) pushA(L.fallbackActivity);

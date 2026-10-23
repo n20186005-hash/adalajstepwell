@@ -1,9 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import LocaleSwitcher from './LocaleSwitcher.astro';
-import { subpages, ui } from '../content/translations';
+import { subpages, ui, home } from '../content/translations';
 import { localizedPath, type Locale } from '../i18n';
-import { SITE_NAME, MAPS_SHARE_URL } from '../data/site';
+import { SITE_NAME } from '../data/site';
 import { breadcrumbSchema, faqSchema } from '../lib/schema';
 import type { SubSlug } from '../content/translations';
 
@@ -21,8 +21,8 @@ const description = d.intro;
 ---
 <BaseLayout title={title} description={description} locale={locale} path={path}>
   <Fragment slot="head">
-    {pageUrl && homeUrl && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema(homeUrl, pageUrl, d.h1))}></script>}
-    <script type="application/ld+json" set:html={JSON.stringify(faqSchema(d.faq))}></script>
+    {pageUrl && homeUrl && <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema(homeUrl, pageUrl, d.h1))}></script>}
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema(d.faq))}></script>
   </Fragment>
 
   <header class="legal-nav">
@@ -32,7 +32,7 @@ const description = d.intro;
     </div>
   </header>
 
-  <main>
+  <main><nav class="shell nav" aria-label={U.relatedLabel}><a href={localizedPath('/',locale)}>{SITE_NAME[locale]}</a>{Object.entries(subpages[locale]).map(([key,value])=><a href={localizedPath('/'+key,locale)}>{value.h1}</a>)}</nav>
     <section class="hero">
       <div class="shell hero-content">
         <span class="eyebrow" style="color:#f3d6b3">{d.eyebrow}</span>
@@ -65,6 +65,7 @@ const description = d.intro;
         </div>
       </div>
     </section>
+    <section class="section"><div class="shell"><h2>{home[locale].sources.title}</h2>{home[locale].sources.items.map(link=><p><a class="source-link" href={link.href}>{link.label}</a></p>)}</div></section>
   </main>
 
   <footer class="site-footer">

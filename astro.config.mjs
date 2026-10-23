@@ -9,11 +9,12 @@ const site = SITE.trim() || undefined;
 
 export default defineConfig({
   site,
+  trailingSlash: 'always',
   output: 'server',
   adapter: cloudflare(),
   integrations: site
     ? [sitemap({
-        i18n: { defaultLocale: 'gu', locales: { gu: 'x-default', en: 'en', hi: 'hi' } },
+        i18n: { defaultLocale: 'gu', locales: { gu: 'gu', en: 'en', hi: 'hi' } },
         filter: (page) => {
           try {
             const p = new URL(page).pathname;

@@ -1,5 +1,5 @@
 """
-Compress and standardize the site's own photos.
+Compress and standardize the licensed local photo derivatives.
 
 Renames the four local JPGs to the `xxx-xxx-xxx-N.jpg` convention and
 re-encodes them as progressive JPEGs (max edge 1600px, quality 82) so the
