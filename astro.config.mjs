@@ -11,7 +11,7 @@ export default defineConfig({
   site,
   trailingSlash: 'always',
   output: 'server',
-  adapter: cloudflare(),
+  adapter: cloudflare({ prerenderEnvironment: 'node' }),
   integrations: site
     ? [sitemap({
         i18n: { defaultLocale: 'gu', locales: { gu: 'gu', en: 'en', hi: 'hi' } },

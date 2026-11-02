@@ -321,7 +321,7 @@ export const home: Record<Locale, HomeDict> = {
       },
       {
         "value": "4.5 ★",
-        "label": "31,310 Google Maps સમીક્ષાઓ · 23 ઑક્ટો 2026"
+        "label": "31,359 Google Maps સમીક્ષાઓ · 2 નવેમ્બર 2026"
       }
     ],
     "history": {
@@ -501,7 +501,7 @@ export const home: Record<Locale, HomeDict> = {
       },
       {
         "value": "4.5 ★",
-        "label": "31,310 Google Maps reviews · 23 Oct 2026"
+        "label": "31,359 Google Maps reviews · 2 Nov 2026"
       }
     ],
     "history": {
@@ -681,7 +681,7 @@ export const home: Record<Locale, HomeDict> = {
       },
       {
         "value": "4.5 ★",
-        "label": "31,310 Google Maps समीक्षाएँ · 23 अक्तू 2026"
+        "label": "31,359 Google Maps समीक्षाएँ · 2 नव॰ 2026"
       }
     ],
     "history": {
@@ -1031,15 +1031,15 @@ export const subpages: Record<Locale, Record<SubSlug, SubPageDict>> = {
     "timings": {
       "eyebrow": "Visit info",
       "h1": "Adalaj Stepwell timings: opening hours and last-entry checks",
-      "intro": "Google Maps listed 08:00–18:00 on all seven days when checked on 23 October 2026. This is a third-party snapshot, not confirmation of today’s last admission or access to every level. Verify the ticket and entrance notice before departure.",
+      "intro": "Google Maps listed 08:00–18:00 on all seven days when checked on 23 October 2026, while another published tourism reference has shown 08:30–17:30. This page treats both as dated references rather than a permanent promise. Verify today’s opening time and last entry before departure.",
       "blocks": [
         {
           "h": "Visiting hours",
-          "p": "Google Maps listed 08:00–18:00 on all seven days when checked on 23 October 2026. This is a third-party snapshot, not confirmation of today’s last admission or access to every level. Verify the ticket and entrance notice before departure."
+          "p": "Google Maps listed 08:00–18:00 on all seven days when checked on 23 October 2026, while another published tourism reference has shown 08:30–17:30. That difference is exactly why the website should show a dated source check instead of presenting one number as timeless fact."
         },
         {
           "h": "Before leaving",
-          "p": "Incredible India recommends October–March for a visit. Check the actual forecast before leaving; shade in the stepwell does not guarantee protection from heat or rain."
+          "p": "Check the opening hour and the last practical entry separately. If you also plan Akshardham, Trimandir or a same-day return to Ahmedabad, leave buffer instead of aiming for the final hour."
         },
         {
           "h": "Architecture",
@@ -1058,16 +1058,16 @@ export const subpages: Record<Locale, Record<SubSlug, SubPageDict>> = {
       ],
       "related": [
         {
-          "label": "Entry fee",
-          "href": "/en/entry-fee/"
+          "label": "Best time to visit",
+          "href": "/en/best-time-to-visit/"
         },
         {
-          "label": "Getting there",
-          "href": "/en/transport/"
+          "label": "Visit duration",
+          "href": "/en/visit-duration/"
         },
         {
-          "label": "History",
-          "href": "/en/history/"
+          "label": "Nearby attractions",
+          "href": "/en/nearby-attractions/"
         }
       ]
     },
@@ -1105,12 +1105,12 @@ export const subpages: Record<Locale, Record<SubSlug, SubPageDict>> = {
           "href": "/en/timings/"
         },
         {
-          "label": "Getting there",
-          "href": "/en/transport/"
+          "label": "Adalaj day trip",
+          "href": "/en/adalaj-akshardham-day-trip/"
         },
         {
-          "label": "History",
-          "href": "/en/history/"
+          "label": "Visit duration",
+          "href": "/en/visit-duration/"
         }
       ]
     },
@@ -1152,27 +1152,27 @@ export const subpages: Record<Locale, Record<SubSlug, SubPageDict>> = {
       ],
       "related": [
         {
-          "label": "Visiting hours",
-          "href": "/en/timings/"
+          "label": "From Ahmedabad city",
+          "href": "/en/from-ahmedabad-city/"
         },
         {
-          "label": "Entry fee",
-          "href": "/en/entry-fee/"
+          "label": "From Gandhinagar city",
+          "href": "/en/from-gandhinagar-city/"
         },
         {
-          "label": "History",
-          "href": "/en/history/"
+          "label": "Nearest metro and last mile",
+          "href": "/en/nearest-metro-last-mile/"
         }
       ]
     },
     "history": {
       "eyebrow": "History",
       "h1": "Adalaj Stepwell history: Rudabai, dates and architecture",
-      "intro": "Gujarat Tourism describes a 15th-century stepwell with five storeys and Indo-Islamic architecture. Incredible India places the beginning of construction in 1498 and associates the monument with Queen Rudabai.",
+      "intro": "Gujarat Tourism describes a 15th-century stepwell with five storeys and Indo-Islamic architecture. Incredible India places the beginning of construction in 1498, while other public references place the monument in 1499. The useful reading is to separate start date, completion date and later legend.",
       "blocks": [
         {
           "h": "History and dates",
-          "p": "Gujarat Tourism describes a 15th-century stepwell with five storeys and Indo-Islamic architecture. Incredible India places the beginning of construction in 1498 and associates the monument with Queen Rudabai."
+          "p": "Gujarat Tourism describes a 15th-century stepwell with five storeys and Indo-Islamic architecture. Incredible India places the beginning of construction in 1498, while other public references place the monument in 1499. That makes it more accurate to explain the difference as a construction-start versus completion-date issue instead of forcing one flat year."
         },
         {
           "h": "Architecture",
@@ -1195,16 +1195,16 @@ export const subpages: Record<Locale, Record<SubSlug, SubPageDict>> = {
       ],
       "related": [
         {
-          "label": "Visiting hours",
-          "href": "/en/timings/"
+          "label": "Nearby attractions",
+          "href": "/en/nearby-attractions/"
         },
         {
-          "label": "Entry fee",
-          "href": "/en/entry-fee/"
+          "label": "Trimandir guide",
+          "href": "/en/trimandir-adalaj/"
         },
         {
-          "label": "Getting there",
-          "href": "/en/transport/"
+          "label": "Akshardham guide",
+          "href": "/en/akshardham-gandhinagar-guide/"
         }
       ]
     }

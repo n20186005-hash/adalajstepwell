@@ -58,3 +58,30 @@ export function faqSchema(items: FaqItem[]) {
     })),
   };
 }
+
+export function articleSchema(pageUrl: string, headline: string, description: string, locale: Locale) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline,
+    description,
+    inLanguage: locale,
+    mainEntityOfPage: pageUrl,
+    url: pageUrl,
+    author: {
+      '@type': 'Organization',
+      name: 'Adalaj Stepwell Travel Guide',
+      url: 'https://adalajstepwell.com/',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Adalaj Stepwell Travel Guide',
+      url: 'https://adalajstepwell.com/',
+    },
+    about: {
+      '@type': 'TouristAttraction',
+      name: ATTRACTION_FULL_NAME,
+      url: 'https://adalajstepwell.com/',
+    },
+  };
+}

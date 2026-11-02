@@ -1,8 +1,8 @@
 ---
 import { locales, localeLabel, localizedPath, stripLocale, type Locale } from '../i18n';
-interface Props { locale: Locale; }
-const { locale } = Astro.props;
-const base = stripLocale(Astro.url.pathname);
+interface Props { locale: Locale; basePath?: string; }
+const { locale, basePath } = Astro.props;
+const base = basePath ?? stripLocale(Astro.url.pathname);
 ---
 <nav class="lang-switch" aria-label="Language">
   {locales.map((l)=>(

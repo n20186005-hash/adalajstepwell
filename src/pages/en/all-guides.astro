@@ -1,0 +1,67 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LocaleSwitcher from '../../components/LocaleSwitcher.astro';
+import { englishGuideCollections, allEnglishGuides } from '../../content/english-guides';
+import { SITE_NAME } from '../../data/site';
+
+const groups = [
+  { key: 'priority', title: 'Start here', intro: 'The most useful guides for first-time visitors, covering how long to stay, when to go and how to get there.' },
+  { key: 'architecture', title: 'Understanding the building', intro: 'See how the stepwell is put together — its layout, carving, cooling logic and how it compares with other stepwells.' },
+  { key: 'visit', title: 'Practical visiting', intro: 'Arrival and comfort questions: parking, stairs, travelling with children, rain and on-site facilities.' },
+  { key: 'transport', title: 'Getting there from further afield', intro: 'Route guidance for travellers starting at the airport or the railway station.' },
+  { key: 'nearby', title: 'Nearby attractions', intro: 'Realistic next stops after Adalaj, including Indroda, Dandi Kutir and Science City.' },
+  { key: 'food', title: 'Eating and drinking', intro: 'Meal planning built around routes and timing rather than generic restaurant lists.' },
+  { key: 'itinerary', title: 'Itineraries', intro: 'Ready-made route plans for families, mixed-interest groups and wet weather.' },
+  { key: 'stay', title: 'Where to stay', intro: 'How to choose between basing yourself in Ahmedabad, Gandhinagar or close to Adalaj.' },
+  { key: 'conditional', title: 'Details and explainers', intro: 'Focused explainers on particular features of the monument for visitors who want more depth.' },
+] as const;
+---
+<BaseLayout title={`All English guides | ${SITE_NAME.en}`} description="Browse the full English guide collection for Adalaj Stepwell, including route planning, nearby attractions, food, itineraries and architecture explainers." locale="en" path="/en/all-guides/" noHreflang>
+  <header class="legal-nav">
+    <div class="shell nav">
+      <a href="/en/" aria-label={SITE_NAME.en}><img src="/logo.svg" alt={SITE_NAME.en} width="184" height="42" /></a>
+      <a href="/en/">Home</a>
+      <a href="/en/timings/">Timings</a>
+      <a href="/en/entry-fee/">Entry fee</a>
+      <a href="/en/transport/">Transport</a>
+      <a href="/en/history/">History</a>
+      <LocaleSwitcher locale="en" basePath="/" />
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" style="min-height:56vh">
+      <img class="hero-bg" src="/images/adalaj-stepwell-guide-2.jpg" alt="Adalaj Stepwell all English guides" fetchpriority="high" />
+      <div class="shell hero-content">
+        <span class="eyebrow" style="color:#f3d6b3">English guide directory</span>
+        <h1>All {allEnglishGuides.length} English guides</h1>
+        <p>Browse the full guide set for Adalaj Stepwell, from high-intent transport and timing pages to architecture explainers, food decisions, itineraries and nearby attraction planning.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell">
+        <p class="neutral-note">Every guide below answers one practical planning question about Adalaj Stepwell and the area around it. If this is your first visit, start with the guides in “Start here”, then branch into transport, food and itinerary pages as you plan.</p>
+      </div>
+    </section>
+
+    {groups.map((group) => (
+      <section class="section motif">
+        <div class="shell">
+          <span class="eyebrow">{group.title}</span>
+          <h2 class="section-title">{group.title}</h2>
+          <p>{group.intro}</p>
+          <div class="grid3">
+            {englishGuideCollections[group.key].map((guide) => (
+              <article class="card">
+                <h3>{guide.title}</h3>
+                <p>{guide.description}</p>
+                <p><a class="btn secondary" href={`/en/${guide.slug}/`}>Open guide</a></p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+    ))}
+  </main>
+</BaseLayout>

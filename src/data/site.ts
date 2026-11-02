@@ -29,7 +29,7 @@ export const GOVT_TOURISM_URL =
 
 // 评分快照（用户提供的 Google Maps 数据，可能变动）
 export const RATING_VALUE = '4.5';
-export const REVIEW_COUNT = '31310';
+export const REVIEW_COUNT = '31359';
 
 // SEO 站点名格式：景点名称 + 城市 + 旅游指南
 export const SITE_NAME_GU = 'અડાલજની વાવ (Adalaj Stepwell) અડાલજ — પ્રવાસ માર્ગદર્શિકા';

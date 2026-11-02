@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import WeatherSection from './WeatherSection.astro';
 import LocaleSwitcher from './LocaleSwitcher.astro';
 import { home, ui, subpages } from '../content/translations';
+import { featuredEnglishGuides } from '../content/english-guides';
 import { localizedPath, type Locale } from '../i18n';
 import { SITE_NAME, MAPS_EMBED_SRC, MAPS_SHARE_URL } from '../data/site';
 import { attractionSchema, breadcrumbSchema, faqSchema } from '../lib/schema';
@@ -96,6 +97,25 @@ const navHref: Record<string, string> = {
         </div>
       </div>
     </section>
+
+    {locale === 'en' && (
+      <section class="section motif">
+        <div class="shell">
+          <span class="eyebrow">Start here</span>
+          <h2 class="section-title">High-intent guides for real trip planning</h2>
+          <p>These are the strongest first-click pages. The full English guide library is available at <a class="source-link" href="/en/all-guides/">All guides</a>.</p>
+          <div class="grid3">
+            {featuredEnglishGuides.map((guide) => (
+              <article class="card">
+                <h3>{guide.title}</h3>
+                <p>{guide.description}</p>
+                <p><a class="btn secondary" href={`/en/${guide.slug}/`}>Open guide</a></p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
 
     <WeatherSection locale={locale} />
 
